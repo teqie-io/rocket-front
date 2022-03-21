@@ -1,0 +1,27 @@
+
+
+.SideBar{
+    position: absolute;
+left: 0%;
+right: 83.33%;
+top: 0%;
+bottom: -15.5%;
+
+background: #0D83DD;
+box-shadow: 4px 0px 12px rgba(0, 47, 108, 0.05);
+}
+.logo{
+    position: absolute;
+left: 30.42%;
+right: 88.82%;
+top: 3.36%;
+bottom: 93.1%;
+
+font-family:'Times New Roman', Times, serif;
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 38px;
+
+color: #FFFFFF;
+}

@@ -1,13 +1,14 @@
 //import logo from './logo.svg';
 import * as React from "react"
+import SideBar from "./SideBar";
 function Settings()
 {
     
     return(
-        <nav className="navBar">
-        HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        <div>
+        <SideBar/>
         
-         </nav>
+         </div>
     );
 }
 
