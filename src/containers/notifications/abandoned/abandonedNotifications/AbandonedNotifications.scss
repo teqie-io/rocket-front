@@ -1,0 +1,104 @@
+.android,.windows8,.windows10,.mac {
+    border-radius: 10px !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    .button-container {
+      box-sizing: border-box;
+      font-weight: 500;
+      text-align: center;
+    }
+    
+    .button-container a {
+      text-decoration: none;
+      color: #ffffff !important;
+    }
+    .target {
+      margin-bottom: 0;
+    }
+}
+
+.android, .mac {
+  width: 85%;
+  & .ant-card-body {
+    .title {
+      font-weight: 500;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+    .message {
+      font-weight: 400;
+      font-size: 9px;
+      margin-bottom: 3px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .target {
+      font-weight: 300;
+      font-size: 6px;
+      color: #aaaaaa;
+    }
+  }
+}
+.android {
+  & .ant-card-body {
+    padding: 10px 15px !important;
+  }
+}
+.mac {
+  & .ant-card-body {
+    padding: 5px 10px!important;
+  }
+}
+
+.windows8,
+.windows10 {
+  & .ant-card-body {
+    padding: 12px 18px !important;
+    .title {
+      font-weight: 500;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .message {
+      font-weight: 400;
+      font-size: 10px;
+      margin-bottom: 3px;
+    }
+    .target {
+      font-weight: 300;
+      font-size: 7px;
+      color: #aaaaaa;
+    }
+    .button-container {
+      font-size: 13px;
+      padding: 10px 0 0 0;
+    }
+  }
+}
+
+.windows10 {
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+  .a-container {
+    background-color: #646464;
+    padding: 2px 0;
+    max-width: 31%;
+  }
+}
+.windows8 {
+  .button-container {
+    padding: 10px 0!important;
+  }
+}
+.android .button-container,
+.windows8 .button-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  background: #aaaaaa;
+  font-size: 11px;
+  padding: 8px 0;
+}

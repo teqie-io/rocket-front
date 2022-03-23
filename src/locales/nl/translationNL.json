@@ -1,0 +1,48 @@
+{
+    "home":"huis",
+    "sidebar": 
+    {
+        "home": "Huis",
+        "notifications":"NL Notifications",
+        "configurations": "NL Configurations",
+        "subscribers": "NL Subscribers",
+        "premium": "NL Use Premium",
+        "rateus": "NL Rate us",
+        "help": "NL Help",
+        "setting" : "NL Setting"
+    },
+    "notif":{
+        "scheduled": {
+            "title": "Scheduled Notification nl",
+            "content": "NL Create a sequence of notifications based on time schedule"
+        },
+        "abandoned": {
+            "title": "Abandoned Cart Notification nl",
+            "content": "NL A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "shipping": {
+            "title": "Shipping Notification nl",
+            "content": "NL A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "welcome": {
+            "title": "Welcome Notification nl",
+            "content":"NL A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "backinstock": {
+            "title": "Back in stock Notification nl",
+            "content":"NL A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "state" : {
+            "active": "NL ACTIVE",
+            "inactive": "NL INACTIVE"
+        }
+    },
+    "abandonedNotifForm":{
+        "Title": "NL Thanks for joining us",
+        "message": "NL Buy them now before they get out of stock",
+        "buttonName": "NL Shop now",
+        "addButton": "NL Add Button",
+        "saveButton": "NL Save Button",
+        "testNotif": "NL See Test notification"
+    }
+}

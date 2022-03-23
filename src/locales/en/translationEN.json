@@ -1,0 +1,49 @@
+{
+    "home":"home",
+    "sidebar": 
+    {
+        "home": "Home",
+        "notifications":"Notifications",
+        "configurations": "Configurations",
+        "subscribers": "Subscribers",
+        "premium": "Use Premium",
+        "rateus": "Rate us",
+        "help": "Help",
+        "setting" : "Setting"
+    },
+
+    "notif":{
+        "scheduled": {
+            "title": "Scheduled Notification",
+            "content": "Create a sequence of notifications based on time schedule"
+        },
+        "abandoned": {
+            "title": "Abandoned Cart Notification",
+            "content": "A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "shipping": {
+            "title": "Shipping Notification",
+            "content": "A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "welcome": {
+            "title": "Welcome Notification",
+            "content":"A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "backinstock": {
+            "title": "Back in stock Notification",
+            "content":"A sequence of notifications sent to subscriber once they  subscribe to your store notification"
+        },
+        "state" : {
+            "active": "ACTIVE",
+            "inactive": "INACTIVE"
+        }
+    },
+    "abandonedNotifForm":{
+        "Title": "Thanks for joining us",
+        "message": "Buy them now before they get out of stock",
+        "buttonName": "Shop now",
+        "addButton": "Add Button",
+        "saveButton": "Save Button",
+        "testNotif": "See Test notification"
+    }
+}

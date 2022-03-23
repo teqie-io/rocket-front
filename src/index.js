@@ -1,15 +1,18 @@
 import React from 'react';
+import './i18n';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { BrowserRouter} from 'react-router-dom';
+import './index.css';
+import MainApp from './App';
 import reportWebVitals from './reportWebVitals';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n'
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+    <I18nextProvider i18n={i18n}>
+        <MainApp />
+    </I18nextProvider>
+,
   document.getElementById('root')
 );
 
