@@ -7,7 +7,7 @@ import AbandonedPreview from "./AbandonedPreview";
 //const domain = JSON.parse(localStorage.getItem("shop_details")).shop_info
 //  .domain;
 
-const domain ="awdawdwadwadwad"
+const domain ="https://abandoned-cart-dev.myshopify.com//cart"
 
 const initialValues = {
   Title: "Thanks for joining us",
