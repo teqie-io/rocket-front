@@ -50,7 +50,9 @@ export default class RecentNotifications extends React.Component{
         return(
       <Card title={<div className="content1">Recent notifications</div>} 
       style={{background:"#0D83DD"}}
-      bodyStyle={{background:"white"}}>
+      bodyStyle={{background:"white"}}
+      className="recent-noti"
+      >
        {notifications.map(item => (
          <div>
                 <Row>
