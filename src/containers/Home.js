@@ -45,11 +45,14 @@ class Home extends React.Component {
       amount: "Rs 350",
       value1: '26',
       value2: '24'
-    }]
+    },
+ 
+    
+  ]
     return (
       <div>
-        <h1>Recent Notifications</h1>
-      <Card title="Recent Notifications" className="notif-itm" 
+        <h1>Dashboard</h1>
+      <Card title={<div className="content1">Recent notifications</div>} className="notif-itm" 
       style={{background:"#0D83DD"}}
       bodyStyle={{background:"white"}}
       
