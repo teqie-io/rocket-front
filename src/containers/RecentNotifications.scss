@@ -24,29 +24,7 @@
 
     }
     
-    .state {
-        box-sizing: border-box;
-        padding: 8px 0;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        font-weight: 600;
-        font-size: large;
-        text-align: center;
-        border-radius: 0 0 10px 10px;
 
-        &.active{
-            background-color: #D7EECC;
-            color: #36A900;
-
-        }
-
-        &.inactive{
-            background-color: #FBF2D5;
-            color: #EDC02B;
-        }
-    }      
 }
 .content1{
     color: #D7EECC;
