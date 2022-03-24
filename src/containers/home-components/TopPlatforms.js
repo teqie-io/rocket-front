@@ -83,14 +83,14 @@ export default function TopLocations()
             ))}
         </Col>
         <Col span={15}>
-            <PieChart width={250} height={200}>
+            <PieChart width={300} height={200}>
                 <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={locations}
-                    cx={111}
+                    cx={113}
                     cy={94}
-                    innerRadius={30}
+                    innerRadius={33}
                     outerRadius={49}
                     fill="#8884d8"
                     dataKey="percentage"

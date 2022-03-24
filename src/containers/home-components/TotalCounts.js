@@ -55,9 +55,9 @@ export default class TopLocations extends React.Component{
                      
                                     <Col span={6}>
                                       <Card className="home-card"> 
-                                      <Row gutter={16} align="top">
-                                      <Col span={12}><h2>{item.amount}</h2></Col>
-                                      <Col span={12}><h2>{item.icon}</h2></Col>
+                                      <Row gutter={16} align="middle">
+                                      <Col span={12}><h2 className="count-text">{item.amount}</h2></Col>
+                                      <Col span={12} style={{fontSize:"24px"}}><h2>{item.icon}</h2></Col>
                                       </Row>
                                       <Row>
                                         <Col>{item.countof}</Col>
