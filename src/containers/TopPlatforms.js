@@ -11,24 +11,24 @@ export default class TopLocations extends React.Component{
              {
                 id: 1,
                 icon: <NlFlagIcon/>,
-                country: "Ukraine",
-                percentage: 33,
+                platforms: "Asus",
+                percentage: 60,
             
               },
               {
                 
                 id: 2,
                 icon: <NlFlagIcon/>,
-                country: "India",
-                percentage: 34,
+                platforms: "Apple",
+                percentage: 25,
                 
               },
               {
                 
                 id: 3,
                 icon:<NlFlagIcon/>,
-                country: "Canada",
-                percentage: 33,
+                platforms: "Samsung",
+                percentage: 15,
                
               },
 
@@ -39,7 +39,7 @@ export default class TopLocations extends React.Component{
      <Card title={
                   <div className="home-title"> 
                       <Row>
-                        <Col span={16}>Top Locations</Col>
+                        <Col span={8}>Top Platforms</Col>
                         <Col span={8}>CTR</Col>
                       </Row>
                     </div>
@@ -48,17 +48,29 @@ export default class TopLocations extends React.Component{
         bodyStyle={{background:"white"}}
         className="home-card"
       >
-       {locations.map(item => (
-         <div>
-                <Row>
-                    <Col span={4}>{item.icon}</Col>
-                    <Col span={12} >{item.country}</Col>
-                    <Col span={8} >{item.percentage}%</Col>
-                    
-                </Row>
-                <hr/>
-         </div>
-       ))}
+    <Row>
+                <Col span={12}>
+                {locations.map(item => (
+                    <div>
+                        
+                            
+                                <Row>
+                                    <Col span={4}>{item.icon}</Col>
+                                    <Col span={12} >{item.platforms}</Col>
+                                    <Col span={8} >{item.percentage}%</Col>    
+                                </Row>
+                                <hr/>
+                            
+                            
+                    </div>
+                ))}
+
+
+                </Col>
+                <Col span={12}>
+                piechart
+                </Col>
+    </Row>
       </Card>
 
         )

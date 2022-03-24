@@ -5,6 +5,7 @@ import RecentNotifications from "./RecentNotifications";
 import TopLocations from "./TopLocations";
 import TotalCounts from "./TotalCounts";
 import TopBrowsers from "./TopBrowsers"
+import TopPlatforms from "./TopPlatforms"
 import { Row, Col } from 'antd';
 import {Card} from "antd"
 class Home extends React.Component {
@@ -20,7 +21,7 @@ class Home extends React.Component {
         </Row>
         <Row align="middle" style={{padding: "20px"}}>
           <Col span={17} style={{padding: "10px"}}><TotalCounts/></Col>
-          <Col span={7} style={{padding: "10px"}}>To be replaced with top platforms</Col>
+          <Col span={7} style={{padding: "10px"}}><TopPlatforms/></Col>
         </Row>
         <Row align="middle" style={{padding: "20px"}}>
           <Col span={17} style={{padding: "10px"}}><RecentNotifications/></Col>

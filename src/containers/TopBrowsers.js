@@ -12,7 +12,7 @@ export default class TopLocations extends React.Component{
                 id: 1,
                 icon: <EnFlagIcon/>,
                 browser: "Chrome",
-                percentage: '60',
+                percentage: 60,
             
               },
               {
@@ -20,7 +20,7 @@ export default class TopLocations extends React.Component{
                 id: 2,
                 icon: <EnFlagIcon/>,
                 browser: "Safari",
-                percentage: '35',
+                percentage: 35,
                 
               },
               {
@@ -28,7 +28,7 @@ export default class TopLocations extends React.Component{
                 id: 3,
                 icon:<EnFlagIcon/>,
                 browser: "Firefox",
-                percentage: '15',
+                percentage: 15,
                
               },
 
