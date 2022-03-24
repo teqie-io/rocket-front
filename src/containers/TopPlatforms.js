@@ -83,15 +83,15 @@ export default function TopLocations()
             const locations=[
              {
                 id: 1,
-                icon: <NlFlagIcon/>,
+            
                 platforms: "Asus",
-                percentage: 60,
+                percentage: 50,
             
               },
               {
                 
                 id: 2,
-                icon: <NlFlagIcon/>,
+         
                 platforms: "Apple",
                 percentage: 25,
                 
@@ -99,9 +99,17 @@ export default function TopLocations()
               {
                 
                 id: 3,
-                icon:<NlFlagIcon/>,
+           
                 platforms: "Samsung",
                 percentage: 15,
+               
+              },
+              {
+                
+                id: 4,
+           
+                platforms: "Nokia",
+                percentage: 10,
                
               },
 
@@ -120,8 +128,9 @@ export default function TopLocations()
      <Card title={
                   <div className="home-title"> 
                       <Row>
-                        <Col span={8}>Top Platforms</Col>
-                        <Col span={8}>CTR</Col>
+                        <Col span={4}>CTR</Col>
+                        <Col span={4}>Top Platforms</Col>
+                        
                       </Row>
                     </div>
                     }
@@ -134,9 +143,8 @@ export default function TopLocations()
             {locations.map(item => (
                 <div>             
                     <Row>
-                        <Col span={4}>{item.icon}</Col>
-                        <Col span={12} >{item.platforms}</Col>
-                        <Col span={8} >{item.percentage}%</Col>    
+                        <Col span={12} >{item.percentage}%</Col> 
+                        <Col span={8} >{item.platforms}</Col>   
                     </Row>
                     <hr/>
                             
@@ -145,15 +153,15 @@ export default function TopLocations()
             ))}
         </Col>
         <Col span={15}>
-            <PieChart width={250} height={200}>
+            <PieChart width={250} height={210}>
                 <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={locations}
-                    cx={100}
-                    cy={90}
-                    innerRadius={35}
-                    outerRadius={55}
+                    cx={111}
+                    cy={94}
+                    innerRadius={30}
+                    outerRadius={50}
                     fill="#8884d8"
                     dataKey="percentage"
                     onMouseEnter={onPieEnter}
