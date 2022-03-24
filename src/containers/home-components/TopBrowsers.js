@@ -53,7 +53,7 @@ export default class TopLocations extends React.Component{
                 <Row>
                     <Col span={4}>{item.icon}</Col>
                     <Col span={12} >{item.browser}</Col>
-                    <Col span={8} >{item.percentage}%</Col>
+                    <Col span={8} className="home-perc" >{item.percentage}%</Col>
                     
                 </Row>
                 <hr/>

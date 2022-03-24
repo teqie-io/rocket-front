@@ -26,8 +26,8 @@ export default class TopLocations extends React.Component{
               {
                 
                 id: 3,
-                icon:"",
-                countof: "Revenue",
+                icon:" ",
+                countof: "Revenue Generated",
                 amount: '$33',
                
               },
@@ -47,21 +47,21 @@ export default class TopLocations extends React.Component{
      <Card 
         style={{background:"#0D83DD"}}
         bodyStyle={{background:"white"}}
-        //className="location-item"
+        className="home-card"
       >
-            <Row gutter={100}>
+            <Row gutter={85}>
             {
                 locations.map(item => (       
                      
                                     <Col span={6}>
                                       <Card className="home-card"> 
-                                      <Row gutter={16} align="middle">
+                                      <Row gutter={20} align="middle">
                                       <Col span={12}><h2 className="count-text">{item.amount}</h2></Col>
                                       <Col span={12} style={{fontSize:"24px"}}><h2>{item.icon}</h2></Col>
                                       </Row>
                                       <Row>
                                         <Col>{item.countof}</Col>
-                                        </Row>
+                                      </Row>
                                       
                                       </Card>
                                     </Col> 
