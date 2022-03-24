@@ -1,6 +1,6 @@
 import React from "react"
 import {Card} from "antd"
-import "./TopLocations.scss";
+import "./Home.scss";
 import { Row, Col } from 'antd';
 import { NlFlagIcon } from "../assets/flagIcons";
 
@@ -37,7 +37,7 @@ export default class TopLocations extends React.Component{
         return(
             
      <Card title={
-                  <div className="content1"> 
+                  <div className="home-title"> 
                       <Row>
                         <Col span={16}>Top Locations</Col>
                         <Col span={8}>CTR</Col>
@@ -46,7 +46,7 @@ export default class TopLocations extends React.Component{
                     }
         style={{background:"#0D83DD"}}
         bodyStyle={{background:"white"}}
-        className="location-item"
+        className="home-card"
       >
        {locations.map(item => (
          <div>

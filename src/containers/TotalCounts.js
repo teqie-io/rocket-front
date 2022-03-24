@@ -1,6 +1,6 @@
 import React from "react"
 import {Card} from "antd"
-import "./TopLocations.scss";
+import "./Home.scss";
 import { Row, Col } from 'antd';
 import { NlFlagIcon } from "../assets/flagIcons";
 
@@ -31,6 +31,14 @@ export default class TopLocations extends React.Component{
                 percentage: '33',
                
               },
+              {
+                
+                id: 4,
+                icon:<NlFlagIcon/>,
+                country: "Canada",
+                percentage: '33',
+               
+              },
 
            
         ];
@@ -43,12 +51,16 @@ export default class TopLocations extends React.Component{
       >
             <Row gutter={100}>
             {
-                locations.map(item => (         
-                                    <Col span={8}>
-                                    {item.icon}
-                                    {item.country}
-                                    {item.percentage}
+                locations.map(item => (       
+                     
+                                    <Col span={6}>
+                                      <Card className="home-card"> 
+                                      {item.icon}
+                                      {item.country}
+                                      {item.percentage}
+                                      </Card>
                                     </Col> 
+                    
                     )
                 )
             }

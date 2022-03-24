@@ -1,6 +1,6 @@
 import React from "react"
 import {Card} from "antd"
-import "./RecentNotifications.scss";
+import "./Home.scss";
 import { Row, Col } from 'antd';
 
 export default class RecentNotifications extends React.Component{
@@ -48,10 +48,10 @@ export default class RecentNotifications extends React.Component{
           
         ]
         return(
-      <Card title={<div className="content1">Recent notifications</div>} 
+      <Card title={<div className="home-title">Recent notifications</div>} 
       style={{background:"#0D83DD"}}
       bodyStyle={{background:"white"}}
-      className="recent-noti"
+      className="home-card"
       >
        {notifications.map(item => (
          <div>
