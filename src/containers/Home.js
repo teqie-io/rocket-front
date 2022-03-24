@@ -23,7 +23,7 @@ class Home extends React.Component {
           <Col span={17} style={{padding: "10px"}}><TotalCounts/></Col>
           <Col span={7} style={{padding: "10px"}}><TopPlatforms/></Col>
         </Row>
-        <Row align="middle" style={{padding: "20px"}}>
+        <Row align="top" style={{padding: "20px"}}>
           <Col span={17} style={{padding: "10px"}}><RecentNotifications/></Col>
           <Col span={7} style={{padding: "10px"}}><TopBrowsers/></Col>
         </Row>

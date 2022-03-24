@@ -2,7 +2,7 @@ import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
-import { NlFlagIcon } from "../assets/flagIcons";
+import { SubscriberIcon,ImpressionsIcon,SentMailIcon } from "../assets/CountIcons";
 
 export default class TopLocations extends React.Component{
     render()
@@ -10,33 +10,33 @@ export default class TopLocations extends React.Component{
             const locations=[
              {
                 id: 1,
-                icon: <NlFlagIcon/>,
-                country: "Total Subs",
-                percentage: '33',
+                icon: <SubscriberIcon/>,
+                countof: "Total Subscibers",
+                amount: '24',
             
               },
               {
                 
                 id: 2,
-                icon: <NlFlagIcon/>,
-                country: "Notifications",
-                percentage: '34',
+                icon: <SentMailIcon/>,
+                countof: "Notifications",
+                amount: '12',
                 
               },
               {
                 
                 id: 3,
-                icon:<NlFlagIcon/>,
-                country: "Revenue",
-                percentage: '33',
+                icon:"",
+                countof: "Revenue",
+                amount: '$33',
                
               },
               {
                 
                 id: 4,
-                icon:<NlFlagIcon/>,
-                country: "Impressions",
-                percentage: '33',
+                icon:<ImpressionsIcon/>,
+                countof: "Impressions",
+                amount: '33',
                
               },
 
@@ -55,12 +55,12 @@ export default class TopLocations extends React.Component{
                      
                                     <Col span={6}>
                                       <Card className="home-card"> 
-                                      <Row gutter={16}>
-                                      <Col span={6}>{item.icon}</Col>
-                                      <Col span={18}>{item.country}</Col>
+                                      <Row gutter={16} align="top">
+                                      <Col span={12}><h2>{item.amount}</h2></Col>
+                                      <Col span={12}><h2>{item.icon}</h2></Col>
                                       </Row>
                                       <Row>
-                                        <Col offset={10}>{item.percentage}</Col>
+                                        <Col>{item.countof}</Col>
                                         </Row>
                                       
                                       </Card>
