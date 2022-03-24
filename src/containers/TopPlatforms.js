@@ -3,10 +3,83 @@ import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
 import { NlFlagIcon } from "../assets/flagIcons";
+import { useCallback, useState } from "react";
+import { PieChart, Pie, Sector } from "recharts";
 
-export default class TopLocations extends React.Component{
-    render()
+const renderActiveShape = (props) => {
+    const RADIAN = Math.PI / 180;
+    const {
+      cx,
+      cy,
+      midAngle,
+      innerRadius,
+      outerRadius,
+      startAngle,
+      endAngle,
+      fill,
+      payload,
+      percent,
+      percentage
+    } = props;
+    const sin = Math.sin(-RADIAN * midAngle);
+    const cos = Math.cos(-RADIAN * midAngle);
+    const sx = cx + (outerRadius + 10) * cos;
+    const sy = cy + (outerRadius + 10) * sin;
+    const mx = cx + (outerRadius + 30) * cos;
+    const my = cy + (outerRadius + 30) * sin;
+    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+    const ey = my;
+    const textAnchor = cos >= 0 ? "start" : "end";
+  
+    return (
+      <g>
+        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+          {payload.platforms}
+        </text>
+        <Sector
+          cx={cx}
+          cy={cy}
+          innerRadius={innerRadius}
+          outerRadius={outerRadius}
+          startAngle={startAngle}
+          endAngle={endAngle}
+          fill={fill}
+        />
+        <Sector
+          cx={cx}
+          cy={cy}
+          startAngle={startAngle}
+          endAngle={endAngle}
+          innerRadius={outerRadius + 6}
+          outerRadius={outerRadius + 10}
+          fill={fill}
+        />
+        <path
+          d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
+          stroke={fill}
+          fill="none"
+        />
+        <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+        <text
+          x={ex + (cos >= 0 ? 1 : -1) * 12}
+          y={ey}
+          textAnchor={textAnchor}
+          fill="#333"
+        >{`${percentage}%`}</text>
+        <text
+          x={ex + (cos >= 0 ? 1 : -1) * 12}
+          y={ey}
+          dy={18}
+          textAnchor={textAnchor}
+          fill="#999"
+        >
+        </text>
+      </g>
+    );
+  };
+export default function TopLocations()
         {
+
             const locations=[
              {
                 id: 1,
@@ -34,6 +107,14 @@ export default class TopLocations extends React.Component{
 
            
         ];
+        const [activeIndex, setActiveIndex] = useState(0);
+  const onPieEnter = useCallback(
+    (_, index) => {
+      setActiveIndex(index);
+    },
+    [setActiveIndex]
+  );
+ 
         return(
             
      <Card title={
@@ -46,33 +127,41 @@ export default class TopLocations extends React.Component{
                     }
         style={{background:"#0D83DD"}}
         bodyStyle={{background:"white"}}
-        className="home-card"
-      >
+        className="home-card">
+
     <Row>
-                <Col span={12}>
-                {locations.map(item => (
-                    <div>
-                        
-                            
-                                <Row>
-                                    <Col span={4}>{item.icon}</Col>
-                                    <Col span={12} >{item.platforms}</Col>
-                                    <Col span={8} >{item.percentage}%</Col>    
-                                </Row>
-                                <hr/>
+        <Col span={9}>
+            {locations.map(item => (
+                <div>             
+                    <Row>
+                        <Col span={4}>{item.icon}</Col>
+                        <Col span={12} >{item.platforms}</Col>
+                        <Col span={8} >{item.percentage}%</Col>    
+                    </Row>
+                    <hr/>
                             
                             
-                    </div>
-                ))}
-
-
-                </Col>
-                <Col span={12}>
-                piechart
-                </Col>
+                </div>
+            ))}
+        </Col>
+        <Col span={15}>
+            <PieChart width={250} height={200}>
+                <Pie
+                    activeIndex={activeIndex}
+                    activeShape={renderActiveShape}
+                    data={locations}
+                    cx={100}
+                    cy={90}
+                    innerRadius={35}
+                    outerRadius={55}
+                    fill="#8884d8"
+                    dataKey="percentage"
+                    onMouseEnter={onPieEnter}
+                />
+            </PieChart>
+        </Col>
     </Row>
-      </Card>
+</Card>
 
         )
     }
-}
