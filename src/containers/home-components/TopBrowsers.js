@@ -2,7 +2,7 @@ import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
-import { EnFlagIcon } from "../assets/flagIcons";
+import { EnFlagIcon } from "../../assets/flagIcons";
 
 export default class TopLocations extends React.Component{
     render()

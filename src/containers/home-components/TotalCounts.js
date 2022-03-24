@@ -2,7 +2,7 @@ import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
-import { SubscriberIcon,ImpressionsIcon,SentMailIcon } from "../assets/CountIcons";
+import { SubscriberIcon,ImpressionsIcon,SentMailIcon } from "../../assets/CountIcons";
 
 export default class TopLocations extends React.Component{
     render()

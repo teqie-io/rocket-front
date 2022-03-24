@@ -1,11 +1,11 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
-import SubscirberGrowth from "./SubscriberGrowth"
-import RecentNotifications from "./RecentNotifications";
-import TopLocations from "./TopLocations";
-import TotalCounts from "./TotalCounts";
-import TopBrowsers from "./TopBrowsers"
-import TopPlatforms from "./TopPlatforms"
+import SubscirberGrowth from "./home-components/SubscriberGrowth"
+import RecentNotifications from "./home-components/RecentNotifications";
+import TopLocations from "./home-components/TopLocations";
+import TotalCounts from "./home-components/TotalCounts";
+import TopBrowsers from "./home-components/TopBrowsers"
+import TopPlatforms from "./home-components/TopPlatforms"
 import { Row, Col } from 'antd';
 import {Card} from "antd"
 class Home extends React.Component {
