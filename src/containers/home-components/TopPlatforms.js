@@ -72,13 +72,10 @@ export default function TopLocations()
         <Col span={9}>
             {locations.map(item => (
                 <div>             
-                    <Row>
+                    <Row style={{'padding-bottom':"15px"}}>
                         <Col span={12} className="home-perc">{item.percentage}%</Col> 
                         <Col span={8} >{item.platforms}</Col>   
-                    </Row>
-                    <hr/>
-                            
-                            
+                    </Row>   
                 </div>
             ))}
         </Col>
