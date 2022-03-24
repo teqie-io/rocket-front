@@ -2,7 +2,7 @@ import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
-import { NlFlagIcon } from "../assets/flagIcons";
+import { EnFlagIcon } from "../assets/flagIcons";
 
 export default class TopLocations extends React.Component{
     render()
@@ -10,25 +10,25 @@ export default class TopLocations extends React.Component{
             const locations=[
              {
                 id: 1,
-                icon: <NlFlagIcon/>,
-                country: "Ukraine",
-                percentage: '33',
+                icon: <EnFlagIcon/>,
+                browser: "Chrome",
+                percentage: '60',
             
               },
               {
                 
                 id: 2,
-                icon: <NlFlagIcon/>,
-                country: "India",
-                percentage: '34',
+                icon: <EnFlagIcon/>,
+                browser: "Safari",
+                percentage: '35',
                 
               },
               {
                 
                 id: 3,
-                icon:<NlFlagIcon/>,
-                country: "Canada",
-                percentage: '33',
+                icon:<EnFlagIcon/>,
+                browser: "Firefox",
+                percentage: '15',
                
               },
 
@@ -39,7 +39,7 @@ export default class TopLocations extends React.Component{
      <Card title={
                   <div className="home-title"> 
                       <Row>
-                        <Col span={16}>Top Locations</Col>
+                        <Col span={16}>Top Browsers</Col>
                         <Col span={8}>CTR</Col>
                       </Row>
                     </div>
@@ -52,7 +52,7 @@ export default class TopLocations extends React.Component{
          <div>
                 <Row>
                     <Col span={4}>{item.icon}</Col>
-                    <Col span={12} >{item.country}</Col>
+                    <Col span={12} >{item.browser}</Col>
                     <Col span={8} >{item.percentage}%</Col>
                     
                 </Row>

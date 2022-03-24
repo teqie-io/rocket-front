@@ -1,8 +1,10 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
+
 import RecentNotifications from "./RecentNotifications";
 import TopLocations from "./TopLocations";
-import TotalCounts from "./TotalCounts"
+import TotalCounts from "./TotalCounts";
+import TopBrowsers from "./TopBrowsers"
 import { Row, Col } from 'antd';
 import {Card} from "antd"
 class Home extends React.Component {
@@ -12,17 +14,17 @@ class Home extends React.Component {
     return (
       <Card className="home-card">
        
-        <Row style={{padding: "20px"}}>
+        <Row align="middle" style={{padding: "20px"}}>
           <Col span={17} style={{padding: "10px"}}>to be replaced with the chart</Col>
           <Col span={7} style={{padding: "10px"}}><TopLocations/></Col>
         </Row>
         <Row align="middle" style={{padding: "20px"}}>
           <Col span={17} style={{padding: "10px"}}><TotalCounts/></Col>
-          <Col span={7} style={{padding: "10px"}}>Top Platforms<TopLocations/></Col>
+          <Col span={7} style={{padding: "10px"}}>To be replaced with top platforms</Col>
         </Row>
-        <Row style={{padding: "20px"}}>
+        <Row align="middle" style={{padding: "20px"}}>
           <Col span={17} style={{padding: "10px"}}><RecentNotifications/></Col>
-          <Col span={7} style={{padding: "10px"}}>Top Browsers<TopLocations/></Col>
+          <Col span={7} style={{padding: "10px"}}><TopBrowsers/></Col>
         </Row>
     </Card>
     );

@@ -11,7 +11,7 @@ export default class TopLocations extends React.Component{
              {
                 id: 1,
                 icon: <NlFlagIcon/>,
-                country: "Ukraine",
+                country: "Total Subs",
                 percentage: '33',
             
               },
@@ -19,7 +19,7 @@ export default class TopLocations extends React.Component{
                 
                 id: 2,
                 icon: <NlFlagIcon/>,
-                country: "India",
+                country: "notifications",
                 percentage: '34',
                 
               },
@@ -27,7 +27,7 @@ export default class TopLocations extends React.Component{
                 
                 id: 3,
                 icon:<NlFlagIcon/>,
-                country: "Canada",
+                country: "Revenue",
                 percentage: '33',
                
               },
@@ -35,7 +35,7 @@ export default class TopLocations extends React.Component{
                 
                 id: 4,
                 icon:<NlFlagIcon/>,
-                country: "Canada",
+                country: "Impressions",
                 percentage: '33',
                
               },
@@ -55,9 +55,14 @@ export default class TopLocations extends React.Component{
                      
                                     <Col span={6}>
                                       <Card className="home-card"> 
-                                      {item.icon}
-                                      {item.country}
-                                      {item.percentage}
+                                      <Row gutter={16}>
+                                      <Col span={6}>{item.icon}</Col>
+                                      <Col span={18}>{item.country}</Col>
+                                      </Row>
+                                      <Row>
+                                        <Col offset={10}>{item.percentage}</Col>
+                                        </Row>
+                                      
                                       </Card>
                                     </Col> 
                     
