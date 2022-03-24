@@ -1,6 +1,6 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
-
+import SubscirberGrowth from "./SubscriberGrowth"
 import RecentNotifications from "./RecentNotifications";
 import TopLocations from "./TopLocations";
 import TotalCounts from "./TotalCounts";
@@ -16,7 +16,7 @@ class Home extends React.Component {
       <Card className="home-card">
        
         <Row align="middle" style={{padding: "20px"}}>
-          <Col span={17} style={{padding: "10px"}}>to be replaced with the chart</Col>
+          <Col span={17} style={{padding: "10px"}}><SubscirberGrowth/></Col>
           <Col span={7} style={{padding: "10px"}}><TopLocations/></Col>
         </Row>
         <Row align="middle" style={{padding: "20px"}}>

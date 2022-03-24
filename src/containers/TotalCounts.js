@@ -19,7 +19,7 @@ export default class TopLocations extends React.Component{
                 
                 id: 2,
                 icon: <NlFlagIcon/>,
-                country: "notifications",
+                country: "Notifications",
                 percentage: '34',
                 
               },
