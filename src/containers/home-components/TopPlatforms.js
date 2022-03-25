@@ -2,7 +2,6 @@ import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
-import { NlFlagIcon } from "../../assets/flagIcons";
 import { useCallback, useState } from "react";
 import { PieChart, Pie, Sector } from "recharts";
 
