@@ -5,7 +5,6 @@ import { Menu,Layout } from 'antd';
 import { Button } from 'antd';
 import './sidebar.styles.scss'
 import { ReactComponent as Premium } from '../../assets/premium.svg'; 
-
 const { Sider } = Layout;
 
 
@@ -42,7 +41,7 @@ class Sidebar extends React.Component {
             <Premium className="premiumimg"/>
 
                 <Button type="primary" className='custombutton'>
-                    {t("sidebar.premium")}
+                   <Link to='/premium'>{t("sidebar.premium")}</Link> 
                 </Button>          
 
             <Menu
