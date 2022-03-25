@@ -27,6 +27,21 @@ class Home extends React.Component {
           <Col span={17} style={{padding: "10px"}}><RecentNotifications/></Col>
           <Col span={7} style={{padding: "10px"}}><TopBrowsers/></Col>
         </Row>
+        {/* Trying to take less space by arranging in components in 2 columns instead of 3 rows but ruins the styling
+        <Row>
+          <Col span={17} align="middle">
+              <Row style={{padding: "20px"}}><SubscirberGrowth/></Row>
+              <Row style={{padding: "20px"}}><TotalCounts/></Row>
+              <Row style={{padding: "20px"}}><RecentNotifications/></Row>
+          </Col>
+
+
+          <Col span={7}>
+          <Row style={{padding: "20px"}}><TopLocations/></Row>
+          <Row style={{padding: "20px"}}><TopPlatforms/></Row>
+          <Row style={{padding: "20px"}}><TopBrowsers/></Row>
+          </Col>
+        </Row> */}
     </Card>
     );
   }
