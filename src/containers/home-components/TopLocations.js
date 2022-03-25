@@ -2,7 +2,7 @@ import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
-import { NlFlagIcon } from "../../assets/flagIcons";
+import { IndiaIcon,CanadaIcon,UkraineIcon } from "../../assets/flagIcons";
 
 export default class TopLocations extends React.Component{
     render()
@@ -10,7 +10,7 @@ export default class TopLocations extends React.Component{
             const locations=[
              {
                 id: 1,
-                icon: <NlFlagIcon/>,
+                icon: <UkraineIcon/>,
                 country: "Ukraine",
                 percentage: 33,
             
@@ -18,7 +18,7 @@ export default class TopLocations extends React.Component{
               {
                 
                 id: 2,
-                icon: <NlFlagIcon/>,
+                icon: <IndiaIcon/>,
                 country: "India",
                 percentage: 34,
                 
@@ -26,7 +26,7 @@ export default class TopLocations extends React.Component{
               {
                 
                 id: 3,
-                icon:<NlFlagIcon/>,
+                icon:<CanadaIcon/>,
                 country: "Canada",
                 percentage: 33,
                
@@ -51,10 +51,9 @@ export default class TopLocations extends React.Component{
        {locations.map(item => (
          <div>
                 <Row>
-                    <Col span={4}>{item.icon}</Col>
-                    <Col span={12} >{item.country}</Col>
-                    <Col span={8} className="home-perc" >{item.percentage}%</Col>
-                    
+                    <Col span={4} style={{'font-size':'25px'}}>{item.icon}</Col>
+                    <Col span={12} style={{'paddingTop':'5px'}} >{item.country}</Col>
+                    <Col span={8} className="home-perc" >{item.percentage}%</Col>          
                 </Row>
                 <hr/>
          </div>

@@ -1,7 +1,7 @@
 import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
-import { Row, Col } from 'antd';
+import { Row, Col ,DatePicker } from 'antd';
 import {
     LineChart,
     Line,
@@ -11,6 +11,7 @@ import {
     Tooltip,
     Legend
   } from "recharts";
+
 
 export default class TopLocations extends React.Component{
     render()
@@ -62,12 +63,19 @@ export default class TopLocations extends React.Component{
 
     return(
             
-     <Card title={<h2>Subscriber Growth</h2>}
+     <Card title={<div>
+                    <h2>Subscriber Growth</h2>
+                    <Col offset={15}>
+                      <DatePicker size="large" onChange={(date,dateString)=>console.log(date,dateString)} picker="month" />
+                    </Col>
+                  </div>}
         bodyStyle={{background:"white"}}
         className="home-card">
+          
+          
                     <LineChart
                     width={1000}
-                    height={300}
+                    height={250}
                     data={data}
                     margin={{
                         top: 5,
@@ -85,9 +93,10 @@ export default class TopLocations extends React.Component{
                         type="monotone"
                         dataKey="pv"
                         stroke="#8884d8"
+                        strokeWidth="5px"
                         activeDot={{ r: 8 }}
                     />
-                    <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                    <Line type="monotone" strokeWidth="5px" dataKey="uv" stroke="#82ca9d" />
                     </LineChart>
                     
       </Card>

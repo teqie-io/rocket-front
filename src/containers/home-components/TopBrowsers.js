@@ -2,7 +2,7 @@ import React from "react"
 import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
-import { EnFlagIcon } from "../../assets/flagIcons";
+import { ChromeIcon,SafariIcon,FirefoxIcon } from "../../assets/BrowserIcons";
 
 export default class TopLocations extends React.Component{
     render()
@@ -10,7 +10,7 @@ export default class TopLocations extends React.Component{
             const locations=[
              {
                 id: 1,
-                icon: <EnFlagIcon/>,
+                icon: <ChromeIcon/>,
                 browser: "Chrome",
                 percentage: 60,
             
@@ -18,7 +18,7 @@ export default class TopLocations extends React.Component{
               {
                 
                 id: 2,
-                icon: <EnFlagIcon/>,
+                icon: <SafariIcon/>,
                 browser: "Safari",
                 percentage: 35,
                 
@@ -26,7 +26,7 @@ export default class TopLocations extends React.Component{
               {
                 
                 id: 3,
-                icon:<EnFlagIcon/>,
+                icon:<FirefoxIcon/>,
                 browser: "Firefox",
                 percentage: 15,
                
@@ -51,8 +51,8 @@ export default class TopLocations extends React.Component{
        {locations.map(item => (
          <div>
                 <Row>
-                    <Col span={4}>{item.icon}</Col>
-                    <Col span={12} >{item.browser}</Col>
+                    <Col span={4} style={{'font-size':'25px'}}>{item.icon}</Col>
+                    <Col span={12} style={{'paddingTop':'5px'}} >{item.browser}</Col>
                     <Col span={8} className="home-perc" >{item.percentage}%</Col>
                     
                 </Row>

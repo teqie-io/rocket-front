@@ -19,7 +19,7 @@ class Sidebar extends React.Component {
         if(path=='/notifications/abandoned')
          return null;
         return (
-        <Sider width={200} className='customsider' theme="dark"
+        <Sider width={250} className='customsider' theme="dark"
             breakpoint="lg"
             collapsedWidth="0"
         >

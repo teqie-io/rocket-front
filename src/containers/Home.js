@@ -14,18 +14,17 @@ class Home extends React.Component {
     
     return (
       <Card className="home-card">
-       
-        <Row align="middle" style={{padding: "20px"}}>
-          <Col span={17} style={{padding: "10px"}}><SubscirberGrowth/></Col>
+        <Row align="middle">
+          <Col span={17} style={{'padding-right': "10px"}}><SubscirberGrowth/></Col>
           <Col span={7} style={{padding: "10px"}}><TopLocations/></Col>
         </Row>
-        <Row align="middle" style={{padding: "20px"}}>
-          <Col span={17} style={{padding: "10px"}}><TotalCounts/></Col>
+        <Row align="middle" >
+          <Col span={17} style={{'padding-right': "10px"}}><TotalCounts/></Col>
           <Col span={7} style={{padding: "10px"}}><TopPlatforms/></Col>
         </Row>
-        <Row align="top" style={{padding: "20px"}}>
-          <Col span={17} style={{padding: "10px"}}><RecentNotifications/></Col>
-          <Col span={7} style={{padding: "10px"}}><TopBrowsers/></Col>
+        <Row align="top">
+          <Col span={17} style={{'padding-right': "10px"}}><RecentNotifications/></Col>
+          <Col span={7} style={{'padding': "10px"}}><TopBrowsers/></Col>
         </Row>
         {/* Trying to take less space by arranging in components in 2 columns instead of 3 rows but ruins the styling
         <Row>
