@@ -12,3 +12,30 @@
     font-size: 20px;
     text-align: center;
 }
+.prem-button
+{
+width: 196px;
+height: 48px;
+border:0ch;
+background: #0D83DD;
+border-radius: 6px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+color: #FFFFFF;
+cursor: pointer;
+}
+.ul1 {
+    list-style: none;
+ }
+ 
+.ul1 li::before {
+    content: '\2022';
+    font-size:25px;
+    color: #0D83DD;
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+ }
