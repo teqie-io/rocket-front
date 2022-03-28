@@ -9,7 +9,7 @@ import {useState} from 'react';
 export default function Premium()
 {
     const plantypes = [
-        { label: 'MONTHLY', value: 'monthly' },
+        { label: 'Monthly', value: 'monthly' },
         { label: 'Yearly', value: 'yearly' },
       ];
     const [optionVal,setState] =useState('monthly')
@@ -18,7 +18,7 @@ export default function Premium()
         setState(e.target.value);
       };
     return(
-        <Card className="premium-pick" >
+        <Card bordered={false} className="premium-pick" >
             <Row justify="center" style={{padding:'30px'}}>
                 <Card bordered={false}>
                     <Row>
@@ -26,6 +26,11 @@ export default function Premium()
                     </Row>
                     <Row>
                         <Radio.Group size="large" options={plantypes} onChange={onChange2} value={optionVal}  optionType="button" buttonStyle="solid" />
+                    </Row>
+                    <Row >
+                        <Col span={24} align='middle' style={{'padding-top':'30px',color:'#0D83DD','font-weight':' 500','font-size': '18px'}}>
+                            <a>Have a coupon code?</a>
+                        </Col> 
                     </Row>
                 </Card>
             </Row>
@@ -39,14 +44,16 @@ export default function Premium()
 
             <Row justify="center" align="middle" gutter={30}>
                 <Col span={19} offset={2}>
-                <Card title={<div className="prem-title" style={{'color':'white'}}>Current Plan</div>}
-                style={{background:"#0D83DD"}}
-                bodyStyle={{background:"#BDDCF3"}}
-                className="prem-card">
-                   plan here
-                </Card>
+                    <Card title={<div className="prem-title" style={{'color':'white'}}>Current Plan</div>}
+                    style={{background:"#0D83DD"}}
+                    bodyStyle={{background:"#BDDCF3"}}
+                    className="prem-card">
+                    Your plan here.
+                    </Card>
                 </Col>
-                <Col span={3} ><ChatIcon onClick={()=>console.log("chat clicked")} style={{fontSize:'100px',cursor:"pointer"}}/></Col>
+                <Col span={3} >
+                    <ChatIcon onClick={()=>console.log("chat clicked")} style={{fontSize:'100px',cursor:"pointer"}}/>
+                </Col>
             </Row>
         </Card>
     )
