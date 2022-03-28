@@ -4,7 +4,7 @@ import "./Home.scss";
 import { Row, Col } from 'antd';
 import { ChromeIcon,SafariIcon,FirefoxIcon } from "../../assets/BrowserIcons";
 
-export default class TopLocations extends React.Component{
+export default class TopBrowsers extends React.Component{
     render()
         {
             const locations=[

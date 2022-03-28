@@ -6,7 +6,7 @@ import { useCallback, useState } from "react";
 import { PieChart, Pie, Sector } from "recharts";
 
 
-export default function TopLocations()
+export default function TopPlatforms()
         {
 
             const locations=[
@@ -88,7 +88,7 @@ export default function TopLocations()
                     cy={94}
                     innerRadius={33}
                     outerRadius={49}
-                    fill="#8884d8"
+                    fill="#0050B3"
                     dataKey="percentage"
                     onMouseEnter={onPieEnter}
                 />
