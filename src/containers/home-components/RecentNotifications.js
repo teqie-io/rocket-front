@@ -9,7 +9,7 @@ export default class RecentNotifications extends React.Component{
         const notifications =[{
       
             id: 1,
-            content: "Hey dont miss this",
+            content: "Hey don't miss this",
             amount: "Rs 250",
             value1: '24',
             value2: '24'
@@ -17,7 +17,7 @@ export default class RecentNotifications extends React.Component{
           {
             
             id: 2,
-            content: "Priya dont miss this ",
+            content: "Priya don't miss this ",
             amount: "Rs 250",
             value1: '23',
             value2: '24'
@@ -25,21 +25,21 @@ export default class RecentNotifications extends React.Component{
           {
             
             id: 3,
-            content:"Hey dont miss this",
+            content:"Hey don't miss this",
             amount: "Rs 250",
             value1: '24',
             value2: '24'
           },
           {
             id: 4,
-            content:"Hey dont miss this",
+            content:"Hey don't miss this",
             amount: "Rs 250",
             value1: '25',
             value2: '24'
           },
           {
             id: 5,
-            content:"Hey dont miss this",
+            content:"Hey don't miss this",
             state: false,
             amount: "Rs 350",
             value1: '26',
@@ -56,7 +56,7 @@ export default class RecentNotifications extends React.Component{
       >
         <List>
           {notifications.map(item => (
-            <List.Item style={{'padding':'10px'}}>  
+            <List.Item style={{'padding-top':'10px','padding-left':'33px'}}>  
                         <Col span={10} style={{'fontSize':'16px'}}>{item.content}</Col>
                         <Col span={7}  style={{'fontSize':'18px'}} >{item.amount}</Col>
                         <Col span={4}  style={{'fontSize':'18px'}} >{item.value1}</Col>

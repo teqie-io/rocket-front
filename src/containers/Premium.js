@@ -5,7 +5,6 @@ import  './premium.scss'
 import { ChatIcon } from "../assets/CountIcons";
 import TopLocations from "./home-components/TopLocations";
 import RecentNotifications from "./home-components/RecentNotifications";
-import TotalCounts from "./home-components/TotalCounts";
 
 export default function Premium()
 {
@@ -27,8 +26,8 @@ export default function Premium()
                     <Col span={24} align='middle'>500</Col>
                     <Col span={24} align='middle'>Impressions per month</Col>
                 </Row>
-                <Row style={{'padding':'10px'}}> 
-                    <Col span={24} align='left'>
+                <Row style={{'padding':'20px'}}> 
+                    <Col span={24} offset={4}>
                         <ul>
                             <li>Unlimited Subscribers</li>
                             <li>Send & Schedule Campaigns</li>
@@ -39,15 +38,14 @@ export default function Premium()
                         </ul>
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{'padding':'20px'}}>
                     <Col span={24} align='middle'>
                         <button>Start Trial</button>
                     </Col>
                 </Row>
             </div>
             </Card>
-        )
-        
+        )   
     }
     return(
         <Card className="premium-pick" >
@@ -60,7 +58,7 @@ export default function Premium()
 
             <Row justify="center" gutter={50} align="bottom" style={{padding:'30px'}}>
                 <Col span={8}><Basic/></Col>
-                <Col span={8}><RecentNotifications/></Col>
+                <Col span={8}><TopLocations/></Col>
                 <Col span={8}><Basic/></Col>
                 <Col style={{padding:'30px'}}>**All plans come with unlimited subscribers</Col>
             </Row>
