@@ -16,13 +16,14 @@ export default function Premium()
                     Basic
                 </h2>
             } 
-            className="prem-card">
+            className="prem-card"
+            bodyStyle={{ padding:'0'}}>
             <div>
                 <Row style={{'padding':'10px'}}>
                     <Col span={24} align='middle'>Free</Col>
                     <Col span={24} align='middle'>Lifetime</Col>
                 </Row>
-                <Row style={{'padding':'10px'}}>
+                <Row style={{'padding':'10px','background':'#F3FBFF'}}>
                     <Col span={24} align='middle'>500</Col>
                     <Col span={24} align='middle'>Impressions per month</Col>
                 </Row>
