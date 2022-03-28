@@ -8,10 +8,6 @@ import {useState} from 'react';
 
 export default function Premium()
 {
-    const plantypes = [
-        { label: 'Monthly', value: 'monthly' },
-        { label: 'Yearly', value: 'yearly' },
-      ];
     const [optionVal,setState] =useState('monthly')
     function onChange2(e){
         console.log(e.target.value);
@@ -19,13 +15,24 @@ export default function Premium()
       };
     return(
         <Card bordered={false} className="premium-pick" >
-            <Row justify="center" style={{padding:'30px'}}>
+            <Row justify="center" >
                 <Card bordered={false}>
                     <Row>
                         <Col span={24} align='middle'><div style={{'fontSize':'36px','padding-bottom':'20px'}}>Pick a plan</div></Col>
                     </Row>
                     <Row>
-                        <Radio.Group size="large" options={plantypes} onChange={onChange2} value={optionVal}  optionType="button" buttonStyle="solid" />
+                        <Radio.Group onChange={onChange2} value={optionVal}  optionType="button" buttonStyle="solid" >
+                            <Radio.Button value="monthly" style={{'height':'58px','width':'172px','border-top-left-radius':'12px','border-bottom-left-radius':'12px'}} >
+                                <div className='plan-btn'>
+                                   Monthly
+                                </div>
+                            </Radio.Button>
+                            <Radio.Button  value="yearly"  style={{'height':'58px','width':'172px','border-top-right-radius':'12px','border-bottom-right-radius':'12px'}}>
+                                <div  className='plan-btn'>
+                                    Yearly
+                                </div>
+                            </Radio.Button>
+                        </Radio.Group>
                     </Row>
                     <Row >
                         <Col span={24} align='middle' style={{'padding-top':'30px',color:'#0D83DD','font-weight':' 500','font-size': '18px'}}>
