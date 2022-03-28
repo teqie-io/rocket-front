@@ -115,7 +115,7 @@ const Business= () =>{
                 <Col span={24} offset={4}>
                     <ul className="ul1">
                         <li>All Basic Features </li>
-                        <li>Abandoned Cart Automation</li>
+                        <li style={{'color':'#0D83DD','font-weight':'500'}}>Abandoned Cart Automation</li>
                         <li>Shipping Notification</li>
                         <li>Hero Image Support</li>
                         <li>Subscriber Details</li>
