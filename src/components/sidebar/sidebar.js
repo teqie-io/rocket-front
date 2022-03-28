@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
             <img src='/PushMagnetInvert.png' alt='brand' height='auto' width='100%' className='logo'></img>
             </Link>
 
-            <Menu
+            <Menu  style={{'padding-top':'200px'}} 
                 theme="dark"
                 mode="inline"
                 defaultSelectedKeys={['1']}            
