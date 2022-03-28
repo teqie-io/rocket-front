@@ -9,6 +9,45 @@ import TotalCounts from "./home-components/TotalCounts";
 
 export default function Premium()
 {
+    const Basic=()=>{
+        return(
+            <Card title={
+                <h2 style={{'text-align':'center'}}>
+                    Basic
+                </h2>
+            } 
+            className="prem-card">
+            <div>
+                <Row style={{'padding':'10px'}}>
+                    <Col span={24} align='middle'>Free</Col>
+                    <Col span={24} align='middle'>Lifetime</Col>
+                </Row>
+                <Row style={{'padding':'10px'}}>
+                    <Col span={24} align='middle'>500</Col>
+                    <Col span={24} align='middle'>Impressions per month</Col>
+                </Row>
+                <Row style={{'padding':'10px'}}> 
+                    <Col span={24} align='left'>
+                        <ul>
+                            <li>Unlimited Subscribers</li>
+                            <li>Send & Schedule Campaigns</li>
+                            <li>Back-In-Stock Automation</li>
+                            <li>Price Drop Automation</li>
+                            <li>Basic Reports</li>
+                            <li>Chat Support</li>
+                        </ul>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={24} align='middle'>
+                        <button>Start Trial</button>
+                    </Col>
+                </Row>
+            </div>
+            </Card>
+        )
+        
+    }
     return(
         <Card className="premium-pick" >
             <Row justify="center" style={{padding:'30px'}}>
@@ -19,9 +58,9 @@ export default function Premium()
             </Row>
 
             <Row justify="center" gutter={50} align="bottom" style={{padding:'30px'}}>
-                <Col span={8}><TopLocations/></Col>
+                <Col span={8}><Basic/></Col>
                 <Col span={8}><RecentNotifications/></Col>
-                <Col span={8}><TopLocations/></Col>
+                <Col span={8}><Basic/></Col>
                 <Col style={{padding:'30px'}}>**All plans come with unlimited subscribers</Col>
             </Row>
 
