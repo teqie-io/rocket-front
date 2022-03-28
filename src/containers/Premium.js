@@ -4,7 +4,8 @@ import {Card} from "antd"
 import  './premium.scss'
 import { ChatIcon } from "../assets/CountIcons";
 import TopLocations from "./home-components/TopLocations";
-import RecentNotifications from "./home-components/RecentNotifications";
+import { Radio } from 'antd';
+import {useState} from 'react';
 
 export default function Premium()
 {
@@ -47,12 +48,25 @@ export default function Premium()
             </Card>
         )   
     }
+    const plantypes = [
+        { label: 'MONTHLY', value: 'monthly' },
+        { label: 'Yearly', value: 'yearly' },
+      ];
+      const [optionval,setState] =useState('monthly')
+      function onChange2(e){
+        console.log(e.target.value);
+        setState(e.target.value);
+      };
     return(
         <Card className="premium-pick" >
             <Row justify="center" style={{padding:'30px'}}>
-                <Card>
-                    <Row><h2>Pick a plan</h2></Row>
-                    <Row><button>year/month</button></Row>
+                <Card bordered={false}>
+                    <Row>
+                        <Col span={24} align='middle'><div style={{'fontSize':'36px','padding-bottom':'20px'}}>Pick a plan</div></Col>
+                    </Row>
+                    <Row>
+                    <Radio.Group size="large" options={plantypes} onChange={onChange2} value={optionval}  optionType="button" buttonStyle="solid" />
+                    </Row>
                 </Card>
             </Row>
 
