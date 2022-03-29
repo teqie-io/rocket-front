@@ -39,21 +39,22 @@ export default class TopLocations extends React.Component{
      <Card title={
                   <div className="home-title"> 
                       <Row>
-                        <Col span={16}>Top Locations</Col>
-                        <Col span={8}>CTR</Col>
+                        <Col span={12}>Top Locations</Col>
+                        <Col align="middle" span={12}>CTR</Col>
                       </Row>
                     </div>
                     }
         style={{background:"#0D83DD"}}
         bodyStyle={{background:"white"}}
         className="home-card"
+        bordered={false}
       >
        {locations.map(item => (
          <div>
-                <Row>
-                    <Col span={4} style={{'font-size':'25px'}}>{item.icon}</Col>
-                    <Col span={12} style={{'paddingTop':'5px'}} >{item.country}</Col>
-                    <Col span={8} className="home-perc" >{item.percentage}%</Col>          
+                <Row >
+                    <Col align="middle" span={7} style={{'font-size':'25px'}}>{item.icon}</Col>
+                    <Col align="left" span={7} style={{'paddingTop':'5px'}} >{item.country}</Col>
+                    <Col align="middle" span={10} className="home-perc" >{item.percentage}%</Col>          
                 </Row>
                 <hr/>
          </div>

@@ -3,7 +3,7 @@ import {Card} from "antd"
 import "./Home.scss";
 import { Row, Col } from 'antd';
 import { useCallback, useState } from "react";
-import { PieChart, Pie, Sector } from "recharts";
+import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
 
 
 export default function TopPlatforms()
@@ -57,8 +57,8 @@ export default function TopPlatforms()
      <Card title={
                   <div className="home-title"> 
                       <Row>
-                        <Col span={4}>CTR</Col>
-                        <Col span={4}>Top Platforms</Col>
+                        <Col align="left" span={11}>CTR</Col>
+                        <Col align="middle" span={13}>Top Platforms</Col>
                         
                       </Row>
                     </div>
@@ -68,7 +68,7 @@ export default function TopPlatforms()
         className="home-card">
 
     <Row>
-        <Col span={9}>
+        <Col align="left" span={9}>
             {locations.map(item => (
                 <div>             
                     <Row style={{'padding-bottom':"15px"}}>
@@ -78,21 +78,24 @@ export default function TopPlatforms()
                 </div>
             ))}
         </Col>
-        <Col span={15}>
-            <PieChart width={300} height={200}>
+        <Col align="middle" span={15}>
+          <ResponsiveContainer  width="100%" height={200}>
+            <PieChart >
+              {/* width={200} height={200} */}
                 <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={locations}
-                    cx={113}
-                    cy={94}
-                    innerRadius={33}
-                    outerRadius={49}
+                    cx={95}
+                    cy={75}
+                    innerRadius={38}
+                    outerRadius={60}
                     fill="#0050B3"
                     dataKey="percentage"
                     onMouseEnter={onPieEnter}
                 />
             </PieChart>
+          </ResponsiveContainer>
         </Col>
     </Row>
 </Card>
@@ -127,8 +130,11 @@ const renderActiveShape = (props) => {
     
       return (
         <g>
-          <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+          <text x={cx} y={cy} dy={3} textAnchor="middle" fill={fill}>
             {payload.platforms}
+          </text>
+          <text x={cx} y={cy} dy={22} textAnchor="middle" fill={fill}>
+            {`${percentage}%`}
           </text>
           <Sector
             cx={cx}
@@ -148,7 +154,8 @@ const renderActiveShape = (props) => {
             outerRadius={outerRadius + 10}
             fill={fill}
           />
-          <path
+          {/* the % text being removed because it wont fit in card */}
+          {/* <path
             d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
             stroke={fill}
             fill="none"
@@ -167,7 +174,7 @@ const renderActiveShape = (props) => {
             textAnchor={textAnchor}
             fill="#999"
           >
-          </text>
+          </text> */}
         </g>
       );
     };

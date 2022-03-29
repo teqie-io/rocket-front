@@ -39,8 +39,8 @@ export default class TopBrowsers extends React.Component{
      <Card title={
                   <div className="home-title"> 
                       <Row>
-                        <Col span={16}>Top Browsers</Col>
-                        <Col span={8}>CTR</Col>
+                        <Col span={12}>Top Browsers</Col>
+                        <Col align="middle" span={12}>CTR</Col>
                       </Row>
                     </div>
                     }
@@ -51,9 +51,9 @@ export default class TopBrowsers extends React.Component{
        {locations.map(item => (
          <div>
                 <Row>
-                    <Col span={4} style={{'font-size':'25px'}}>{item.icon}</Col>
-                    <Col span={12} style={{'paddingTop':'5px'}} >{item.browser}</Col>
-                    <Col span={8} className="home-perc" >{item.percentage}%</Col>
+                    <Col align="middle" span={7} style={{'font-size':'25px'}}>{item.icon}</Col>
+                    <Col align="left" span={7} style={{'paddingTop':'5px'}} >{item.browser}</Col>
+                    <Col align="middle" span={10} className="home-perc" >{item.percentage}%</Col>
                     
                 </Row>
                 <hr/>
