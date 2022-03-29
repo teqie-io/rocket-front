@@ -49,16 +49,16 @@ export default class RecentNotifications extends React.Component{
           
         ]
         return(
-      <Card title={<div className="home-title">Recent notifications</div>} 
+      <Card title={<div className="home-title" style={{'fontSize':'24px'}}>Recent notifications</div>} 
       style={{background:"#0D83DD"}}
-      bodyStyle={{background:"white"}}
+      bodyStyle={{background:"white",padding:'7px'}}
       className="home-card"
       bordered={false}
       >
       
-        <List>
+        <List style={{'padding-top':'0px'}}>
           {notifications.map(item => (
-            <List.Item style={{'padding-top':'10px'}}>  
+            <List.Item style={{'padding-top':'20px'}}>  
                         <Col span={6} style={{'fontSize':'16px'}}>{item.content}</Col>
                         <Col span={6}  style={{'fontSize':'18px'}} >{item.amount}</Col>
                         <Col span={6}  style={{'fontSize':'18px'}} >{item.value1}</Col>
