@@ -9,7 +9,8 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
+    ResponsiveContainer
   } from "recharts";
 
 
@@ -72,10 +73,8 @@ export default class SubscirberGrowth extends React.Component{
         bodyStyle={{background:"white"}}
         className="home-card">
           
-          
-                    <LineChart
-                    width={1000}
-                    height={250}
+          <ResponsiveContainer width="100%" height={250}>
+              <LineChart
                     data={data}
                     margin={{
                         top: 5,
@@ -84,20 +83,21 @@ export default class SubscirberGrowth extends React.Component{
                         bottom: 5
                     }}
                     >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Line
-                        type="monotone"
-                        dataKey="pv"
-                        stroke="#8884d8"
-                        strokeWidth="5px"
-                        activeDot={{ r: 8 }}
-                    />
-                    <Line type="monotone" strokeWidth="5px" dataKey="uv" stroke="#82ca9d" />
-                    </LineChart>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Line
+                          type="monotone"
+                          dataKey="pv"
+                          stroke="#8884d8"
+                          strokeWidth="5px"
+                          activeDot={{ r: 8 }}
+                      />
+                      <Line type="monotone" strokeWidth="5px" dataKey="uv" stroke="#82ca9d" />
+              </LineChart>
+          </ResponsiveContainer>
                     
       </Card>
 
