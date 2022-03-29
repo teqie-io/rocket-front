@@ -5,7 +5,6 @@ import { Menu,Layout } from 'antd';
 import { Button } from 'antd';
 import './sidebar.styles.scss'
 import { ReactComponent as Premium } from '../../assets/premium.svg'; 
-
 const { Sider } = Layout;
 
 
@@ -27,7 +26,7 @@ class Sidebar extends React.Component {
             <img src='/PushMagnetInvert.png' alt='brand' height='auto' width='100%' className='logo'></img>
             </Link>
 
-            <Menu
+            <Menu  style={{'padding-top':'200px'}} 
                 theme="dark"
                 mode="inline"
                 defaultSelectedKeys={['1']}            
@@ -42,7 +41,7 @@ class Sidebar extends React.Component {
             <Premium className="premiumimg"/>
 
                 <Button type="primary" className='custombutton'>
-                    {t("sidebar.premium")}
+                   <Link to='/premium'>{t("sidebar.premium")}</Link> 
                 </Button>          
 
             <Menu

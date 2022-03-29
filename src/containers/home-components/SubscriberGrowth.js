@@ -13,7 +13,7 @@ import {
   } from "recharts";
 
 
-export default class TopLocations extends React.Component{
+export default class SubscirberGrowth extends React.Component{
     render()
         {
             const data = [

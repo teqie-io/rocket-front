@@ -1,0 +1,56 @@
+.prem-card{
+    border-radius: 20px!important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-family: 'Roboto'!important;
+    font-style: normal;
+    font-weight:400!important;
+    font-size: 16px!important;
+}
+.prem-title{
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+.prem-button
+{
+width: 196px;
+height: 48px;
+border:0ch;
+background: #0D83DD;
+border-radius: 6px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+color: #FFFFFF;
+cursor: pointer;
+}
+.prem-blue-text
+{
+
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+color: #0D83DD;
+padding: 10px;
+}
+.ul1 {
+    list-style: none;
+    font-size: 16px;
+ }
+ 
+.ul1 li::before {
+    content: '\2022';
+    font-size:25px;
+    color: #0D83DD;
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+ }
+ .plan-btn{
+    font-weight: 400!important;
+    font-size: 19px!important;
+    text-align:center;
+    padding-top: 13px;
+ }

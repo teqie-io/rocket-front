@@ -1,6 +1,6 @@
 import React from "react";
 import { withTranslation } from 'react-i18next';
-import SubscirberGrowth from "./home-components/SubscriberGrowth"
+import SubscriberGrowth from "./home-components/SubscriberGrowth"
 import RecentNotifications from "./home-components/RecentNotifications";
 import TopLocations from "./home-components/TopLocations";
 import TotalCounts from "./home-components/TotalCounts";
@@ -15,7 +15,7 @@ class Home extends React.Component {
     return (
       <Card className="home-card">
         <Row align="middle">
-          <Col span={17} style={{'padding-right': "10px"}}><SubscirberGrowth/></Col>
+          <Col span={17} style={{'padding-right': "10px"}}><SubscriberGrowth/></Col>
           <Col span={7} style={{padding: "10px"}}><TopLocations/></Col>
         </Row>
         <Row align="middle" >

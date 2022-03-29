@@ -4,7 +4,7 @@ import "./Home.scss";
 import { Row, Col } from 'antd';
 import { SubscriberIcon,ImpressionsIcon,SentMailIcon } from "../../assets/CountIcons";
 
-export default class TopLocations extends React.Component{
+export default class TotalCounts extends React.Component{
     render()
         {
             const locations=[

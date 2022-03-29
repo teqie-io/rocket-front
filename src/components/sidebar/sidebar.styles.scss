@@ -2,9 +2,10 @@
     border-right: solid #c5c5c5 1px;
     background-color: #0D83DD!important;
     color:#fff;
-
+    
     .ant-layout-sider-zero-width-trigger {
         background-color: #0D83DD;
+ 
     }
 
     .logo {
@@ -16,19 +17,21 @@
         background-color: #0D83DD;
         margin: 0;
         border: 0;
-
+        
         &.top {
             padding: 20px 5px 5px 15px;
+            font-size: medium;
+    
         }
 
         &.bottom {
-            font-size: small;
+            font-size: medium;
             padding:20px 0px 10px;
         }
     
         & .ant-menu-item-selected.customclass{
             font-weight: 500!important;
-            font-size: medium;
+            font-size: large;
             border-right: solid 5px!important;
             background-color: transparent!important;
         } 
@@ -46,7 +49,7 @@
       color:#0D83DD;
       border: none;
       font-weight: 400;
-      font-size: small;
+      font-size: medium;
     }
     
     .premiumimg {
