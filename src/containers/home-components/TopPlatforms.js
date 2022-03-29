@@ -78,7 +78,7 @@ export default function TopPlatforms()
                 </div>
             ))}
         </Col>
-        <Col align="middle" span={15}>
+        <Col align="left" span={15}>
           <ResponsiveContainer  width="100%" height={200}>
             <PieChart >
               {/* width={200} height={200} */}

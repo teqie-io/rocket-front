@@ -43,24 +43,19 @@ export default class TotalCounts extends React.Component{
            
         ];
         return(
-            
-     <Card 
-        style={{background:"#0D83DD"}}
-        bodyStyle={{background:"white"}}
-        className="home-card"
-      >
-            <Row gutter={85}>
+     
+            <Row gutter={25}>
             {
                 locations.map(item => (       
                      
                                     <Col span={6}>
                                       <Card className="home-card"> 
                                       <Row gutter={20} align="middle">
-                                      <Col span={12}><h2 className="count-text">{item.amount}</h2></Col>
-                                      <Col span={12} style={{fontSize:"24px"}}><h2>{item.icon}</h2></Col>
+                                        <Col align="right" span={12}><h2 className="count-text">{item.amount}</h2></Col>
+                                        <Col align="left" span={12} style={{fontSize:"24px"}}><h2>{item.icon}</h2></Col>
                                       </Row>
                                       <Row>
-                                        <Col>{item.countof}</Col>
+                                        <Col span={24}>{item.countof}</Col>
                                       </Row>
                                       
                                       </Card>
@@ -70,7 +65,7 @@ export default class TotalCounts extends React.Component{
                 )
             }
             </Row>
-      </Card>
+    
 
         )
     }

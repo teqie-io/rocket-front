@@ -64,12 +64,12 @@ export default class SubscirberGrowth extends React.Component{
 
     return(
             
-     <Card title={<div>
-                    <h2>Subscriber Growth</h2>
+     <Card title={<Row>
+                    <Col><h2>Subscriber Growth</h2></Col>
                     <Col offset={15}>
                       <DatePicker size="large" onChange={(date,dateString)=>console.log(date,dateString)} picker="month" />
                     </Col>
-                  </div>}
+                  </Row>}
         bodyStyle={{background:"white"}}
         className="home-card">
           

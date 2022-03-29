@@ -27,18 +27,18 @@ class Home extends React.Component {
           <Col span={7} style={{'padding': "10px"}}><TopBrowsers/></Col>
         </Row> */}
         {/* Trying to take less space by arranging in components in 2 columns instead of 3 rows but ruins the styling */}
-        <Row>
+        <Row align="top">
           <Col span={17} align="middle">
-              <Row style={{padding: "20px"}}><Col span={24}><SubscriberGrowth/></Col></Row>
-              <Row style={{padding: "20px"}}><Col span={24}><TotalCounts/></Col></Row>
-              <Row style={{padding: "20px"}}><Col span={24}><RecentNotifications/></Col></Row>
+              <Row style={{padding: "15px"}}><Col span={24}><SubscriberGrowth/></Col></Row>
+              <Row style={{padding: "15px"}}><Col span={24}><TotalCounts/></Col></Row>
+              <Row style={{padding: "15px"}}><Col span={24}><RecentNotifications/></Col></Row>
           </Col>
 
 
-          <Col span={7} align='right'>
-              <Row style={{padding: "20px"}}><Col span={24}><TopLocations/></Col></Row>
-              <Row style={{padding: "20px"}}><Col span={24}><TopPlatforms/></Col></Row>
-              <Row style={{padding: "20px"}}><Col span={24}><TopBrowsers/></Col></Row>
+          <Col span={7} align='middle'>
+              <Row style={{padding: "15px"}}><Col span={24}><TopLocations/></Col></Row>
+              <Row style={{padding: "15px"}}><Col span={24}><TopPlatforms/></Col></Row>
+              <Row style={{padding: "15px"}}><Col span={24}><TopBrowsers/></Col></Row>
           </Col>
         </Row>
     </Card>
