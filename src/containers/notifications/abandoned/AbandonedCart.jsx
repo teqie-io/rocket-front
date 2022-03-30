@@ -1,6 +1,6 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
-import { Card, Tabs,Button,Row,Col,Select } from 'antd';
+import { Card, Tabs,Button,Row,Col,Select,Progress } from 'antd';
 import {Link} from "react-router-dom"
 import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
@@ -50,6 +50,30 @@ const CartReport = () => {
     function handleChange(value) {
         console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
       }
+
+      const statusinfo=[
+        {
+           id: 1,
+           info:'Sent',
+           percentage: 33,
+         },
+         {
+           id: 2,
+           info:'Delivered',
+           percentage: 40 
+         },
+         {
+           id: 3,
+           info:'Open',
+           percentage: 50
+         },
+         {
+           
+           id: 4,
+           info:'Clicks',
+           percentage: 80
+         }
+   ];
     return(
         <Card>
             {/* In queue and revenue */}
@@ -76,7 +100,7 @@ const CartReport = () => {
                 </Card>
             </Col>
             {/* Status */}
-            <Row gutter={50}>
+            <Row gutter={50} style={{'padding-top':'20px'}}>
                 <Col span={12}>
                     <Card>
                         <h2>
@@ -92,6 +116,22 @@ const CartReport = () => {
                             <Option value="monthly">By month</Option>
                             <Option value="yearly">By year</Option>
                         </Select>
+                        <div style={{'padding-top':'20px'}}>
+                            {
+                                statusinfo.map(item =>{
+                                    return(
+                                        <Row style={{'padding-top':'10px'}}>
+                                            <Col span={3}>{item.info}</Col>
+                                            <Col align='left' span={21}>
+                                                <Progress percent={item.percentage} status="active" />
+                                            </Col>
+                                        </Row>
+                                    )
+                                })
+                            }
+                        </div>
+                        
+
                     </Card>    
                 </Col>
                 {/* Recovery Rates */}
@@ -99,7 +139,9 @@ const CartReport = () => {
            
             </Row>
             {/* Sales */}
-
+            <Col align='middle' span={24}>
+                sales
+            </Col>
         </Card>
 
     )
