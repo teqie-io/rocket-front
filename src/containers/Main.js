@@ -105,7 +105,6 @@ class Main extends React.Component {
               }}
             >
               <Switch>
-                {/*<Route exact path="/" render={() => <Premium />} /> to be commented out later*/}
                 <Route path="/premium" render={() => <Premium />} /> 
                 <Route path="/notifications" render={() => <Notifications />} />
                 <Route exact path="/" render={() => <Home />} />

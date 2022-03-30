@@ -164,7 +164,7 @@ export default function Premium()
                     </Row>
                     <Row >
                         <Col span={24} align='middle' style={{'padding-top':'20px',color:'#0D83DD','font-weight':' 500','font-size': '16px'}}>
-                            <a>Have a coupon code?</a>
+                            <a href="premium">Have a coupon code?</a>
                         </Col> 
                     </Row>
                 </div>

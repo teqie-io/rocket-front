@@ -14,19 +14,6 @@ class Home extends React.Component {
     
     return (
       <Card className="home-card" style={{'height':'100%'}}>
-        {/* <Row align="middle">
-          <Col span={17} style={{'padding-right': "10px"}}><SubscriberGrowth/></Col>
-          <Col span={7} style={{padding: "10px"}}><TopLocations/></Col>
-        </Row>
-        <Row align="middle" >
-          <Col span={17} style={{'padding-right': "10px"}}><TotalCounts/></Col>
-          <Col span={7} style={{padding: "10px"}}><TopPlatforms/></Col>
-        </Row>
-        <Row align="top">
-          <Col span={17} style={{'padding-right': "10px"}}><RecentNotifications/></Col>
-          <Col span={7} style={{'padding': "10px"}}><TopBrowsers/></Col>
-        </Row> */}
-        {/* Trying to take less space by arranging in components in 2 columns instead of 3 rows but ruins the styling */}
         <Row align="top">
           <Col span={17} align="middle">
               <Row style={{padding: "15px"}}><Col span={24}><SubscriberGrowth/></Col></Row>
