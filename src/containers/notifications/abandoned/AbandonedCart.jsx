@@ -1,10 +1,10 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
-import { Card, Tabs,Button,Row,Col,Select,Progress } from 'antd';
+import { Card, Tabs,Button,Row,Col,Select,Progress} from 'antd';
+import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
-
 
 const { Option } = Select;
 
@@ -25,12 +25,15 @@ function AbandonedCart()
                         <Link to='/notifications/abandoned'>TO EDIT</Link> 
                     </Button> 
                     
-                    <Row span={12}><Col span={18}> Content of Tab Pane 1</Col>
+                    <Row span={12}>
+                        <Col span={18}>
+                            Content of Tab Pane 1
+                        </Col>
                         <Switch size='30px' style={{'height':'30px','width':'60px'}}
                         checkedChildren={<CheckOutlined style={{'fontSize':'15px'}}  />}
                         unCheckedChildren={<CloseOutlined style={{'fontSize':'15px'}} />}
                         defaultChecked
-                    />
+                        />
                     </Row>
                 </Card>
             </TabPane>
@@ -79,7 +82,7 @@ const CartReport = () => {
             {/* In queue and revenue */}
             <Col span={6}>
                 <Card className='home-card'>
-                    <Row  gutter={100}>
+                    <Row gutter={70}>
                         <Col span={12}>
                             <Row align="middle">
                                 <Col align="middle" span={24}><h2 className="count-text">3</h2></Col>                      
@@ -99,10 +102,11 @@ const CartReport = () => {
                      </Row>
                 </Card>
             </Col>
-            {/* Status */}
-            <Row gutter={50} style={{'padding-top':'20px'}}>
+            
+            <Row gutter={70} align='middle' justify='center' style={{'padding-top':'20px'}}>
+                {/* Status */}
                 <Col span={12}>
-                    <Card>
+                    <Card className='home-card'>
                         <h2>
                             Status
                         </h2>
@@ -120,7 +124,7 @@ const CartReport = () => {
                             {
                                 statusinfo.map(item =>{
                                     return(
-                                        <Row style={{'padding-top':'10px'}}>
+                                        <Row gutter={70} style={{'padding-top':'10px'}}>
                                             <Col span={3}>{item.info}</Col>
                                             <Col align='left' span={21}>
                                                 <Progress percent={item.percentage} status="active" />
@@ -130,17 +134,38 @@ const CartReport = () => {
                                 })
                             }
                         </div>
-                        
-
                     </Card>    
                 </Col>
                 {/* Recovery Rates */}
-                <Col span={12}>Abandoned Recovery Rate</Col>
+                <Col span={12}>
+                    <Card className='home-card'>
+                        <h2 style={{'textAlign':'center'}}>
+                            Abandoned Cart Recovery Rates
+                        </h2> 
+                        <div style={{'textAlign':'center','paddingTop':'15px','height':'220px'}}>
+                            {/* <div style={{'padding-left':'130px'}}>
+                            <ResponsiveContainer width="60%"> */}
+                            <Progress type="dashboard"
+                            percent={82.3}
+                            format={percent => <div >
+                                                <Row  justify='center' style={{'fontSize':'32px','fontWeight':'500'}}>{percent}%</Row>
+                                                <Row style={{'padding-top':'15px','fontSize':'24px'}} justify='center'>Conversion Rate</Row>
+                                              </div>}
+                            width={300}
+                            gapDegree={145}
+                            />
+                                {/* </ResponsiveContainer>
+                            </div> */}
+                        </div>
+                    </Card>
+                </Col>
            
             </Row>
             {/* Sales */}
-            <Col align='middle' span={24}>
-                sales
+            <Col span={24} style={{'paddingTop':'30px'}} >
+                <Card title={<h2>Sales of 10 days</h2>} className='home-card' >
+                
+                </Card>
             </Col>
         </Card>
 
