@@ -20,7 +20,7 @@ function AbandonedCart()
         <Card title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
        
         <Tabs size='large' defaultActiveKey="2" onChange={callback}>
-            <TabPane tab="Flow" key="1">
+            <TabPane tab={<div style={{'fontSize':'24px'}}>Flow</div>} key="1">
                 <Card>
                     <Button>
                         <Link to='/notifications/abandoned'>TO EDIT</Link> 
@@ -38,7 +38,7 @@ function AbandonedCart()
                     </Row>
                 </Card>
             </TabPane>
-            <TabPane tab="Report" key="2">
+            <TabPane tab={<div style={{'fontSize':'24px'}}>Report</div>} key="2">
                 <CartReport/>
             </TabPane>
         </Tabs>
@@ -110,6 +110,23 @@ const CartReport = () => {
             platform:'Android',
             revenue:'Rs 250'
         },
+        {
+            product:'T-Shirt',
+            buyer:'Amit Sharma',
+            date:'9 days ago',
+            campaignID:360749,
+            platform:'Android',
+            revenue:'Rs 250'
+        },
+        {
+            product:'T-Shirt',
+            buyer:'Amit Sharma',
+            date:'9 days ago',
+            campaignID:360749,
+            platform:'Android',
+            revenue:'Rs 250'
+        },
+        
     ]
     function colorswitcher(index)
     {
@@ -122,19 +139,19 @@ const CartReport = () => {
         <Card>
             {/* In queue and revenue */}
             <Col span={6}>
-                <Card className='home-card'>
+                <Card className='home-card' style={{'background':'#F8F9FA'}}>
                     <Row gutter={70}>
                         <Col span={12}>
                             <Row align="middle">
-                                <Col align="middle" span={24}><h2 className="count-text">3</h2></Col>                      
+                                <Col align="middle" span={24}><div className="count-text">3</div></Col>                      
                             </Row>
                             <Row>
-                                <Col  align="middle" span={24}>In queue</Col>
+                                <Col  align="middle" span={24}>In Queue</Col>
                             </Row>
                         </Col>
                         <Col span={12}>
                             <Row gutter={20} align="middle">
-                            <Col align="middle" span={24}><h2 className="count-text">2k</h2></Col>                      
+                            <Col align="middle" span={24}><div className="count-text">2k</div></Col>                      
                             </Row>
                             <Row>
                                 <Col align="middle" span={24}>Revenue</Col>
@@ -148,9 +165,9 @@ const CartReport = () => {
                 {/* Status */}
                 <Col span={12}>
                     <Card className='home-card'>
-                        <h2>
+                        <div style={{'fontSize':'24px','paddingBottom':'15px'}}>
                             Status
-                        </h2>
+                        </div>
                         <Select size='large'
                         labelInValue
                         defaultValue={{ value: 'weekly' }}
@@ -180,20 +197,25 @@ const CartReport = () => {
                 {/* Recovery Rates */}
                 <Col span={12}>
                     <Card className='home-card'>
-                        <h2 style={{'textAlign':'center'}}>
+                        <div style={{'textAlign':'center',fontSize:'24px'}}>
                             Abandoned Cart Recovery Rates
-                        </h2> 
+                        </div> 
                         <div style={{'textAlign':'center','paddingTop':'15px','height':'220px'}}>
                             {/* <div style={{'padding-left':'130px'}}>
                             <ResponsiveContainer width="60%"> */}
                             <Progress type="dashboard"
                             percent={82.3}
-                            format={percent => <div >
-                                                <Row  justify='center' style={{'fontSize':'32px','fontWeight':'500'}}>{percent}%</Row>
-                                                <Row style={{'padding-top':'15px','fontSize':'24px'}} justify='center'>Conversion Rate</Row>
-                                              </div>}
+                            format={percent => <div>
+                                                    <Row  justify='center' style={{'fontSize':'32px','fontWeight':'500'}}>
+                                                        {percent}%
+                                                    </Row>
+                                                    <Row style={{'padding-top':'15px','fontSize':'24px'}} justify='center'>
+                                                        Conversion Rate
+                                                    </Row>
+                                                </div>}
                             width={300}
                             gapDegree={145}
+                            strokeWidth={8}
                             />
                                 {/* </ResponsiveContainer>
                             </div> */}
