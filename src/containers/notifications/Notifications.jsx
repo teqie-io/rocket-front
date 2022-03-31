@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Directory from "./directory/NotificationsDirectory";
 import Abandoned from "./abandoned/Abandoned";
+import AbandonedCart from "./abandoned/AbandonedCart";
 import "./notificationsDirectory.styles.scss";
 
 class Notifications extends React.Component {
@@ -22,9 +23,14 @@ class Notifications extends React.Component {
             render={() => <Directory style={{ width: "100%" }} />}
           />
           <Route
-            path={`${match.path}/abandoned`}
+             exact path={`${match.path}/cartrecovery`}
+            render={() => <AbandonedCart />}
+          />
+          <Route
+            exact path={`${match.path}/abandoned`}
             render={() => <Abandoned />}
           />
+          
         </Switch>
       </>
     );

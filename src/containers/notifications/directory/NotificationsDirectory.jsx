@@ -27,7 +27,7 @@ class Directory extends React.Component {
         id: 2,
         content: t("notif.abandoned.content"),
         state: true,
-        linkUrl: 'abandoned'
+        linkUrl: 'cartrecovery'
       },
       {
         title: t("notif.shipping.title"),
