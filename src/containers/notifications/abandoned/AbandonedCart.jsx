@@ -87,10 +87,18 @@ const CartReport = () => {
             revenue:'Rs 250'
         },
         {
-            product:'T-Shirt',
-            buyer:'Amit Sharma',
+            product:'Jeans',
+            buyer:'Amit',
             date:'9 days ago',
-            campaignID:360742,
+            campaignID:360732,
+            platform:'Apple',
+            revenue:'Rs 250'
+        },
+        {
+            product:'Jacket',
+            buyer:'Sharma',
+            date:'12 days ago',
+            campaignID:360741,
             platform:'Android',
             revenue:'Rs 250'
         },
@@ -98,20 +106,12 @@ const CartReport = () => {
             product:'T-Shirt',
             buyer:'Amit Sharma',
             date:'9 days ago',
-            campaignID:360742,
-            platform:'Android',
-            revenue:'Rs 250'
-        },
-        {
-            product:'T-Shirt',
-            buyer:'Amit Sharma',
-            date:'9 days ago',
-            campaignID:360742,
+            campaignID:360749,
             platform:'Android',
             revenue:'Rs 250'
         },
     ]
-    function colorsw(index)
+    function colorswitcher(index)
     {
         if(index%2==0)
         {return('#F8F9FA')}
@@ -204,18 +204,23 @@ const CartReport = () => {
             
             {/* Sales */}
             <Col span={24} style={{'paddingTop':'30px'}} >
-                <Card title={<h2>Sales of 10 days</h2>} bodyStyle={{'padding-right':'10px', 'padding-left':'10px'}} style={{'background':''}}>
+                <Card title={<div style={{'fontSize':'24px'}}>Sales of 10 days</div>} className='home-card' bodyStyle={{'padding-right':'10px', 'padding-left':'10px'}} style={{'background':''}}>
                     <List style={{'padding-top':'0px'}}>
                             {
                             salesreport.map((item,index) => (
-                                <List.Item style={{'padding-top':'20px',background:`${colorsw(index)}`}}>  
-                                            {/* <Col span={6} style={{'fontSize':'16px'}}>{item.product}</Col>
-                                            <Col span={6}  style={{'fontSize':'18px'}} >{item.buyer}</Col>
-                                            <Col span={6}  style={{'fontSize':'18px'}} >{item.platform}</Col>
-                                            <Col span={6}  style={{'fontSize':'18px'}} >{item.revenue}</Col>  */}
-                                            <Col span={12}>{item.product}</Col>
-                                            <Col span={6}>{index}</Col>
-                                            <Col span={6}></Col>
+                                <List.Item style={{'padding-top':'20px',background:`${colorswitcher(index)}`}}> 
+                                            <Col span={12} style={{padding:'10px','paddingLeft':'30px'}}>
+                                               <Row style={{'fontSize':'24px'}}>{item.product}</Row>
+                                               <Row style={{'fontSize':'15px'}}>{item.buyer} | {item.date} | Campaign ID:{item.campaignID}</Row> 
+                                            </Col>
+                                            <Col span={6}>
+                                                <Row justify='center' style={{'fontSize':'16px'}}>Platform</Row>
+                                                <Row justify='center' className='prem-blue-text' style={{'fontSize':'24px'}}>{item.platform}</Row>
+                                            </Col>
+                                            <Col span={6}>
+                                                <Row justify='center' style={{'fontSize':'16px'}}>Revenue</Row>
+                                                <Row justify='center' className='prem-blue-text' style={{'fontSize':'24px'}}>{item.revenue}</Row>
+                                            </Col>
                                 </List.Item>
                             ))}
                     </List>
