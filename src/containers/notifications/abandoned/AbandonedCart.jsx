@@ -1,10 +1,11 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
-import { Card, Tabs,Button,Row,Col,Select,Progress} from 'antd';
+import { Card, Tabs,Button,Row,Col,Select,Progress,List} from 'antd';
 import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import { useState } from 'react/cjs/react.production.min';
 
 const { Option } = Select;
 
@@ -14,7 +15,7 @@ function AbandonedCart()
     function callback(key) {
         console.log(key);
       }
-
+     
     return(
         <Card title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
        
@@ -51,9 +52,8 @@ export default withTranslation()(AbandonedCart);
 
 const CartReport = () => {
     function handleChange(value) {
-        console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
+        console.log(value);
       }
-
       const statusinfo=[
         {
            id: 1,
@@ -77,6 +77,47 @@ const CartReport = () => {
            percentage: 80
          }
    ];
+   const salesreport=[
+        {
+            product:'T-Shirt',
+            buyer:'Amit Sharma',
+            date:'9 days ago',
+            campaignID:360742,
+            platform:'Android',
+            revenue:'Rs 250'
+        },
+        {
+            product:'T-Shirt',
+            buyer:'Amit Sharma',
+            date:'9 days ago',
+            campaignID:360742,
+            platform:'Android',
+            revenue:'Rs 250'
+        },
+        {
+            product:'T-Shirt',
+            buyer:'Amit Sharma',
+            date:'9 days ago',
+            campaignID:360742,
+            platform:'Android',
+            revenue:'Rs 250'
+        },
+        {
+            product:'T-Shirt',
+            buyer:'Amit Sharma',
+            date:'9 days ago',
+            campaignID:360742,
+            platform:'Android',
+            revenue:'Rs 250'
+        },
+    ]
+    function colorsw(index)
+    {
+        if(index%2==0)
+        {return('#F8F9FA')}
+        else
+        {return('')}
+    }
     return(
         <Card>
             {/* In queue and revenue */}
@@ -127,7 +168,7 @@ const CartReport = () => {
                                         <Row gutter={70} style={{'padding-top':'10px'}}>
                                             <Col span={3}>{item.info}</Col>
                                             <Col align='left' span={21}>
-                                                <Progress percent={item.percentage} status="active" />
+                                                <Progress percent={item.percentage} status="active" /> {/*  strokeColor={'red'} to change color */}
                                             </Col>
                                         </Row>
                                     )
@@ -158,13 +199,26 @@ const CartReport = () => {
                             </div> */}
                         </div>
                     </Card>
-                </Col>
-           
+                </Col>               
             </Row>
+            
             {/* Sales */}
             <Col span={24} style={{'paddingTop':'30px'}} >
-                <Card title={<h2>Sales of 10 days</h2>} className='home-card' >
-                
+                <Card title={<h2>Sales of 10 days</h2>} bodyStyle={{'padding-right':'10px', 'padding-left':'10px'}} style={{'background':''}}>
+                    <List style={{'padding-top':'0px'}}>
+                            {
+                            salesreport.map((item,index) => (
+                                <List.Item style={{'padding-top':'20px',background:`${colorsw(index)}`}}>  
+                                            {/* <Col span={6} style={{'fontSize':'16px'}}>{item.product}</Col>
+                                            <Col span={6}  style={{'fontSize':'18px'}} >{item.buyer}</Col>
+                                            <Col span={6}  style={{'fontSize':'18px'}} >{item.platform}</Col>
+                                            <Col span={6}  style={{'fontSize':'18px'}} >{item.revenue}</Col>  */}
+                                            <Col span={12}>{item.product}</Col>
+                                            <Col span={6}>{index}</Col>
+                                            <Col span={6}></Col>
+                                </List.Item>
+                            ))}
+                    </List>
                 </Card>
             </Col>
         </Card>
