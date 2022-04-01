@@ -5,8 +5,11 @@ import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
-import { useState } from 'react/cjs/react.production.min';
+import {useState} from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
+import { AddReminderIcon } from '../../../assets/CountIcons';
+
+
 const { Option } = Select;
 
 function AbandonedCart()
@@ -21,7 +24,7 @@ function AbandonedCart()
                             <Link to='/notifications/abandoned'>
                                 <Card title={<h2>REMINDER 1</h2>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
-                                    <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
+                                    <Row style={{'fontSize':'12px','color':'#626262'}}>Notification's Preview</Row>
                                 </Card>
                             </Link>
             } style={{'paddingTop':'200px',cursor:'pointer'}}></Timeline.Item>
@@ -32,25 +35,30 @@ function AbandonedCart()
             console.log(value);
           }
         return(
-            <Timeline.Item style={{'paddingTop':'200px'}} dot={
-                <Card className='home-card' style={{'width':'300px'}}> 
-                    <Row>
-                    <Col span={12} style={{'paddingTop':'10px'}}><ClockCircleOutlined/> Wait for</Col>
-                    <Col span={12}>
-                    <Select
-                            labelInValue
-                            defaultValue={{ value: '30' }}
-                            size="large"
-                            onChange={handleChange}
-                            >
-                                <Option value='30'>30 minutes</Option>
-                                <Option value='60'>1 hour</Option>
-                                <Option value='120'>2 hours</Option>
-                            </Select>
-                    </Col>
-                    </Row>
-                </Card>}>
-                
+            <Timeline.Item style={{'paddingTop':'200px','width':'500px'}} dot={
+                <Row>
+                <Col span={20}>
+                    <Card className='home-card' style={{'width':'300px'}}> 
+                        <Row>
+                        <Col span={12} style={{'paddingTop':'10px'}}><ClockCircleOutlined/> Wait for</Col>
+                        <Col span={12}>
+                        <Select
+                                labelInValue
+                                defaultValue={{ value: '30' }}
+                                size="large"
+                                onChange={handleChange}
+                                >
+                                    <Option value='30'>30 minutes</Option>
+                                    <Option value='60'>1 hour</Option>
+                                    <Option value='120'>2 hours</Option>
+                                </Select>
+                        </Col>
+                        </Row>
+                    </Card>
+                </Col>
+                <Col span={4}><button>Remove</button></Col>
+                </Row>
+                }>
             </Timeline.Item>
         )
     }
@@ -62,6 +70,8 @@ function AbandonedCart()
             </>
         )
     }
+    //const arr=[<ReminderCard/>,<ReminderCard/>]
+    const [reminderState,setReminder]=useState([<ReminderCard/>])
     return(
         <Card title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
        
@@ -76,8 +86,13 @@ function AbandonedCart()
                         <Col>
                             <Card>OS</Card>
                         </Col>
+                        {/* MAIN FLOW */}
                         <Col>
-                            <Timeline pending={<button className='plan-btn'>ADD REMINDER</button>}  style={{'padding':'100px','width':'400px'}}>
+                            <Timeline pending={
+                                                <AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
+                                                onClick={()=>setReminder(prevState=>[...prevState,<ReminderCard/>])}/>
+                                              }
+                            style={{'padding':'100px','width':'400px'}}>
                                 <Timeline.Item dot={
                                     <Card className='home-card' justify='center' align='middle'>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Trigger</Row>
@@ -85,8 +100,8 @@ function AbandonedCart()
                                 </Card>
                                 } style={{'paddingTop':'200px'}}></Timeline.Item>
                                 
-                                <ReminderCard/>
-                                <ReminderCard/>
+                                {reminderState.map(item=>item)}
+
                             </Timeline>
                         </Col>
                         <Col style={{'paddingTop':'25px'}}>
