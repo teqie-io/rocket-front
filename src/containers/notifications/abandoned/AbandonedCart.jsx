@@ -161,7 +161,7 @@ const CartReport = () => {
                 </Card>
             </Col>
             
-            <Row gutter={70} align='middle' justify='center' style={{'padding-top':'20px'}}>
+            <Row gutter={70} align='middle' justify='center' style={{'paddingTop':'20px'}}>
                 {/* Status */}
                 <Col span={12}>
                     <Card className='home-card'>
@@ -178,11 +178,11 @@ const CartReport = () => {
                             <Option value="monthly">By month</Option>
                             <Option value="yearly">By year</Option>
                         </Select>
-                        <div style={{'padding-top':'20px'}}>
+                        <div style={{'paddingTop':'20px'}}>
                             {
                                 statusinfo.map(item =>{
                                     return(
-                                        <Row gutter={70} style={{'padding-top':'10px'}}>
+                                        <Row gutter={70} style={{'paddingTop':'10px'}}>
                                             <Col span={3}>{item.info}</Col>
                                             <Col align='left' span={21}>
                                                 <Progress percent={item.percentage} status="active" /> {/*  strokeColor={'red'} to change color */}
@@ -201,7 +201,7 @@ const CartReport = () => {
                             Abandoned Cart Recovery Rates
                         </div> 
                         <div style={{'textAlign':'center','paddingTop':'15px','height':'220px'}}>
-                            {/* <div style={{'padding-left':'130px'}}>
+                            {/* <div style={{'paddingLeft':'130px'}}>
                             <ResponsiveContainer width="60%"> */}
                             <Progress type="dashboard"
                             percent={82.3}
@@ -209,7 +209,7 @@ const CartReport = () => {
                                                     <Row  justify='center' style={{'fontSize':'32px','fontWeight':'500'}}>
                                                         {percent}%
                                                     </Row>
-                                                    <Row style={{'padding-top':'15px','fontSize':'24px'}} justify='center'>
+                                                    <Row style={{'paddingTop':'15px','fontSize':'24px'}} justify='center'>
                                                         Conversion Rate
                                                     </Row>
                                                 </div>}
@@ -226,11 +226,11 @@ const CartReport = () => {
             
             {/* Sales */}
             <Col span={24} style={{'paddingTop':'30px'}} >
-                <Card title={<div style={{'fontSize':'24px'}}>Sales of 10 days</div>} className='home-card' bodyStyle={{'padding-right':'10px', 'padding-left':'10px'}} style={{'background':''}}>
-                    <List style={{'padding-top':'0px'}}>
+                <Card title={<div style={{'fontSize':'24px'}}>Sales of 10 days</div>} className='home-card' bodyStyle={{'paddingRight':'10px', 'paddingLeft':'10px'}} style={{'background':''}}>
+                    <List style={{'paddingTop':'0px'}}>
                             {
                             salesreport.map((item,index) => (
-                                <List.Item style={{'padding-top':'20px',background:`${colorswitcher(index)}`}}> 
+                                <List.Item style={{'paddingTop':'20px',background:`${colorswitcher(index)}`}}> 
                                             <Col span={12} style={{padding:'10px','paddingLeft':'30px'}}>
                                                <Row style={{'fontSize':'24px'}}>{item.product}</Row>
                                                <Row style={{'fontSize':'15px'}}>{item.buyer} | {item.date} | Campaign ID:{item.campaignID}</Row> 

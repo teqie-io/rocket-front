@@ -52,7 +52,7 @@ export default class TopLocations extends React.Component{
        {locations.map(item => (
          <div>
                 <Row >
-                    <Col align="middle" span={7} style={{'font-size':'25px'}}>{item.icon}</Col>
+                    <Col align="middle" span={7} style={{'fontSize':'25px'}}>{item.icon}</Col>
                     <Col align="left" span={7} style={{'paddingTop':'5px'}} >{item.country}</Col>
                     <Col align="middle" span={10} className="home-perc" >{item.percentage}%</Col>          
                 </Row>
