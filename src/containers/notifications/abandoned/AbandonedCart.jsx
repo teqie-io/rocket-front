@@ -17,11 +17,49 @@ function AbandonedCart()
       }
       const TmpCard= () =>{
         return(
-            <Card className='home-card' justify='center' align='middle'>
-                                <Row style={{'fontSize':'16px','fontWeight':'500'}}>Trigger</Row>
-                                <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
-                            </Card>
-            
+            <Timeline.Item dot={
+                            <Link to='/notifications/abandoned'>
+                                <Card title={<h2>REMINDER 1</h2>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+                                    <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
+                                    <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
+                                </Card>
+                            </Link>
+            } style={{'paddingTop':'200px',cursor:'pointer'}}></Timeline.Item>
+        )
+    }
+    const WaitRem= () => {
+        function handleChange(value) {
+            console.log(value);
+          }
+        return(
+            <Timeline.Item style={{'paddingTop':'200px'}} dot={
+                <Card className='home-card' style={{'width':'300px'}}> 
+                    <Row>
+                    <Col span={12} style={{'paddingTop':'10px'}}><ClockCircleOutlined/> Wait for</Col>
+                    <Col span={12}>
+                    <Select
+                            labelInValue
+                            defaultValue={{ value: '30' }}
+                            size="large"
+                            onChange={handleChange}
+                            >
+                                <Option value='30'>30 minutes</Option>
+                                <Option value='60'>1 hour</Option>
+                                <Option value='120'>2 hours</Option>
+                            </Select>
+                    </Col>
+                    </Row>
+                </Card>}>
+                
+            </Timeline.Item>
+        )
+    }
+    const ReminderCard = () =>{
+        return(
+            <>
+            <WaitRem/>
+            <TmpCard/>
+            </>
         )
     }
     return(
@@ -39,12 +77,16 @@ function AbandonedCart()
                             <Card>OS</Card>
                         </Col>
                         <Col>
-                            <Timeline  style={{'padding':'100px','width':'400px'}}>
-                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
-                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
-                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
-                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
-                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
+                            <Timeline pending={<button className='plan-btn'>ADD REMINDER</button>}  style={{'padding':'100px','width':'400px'}}>
+                                <Timeline.Item dot={
+                                    <Card className='home-card' justify='center' align='middle'>
+                                    <Row style={{'fontSize':'16px','fontWeight':'500'}}>Trigger</Row>
+                                    <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
+                                </Card>
+                                } style={{'paddingTop':'200px'}}></Timeline.Item>
+                                
+                                <ReminderCard/>
+                                <ReminderCard/>
                             </Timeline>
                         </Col>
                         <Col style={{'paddingTop':'25px'}}>
