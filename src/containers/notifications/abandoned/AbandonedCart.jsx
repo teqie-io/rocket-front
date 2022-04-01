@@ -1,12 +1,12 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
-import { Card, Tabs,Button,Row,Col,Select,Progress,List} from 'antd';
+import { Card, Tabs,Button,Row,Col,Select,Progress,List,Timeline} from 'antd';
 import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import { useState } from 'react/cjs/react.production.min';
-
+import { ClockCircleOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 function AbandonedCart()
@@ -15,26 +15,45 @@ function AbandonedCart()
     function callback(key) {
         console.log(key);
       }
-     
+      const TmpCard= () =>{
+        return(
+            <Card className='home-card' justify='center' align='middle'>
+                                <Row style={{'fontSize':'16px','fontWeight':'500'}}>Trigger</Row>
+                                <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
+                            </Card>
+            
+        )
+    }
     return(
         <Card title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
        
-        <Tabs size='large' defaultActiveKey="2" onChange={callback}>
+        <Tabs size='large' defaultActiveKey="1" onChange={callback}>
             <TabPane tab={<div style={{'fontSize':'24px'}}>Flow</div>} key="1">
                 <Card>
                     <Button>
                         <Link to='/notifications/abandoned'>TO EDIT</Link> 
                     </Button> 
                     
-                    <Row span={12}>
-                        <Col span={18}>
-                            Content of Tab Pane 1
+                    <Row justify='center' gutter={60}>
+                        <Col>
+                            <Card>OS</Card>
                         </Col>
+                        <Col>
+                            <Timeline  style={{'padding':'100px','width':'400px'}}>
+                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
+                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
+                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
+                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
+                                <Timeline.Item dot={<TmpCard/>} style={{'paddingTop':'200px'}}></Timeline.Item>
+                            </Timeline>
+                        </Col>
+                        <Col style={{'paddingTop':'25px'}}>
                         <Switch size='30px' style={{'height':'30px','width':'60px'}}
                         checkedChildren={<CheckOutlined style={{'fontSize':'15px'}}  />}
                         unCheckedChildren={<CloseOutlined style={{'fontSize':'15px'}} />}
                         defaultChecked
                         />
+                        </Col>
                     </Row>
                 </Card>
             </TabPane>
