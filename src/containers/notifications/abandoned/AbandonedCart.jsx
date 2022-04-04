@@ -5,7 +5,7 @@ import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import { Switch,Radio } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import { ClockCircleOutlined,DeleteOutlined ,EditOutlined,ThunderboltOutlined } from '@ant-design/icons';
 import { AddReminderIcon } from '../../../assets/CountIcons';
 import AbandonedNotifications from './abandonedNotifications/AbandonedNotifications';
@@ -19,7 +19,7 @@ function AbandonedCart()
     function callback(key) {
         console.log(key);
       }
-    const [osVal,setOs] =useState("mac")
+    const [osVal,setOs] =useState("android")
     const initialValues = {
         
         Title: "Thanks for joining us",
@@ -32,13 +32,17 @@ function AbandonedCart()
           ],
       };
       function onChangeOs(e){
-          setOs(e.target.value)
+          setOs(e.target.value);
+          //setReminder({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
       };
+      useEffect(() => {
+        setReminder({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
+      }, [osVal])
     const RemCard= (props) =>{
         return(
-            <Timeline.Item dot={
+            <Timeline.Item style={{'paddingTop':'220px',paddingBottom:'150px'}} dot={
                             <Link to='/notifications/abandoned'>
-                                <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+                                <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
                                     <Row>
                                         {osVal=="mac" && <AbandonedNotifications mac {...initialValues}/>}
@@ -48,7 +52,7 @@ function AbandonedCart()
                                     </Row>
                                 </Card>
                             </Link>
-            } style={{'paddingTop':'200px',cursor:'pointer'}}></Timeline.Item>
+            } ></Timeline.Item>
         )
     }
     const WaitRem= (props) => {
@@ -56,7 +60,7 @@ function AbandonedCart()
             console.log(value);
           }
         return(
-            <Timeline.Item style={{'paddingTop':'200px','width':'500px'}} dot={
+            <Timeline.Item style={{'paddingTop':'230px',paddingBottom:'100px','width':'500px'}} dot={
                 <Row>
                 <Col span={23}>
                     <Card className='home-card' style={{'width':'300px'}}> 
@@ -150,7 +154,7 @@ function AbandonedCart()
                                 } style={{'paddingTop':'200px'}}></Timeline.Item>
                                 
                                 {/* *******THE REMINDERS BEING MAPPED FROM STATE********** */}
-                                {reminderState.rems.map((item,i)=>{return(<div key ={i}>{item}</div >)})}
+                                {reminderState.rems.map((item,i)=>{return(<div key ={i} >{item}</div >)})}
 
                                 {/* ADD REMINDER BUTTON */}
                                 <Timeline.Item dot ={<AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
