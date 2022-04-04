@@ -6,8 +6,9 @@ import {Link} from "react-router-dom"
 import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import {useState} from 'react';
-import { ClockCircleOutlined } from '@ant-design/icons';
+import { ClockCircleOutlined,DeleteOutlined ,EditOutlined } from '@ant-design/icons';
 import { AddReminderIcon } from '../../../assets/CountIcons';
+import Item from 'antd/lib/list/Item';
 
 
 const { Option } = Select;
@@ -18,11 +19,11 @@ function AbandonedCart()
     function callback(key) {
         console.log(key);
       }
-      const TmpCard= () =>{
+      const RemCard= (props) =>{
         return(
             <Timeline.Item dot={
                             <Link to='/notifications/abandoned'>
-                                <Card title={<h2>REMINDER 1</h2>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+                                <Card title={<h2>REMINDER {props.reminderNo}<EditOutlined align='right'/></h2>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
                                     <Row style={{'fontSize':'12px','color':'#626262'}}>Notification's Preview</Row>
                                 </Card>
@@ -30,14 +31,14 @@ function AbandonedCart()
             } style={{'paddingTop':'200px',cursor:'pointer'}}></Timeline.Item>
         )
     }
-    const WaitRem= () => {
+    const WaitRem= (props) => {
         function handleChange(value) {
             console.log(value);
           }
         return(
             <Timeline.Item style={{'paddingTop':'200px','width':'500px'}} dot={
                 <Row>
-                <Col span={20}>
+                <Col span={23}>
                     <Card className='home-card' style={{'width':'300px'}}> 
                         <Row>
                         <Col span={12} style={{'paddingTop':'10px'}}><ClockCircleOutlined/> Wait for</Col>
@@ -56,22 +57,37 @@ function AbandonedCart()
                         </Row>
                     </Card>
                 </Col>
-                <Col span={4}><button>Remove</button></Col>
+                <Col span={1}>
+                    {/* remove below 2 comments if dont want delete for 1st reminder */}
+                    {/* {props.reminderNo>1 && */}    
+                    <DeleteOutlined onClick={()=>setReminder(prevState=>
+                    {
+                        let arr=prevState.rems.slice(0,-1)
+                        return({remindex:prevState.remindex-1,
+                        rems:arr
+                    })
+                    })}
+                    
+                    style={{fontSize:'32px',cursor:"pointer",'padding':'20px','paddingTop':'30px'}}/>
+                    {/* } */}
+                </Col>
                 </Row>
-                }>
+                }
+                >
             </Timeline.Item>
         )
     }
-    const ReminderCard = () =>{
+    const ReminderCard = (props) =>{
         return(
             <>
-            <WaitRem/>
-            <TmpCard/>
+            <WaitRem reminderNo={props.reminderNo}/>
+            <RemCard reminderNo={props.reminderNo}/>
             </>
         )
     }
-    //const arr=[<ReminderCard/>,<ReminderCard/>]
-    const [reminderState,setReminder]=useState([<ReminderCard/>])
+
+    const [reminderState,setReminder]=useState({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
+    
     return(
         <Card title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
        
@@ -88,20 +104,31 @@ function AbandonedCart()
                         </Col>
                         {/* MAIN FLOW */}
                         <Col>
-                            <Timeline pending={
-                                                <AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
-                                                onClick={()=>setReminder(prevState=>[...prevState,<ReminderCard/>])}/>
-                                              }
-                            style={{'padding':'100px','width':'400px'}}>
+                            <Timeline style={{'padding':'100px','width':'400px'}}>
+                                {/* TRIGGER CARD */}
                                 <Timeline.Item dot={
-                                    <Card className='home-card' justify='center' align='middle'>
+                                    <Card className='home-card' justify='center' align='middle'>   
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Trigger</Row>
                                     <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
                                 </Card>
                                 } style={{'paddingTop':'200px'}}></Timeline.Item>
                                 
-                                {reminderState.map(item=>item)}
+                                {/* *******THE REMINDERS BEING MAPPED FROM STATE********** */}
+                                {reminderState.rems.map((item,i)=>{return(<div key ={i}>{item}</div >)})}
 
+                                {/* ADD REMINDER BUTTON */}
+                                <Timeline.Item dot ={<AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
+                                                    onClick={()=>setReminder(prevState=>{
+                                                                return(
+                                                                        {
+                                                                            remindex:prevState.remindex+1,
+                                                                            rems:[...prevState.rems,<ReminderCard reminderNo={reminderState.remindex+1}/>]
+                                                                        }
+                                                                    )
+                                                                })
+                                                            }/>
+                                                    }>
+                                </Timeline.Item>
                             </Timeline>
                         </Col>
                         <Col style={{'paddingTop':'25px'}}>
