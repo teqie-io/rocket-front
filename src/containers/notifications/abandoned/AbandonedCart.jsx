@@ -3,12 +3,12 @@ import { withTranslation } from 'react-i18next';
 import { Card, Tabs,Button,Row,Col,Select,Progress,List,Timeline} from 'antd';
 import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
-import { Switch } from 'antd';
+import { Switch,Radio } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import {useState} from 'react';
-import { ClockCircleOutlined,DeleteOutlined ,EditOutlined } from '@ant-design/icons';
+import { ClockCircleOutlined,DeleteOutlined ,EditOutlined,ThunderboltOutlined } from '@ant-design/icons';
 import { AddReminderIcon } from '../../../assets/CountIcons';
-import Item from 'antd/lib/list/Item';
+import AbandonedNotifications from './abandonedNotifications/AbandonedNotifications';
 
 
 const { Option } = Select;
@@ -19,13 +19,33 @@ function AbandonedCart()
     function callback(key) {
         console.log(key);
       }
-      const RemCard= (props) =>{
+    const [osVal,setOs] =useState("mac")
+    const initialValues = {
+        
+        Title: "Thanks for joining us",
+        targetLink: `asd`,
+        message: "Buy them now before they get out of stock",
+        buttonName: "Shop now",
+        buttonLink: `sds`,
+        buttons: [
+            { name: 'initialValues.buttonName', link: 'initialValues.buttonLink '},
+          ],
+      };
+      function onChangeOs(e){
+          setOs(e.target.value)
+      };
+    const RemCard= (props) =>{
         return(
             <Timeline.Item dot={
                             <Link to='/notifications/abandoned'>
-                                <Card title={<h2>REMINDER {props.reminderNo}<EditOutlined align='right'/></h2>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+                                <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
-                                    <Row style={{'fontSize':'12px','color':'#626262'}}>Notification's Preview</Row>
+                                    <Row>
+                                        {osVal=="mac" && <AbandonedNotifications mac {...initialValues}/>}
+                                        {osVal=="windows8" && <AbandonedNotifications windows8 {...initialValues}/>}
+                                        {osVal=="windows10" && <AbandonedNotifications windows10 {...initialValues}/>}
+                                        {osVal=="android" && <AbandonedNotifications android {...initialValues}/>}
+                                    </Row>
                                 </Card>
                             </Link>
             } style={{'paddingTop':'200px',cursor:'pointer'}}></Timeline.Item>
@@ -89,26 +109,42 @@ function AbandonedCart()
     const [reminderState,setReminder]=useState({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
     
     return(
-        <Card title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
+        <Card className='home-card' title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
        
         <Tabs size='large' defaultActiveKey="1" onChange={callback}>
             <TabPane tab={<div style={{'fontSize':'24px'}}>Flow</div>} key="1">
-                <Card>
-                    <Button>
-                        <Link to='/notifications/abandoned'>TO EDIT</Link> 
-                    </Button> 
-                    
-                    <Row justify='center' gutter={60}>
-                        <Col>
-                            <Card>OS</Card>
+                <Card className='home-card'>
+                    <Row gutter={130}>
+                        <Col align='left'>
+                            <Card className='home-card'>
+                                    <Radio.Group onChange={onChangeOs} value={osVal}  optionType="button" buttonStyle="solid" >
+                                        <Radio.Button value="mac">
+                                            <div>
+                                            Mac OS
+                                            </div>
+                                        </Radio.Button>
+                                        <Radio.Button value="android">
+                                            <div>
+                                            Android
+                                            </div>
+                                        </Radio.Button>
+                                        <Radio.Button value="windows10">
+                                            <div >
+                                            Windows
+                                            </div>
+                                        </Radio.Button>
+
+                                    </Radio.Group>
+                                        </Card>
                         </Col>
                         {/* MAIN FLOW */}
                         <Col>
-                            <Timeline style={{'padding':'100px','width':'400px'}}>
+                            <Timeline style={{'padding-left':'200px','paddingTop':'50px','width':'400px'}}>
                                 {/* TRIGGER CARD */}
                                 <Timeline.Item dot={
                                     <Card className='home-card' justify='center' align='middle'>   
-                                    <Row style={{'fontSize':'16px','fontWeight':'500'}}>Trigger</Row>
+                                    <Row style={{'fontSize':'16px','fontWeight':'500'}}><ThunderboltOutlined style={{'fontSize':'20px','paddingTop':'5px',paddingRight:'5px'}}/>Trigger
+                                    </Row>
                                     <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
                                 </Card>
                                 } style={{'paddingTop':'200px'}}></Timeline.Item>
