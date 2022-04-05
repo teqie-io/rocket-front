@@ -50,7 +50,7 @@ export default class TopLocations extends React.Component{
         bordered={false}
       >
        {locations.map(item => (
-         <div>
+         <div key={item.id}>
                 <Row >
                     <Col align="middle" span={7} style={{'fontSize':'25px'}}>{item.icon}</Col>
                     <Col align="left" span={7} style={{'paddingTop':'5px'}} >{item.country}</Col>

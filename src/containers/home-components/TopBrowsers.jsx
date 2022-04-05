@@ -49,7 +49,7 @@ export default class TopBrowsers extends React.Component{
         className="home-card"
       >
        {locations.map(item => (
-         <div>
+         <div key={item.id}>
                 <Row>
                     <Col align="middle" span={7} style={{'fontSize':'25px'}}>{item.icon}</Col>
                     <Col align="left" span={7} style={{'paddingTop':'5px'}} >{item.browser}</Col>

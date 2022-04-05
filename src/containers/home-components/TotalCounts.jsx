@@ -48,7 +48,7 @@ export default class TotalCounts extends React.Component{
             {
                 locations.map(item => (       
                      
-                                    <Col span={6}>
+                                    <Col key={item.id} span={6}>
                                       <Card className="home-card"> 
                                       <Row gutter={20} align="middle">
                                         <Col align="right" span={12}><h2 className="count-text">{item.amount}</h2></Col>

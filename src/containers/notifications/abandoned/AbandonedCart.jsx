@@ -1,6 +1,6 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
-import { Card, Tabs,Button,Row,Col,Select,Progress,List,Timeline} from 'antd';
+import { Card, Tabs,Row,Col,Select,Progress,List,Timeline} from 'antd';
 //import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import { Switch,Radio } from 'antd';
@@ -56,10 +56,10 @@ function AbandonedCart()
                                 <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
                                     <Row>
-                                        {osVal=="mac" && <AbandonedNotifications mac {...initialValues}/>}
-                                        {osVal=="windows8" && <AbandonedNotifications windows8 {...initialValues}/>}
-                                        {osVal=="windows10" && <AbandonedNotifications windows10 {...initialValues}/>}
-                                        {osVal=="android" && <AbandonedNotifications android {...initialValues}/>}
+                                        {osVal==="mac" && <AbandonedNotifications mac {...initialValues}/>}
+                                        {osVal==="windows8" && <AbandonedNotifications windows8 {...initialValues}/>}
+                                        {osVal==="windows10" && <AbandonedNotifications windows10 {...initialValues}/>}
+                                        {osVal==="android" && <AbandonedNotifications android {...initialValues}/>}
                                     </Row>
                                 </Card>
                             </Link>
@@ -158,7 +158,7 @@ function AbandonedCart()
                         </Col>
                         {/* MAIN FLOW */}
                         <Col>
-                            <Timeline style={{'padding-left':'200px','paddingTop':'50px','width':'400px'}}>
+                            <Timeline style={{'paddingLeft':'200px','paddingTop':'50px','width':'400px'}}>
                                 {/* TRIGGER CARD */}
                                 <Timeline.Item dot={
                                     <Card className='home-card' justify='center' align='middle'>   
@@ -282,7 +282,7 @@ const CartReport = () => {
             product:'T-Shirt',
             buyer:'Amit Sharma',
             date:'9 days ago',
-            campaignID:360749,
+            campaignID:360746,
             platform:'Android',
             revenue:'Rs 250'
         },
@@ -290,7 +290,7 @@ const CartReport = () => {
             product:'T-Shirt',
             buyer:'Amit Sharma',
             date:'9 days ago',
-            campaignID:360749,
+            campaignID:360449,
             platform:'Android',
             revenue:'Rs 250'
         },
@@ -298,7 +298,7 @@ const CartReport = () => {
     ]
     function colorswitcher(index)
     {
-        if(index%2==0)
+        if(index%2===0)
         {return('#F8F9FA')}
         else
         {return('')}
@@ -350,7 +350,7 @@ const CartReport = () => {
                             {
                                 statusinfo.map(item =>{
                                     return(
-                                        <Row gutter={70} style={{'paddingTop':'10px'}}>
+                                        <Row key={item.id} gutter={70} style={{'paddingTop':'10px'}}>
                                             <Col span={3}>{item.info}</Col>
                                             <Col align='left' span={21}>
                                                 <Progress percent={item.percentage} status="active" /> {/*  strokeColor={'red'} to change color */}
@@ -398,7 +398,7 @@ const CartReport = () => {
                     <List style={{'paddingTop':'0px'}}>
                             {
                             salesreport.map((item,index) => (
-                                <List.Item style={{'paddingTop':'20px',background:`${colorswitcher(index)}`}}> 
+                                <List.Item key={item.campaignID} style={{'paddingTop':'20px',background:`${colorswitcher(index)}`}}> 
                                             <Col span={12} style={{padding:'10px','paddingLeft':'30px'}}>
                                                <Row style={{'fontSize':'24px'}}>{item.product}</Row>
                                                <Row style={{'fontSize':'15px'}}>{item.buyer} | {item.date} | Campaign ID:{item.campaignID}</Row> 

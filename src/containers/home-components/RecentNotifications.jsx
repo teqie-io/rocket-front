@@ -58,7 +58,7 @@ export default class RecentNotifications extends React.Component{
       
         <List style={{'paddingTop':'0px'}}>
           {notifications.map(item => (
-            <List.Item style={{'paddingTop':'20px'}}>  
+            <List.Item key={item.id} style={{'paddingTop':'20px'}}>  
                         <Col span={6} style={{'fontSize':'16px'}}>{item.content}</Col>
                         <Col span={6}  style={{'fontSize':'18px'}} >{item.amount}</Col>
                         <Col span={6}  style={{'fontSize':'18px'}} >{item.value1}</Col>
