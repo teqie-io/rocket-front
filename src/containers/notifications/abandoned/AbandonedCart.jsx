@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
 import { Card, Tabs,Button,Row,Col,Select,Progress,List,Timeline} from 'antd';
-import {ResponsiveContainer} from 'recharts';
+//import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import { Switch,Radio } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
@@ -19,7 +19,7 @@ function AbandonedCart()
     function callback(key) {
         console.log(key);
       }
-    const [osVal,setOs] =useState("android")
+    //   temporary values for notification
     const initialValues = {
         
         Title: "Thanks for joining us",
@@ -31,13 +31,16 @@ function AbandonedCart()
             { name: 'initialValues.buttonName', link: 'initialValues.buttonLink '},
           ],
       };
+    //   SWITCHING OS VIEWS
+      const [osVal,setOs] =useState("android")
       function onChangeOs(e){
           setOs(e.target.value);
-          //setReminder({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
       };
       useEffect(() => {
         setReminder({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
       }, [osVal])
+
+    // reminder card  
     const RemCard= (props) =>{
         return(
             <Timeline.Item style={{'paddingTop':'220px',paddingBottom:'150px'}} dot={
@@ -55,6 +58,8 @@ function AbandonedCart()
             } ></Timeline.Item>
         )
     }
+
+    // time to wait before reminder card
     const WaitRem= (props) => {
         function handleChange(value) {
             console.log(value);
@@ -101,6 +106,8 @@ function AbandonedCart()
             </Timeline.Item>
         )
     }
+
+    // reminder and wait timer bundled together
     const ReminderCard = (props) =>{
         return(
             <>
@@ -109,7 +116,7 @@ function AbandonedCart()
             </>
         )
     }
-
+    // initial state set to 1 reminder
     const [reminderState,setReminder]=useState({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
     
     return(
@@ -154,7 +161,16 @@ function AbandonedCart()
                                 } style={{'paddingTop':'200px'}}></Timeline.Item>
                                 
                                 {/* *******THE REMINDERS BEING MAPPED FROM STATE********** */}
-                                {reminderState.rems.map((item,i)=>{return(<div key ={i} >{item}</div >)})}
+                                {
+                                    reminderState.rems.map((item,i)=>
+                                        {return(
+                                            <div key ={i}>
+                                                {item}
+                                            </div>
+                                                )
+                                        }
+                                    )
+                                }
 
                                 {/* ADD REMINDER BUTTON */}
                                 <Timeline.Item dot ={<AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
@@ -181,6 +197,7 @@ function AbandonedCart()
                     </Row>
                 </Card>
             </TabPane>
+            {/* TAB 2 ABANDONED CART REPORT */}
             <TabPane tab={<div style={{'fontSize':'24px'}}>Report</div>} key="2">
                 <CartReport/>
             </TabPane>
@@ -192,7 +209,7 @@ function AbandonedCart()
 
 export default withTranslation()(AbandonedCart);
 
-
+// CART REPORT
 const CartReport = () => {
     function handleChange(value) {
         console.log(value);
