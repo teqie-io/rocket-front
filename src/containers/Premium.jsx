@@ -62,7 +62,7 @@ export default function Premium()
     const Business= () =>{
         return(
             <Card title={
-                <div className="prem-title" style={{'color':'white','padding-top':'5px'}}>
+                <div className="prem-title" style={{'color':'white','paddingTop':'5px'}}>
                     Business
                 </div>
             } 
@@ -82,7 +82,7 @@ export default function Premium()
                     <Col span={24} offset={4}>
                         <ul className="ul1">
                             <li>All Basic Features </li>
-                            <li style={{'color':'#0D83DD','font-weight':'500'}}>Abandoned Cart Automation</li>
+                            <li style={{'color':'#0D83DD','fontWeight':'500'}}>Abandoned Cart Automation</li>
                             <li>Shipping Notification</li>
                             <li>Hero Image Support</li>
                             <li>Subscriber Details</li>
@@ -146,16 +146,16 @@ export default function Premium()
             <Row justify="center" >
                 <div>
                     <Row>
-                        <Col span={24} align='middle'><div style={{'fontSize':'36px','fontWeight':'500','padding-bottom':'20px'}}>Pick a plan</div></Col>
+                        <Col span={24} align='middle'><div style={{'fontSize':'36px','fontWeight':'500','paddingBottom':'20px'}}>Pick a plan</div></Col>
                     </Row>
                     <Row>
                         <Radio.Group onChange={onChange2} value={optionVal.duration}  optionType="button" buttonStyle="solid" >
-                            <Radio.Button value="monthly" style={{'height':'58px','width':'172px','border-top-left-radius':'12px','border-bottom-left-radius':'12px'}} >
+                            <Radio.Button value="monthly" style={{'height':'58px','width':'172px','borderTopLeftRadius':'12px','borderBottomLeftRadius':'12px'}} >
                                 <div className='plan-btn'>
                                    Monthly
                                 </div>
                             </Radio.Button>
-                            <Radio.Button  value="yearly"  style={{'height':'58px','width':'172px','border-top-right-radius':'12px','border-bottom-right-radius':'12px'}}>
+                            <Radio.Button  value="yearly"  style={{'height':'58px','width':'172px','borderTopRightRadius':'12px','borderBottomRightRadius':'12px'}}>
                                 <div  className='plan-btn'>
                                     Yearly
                                 </div>
@@ -163,7 +163,7 @@ export default function Premium()
                         </Radio.Group>
                     </Row>
                     <Row >
-                        <Col span={24} align='middle' style={{'padding-top':'20px',color:'#0D83DD','font-weight':' 500','font-size': '16px'}}>
+                        <Col span={24} align='middle' style={{'paddingTop':'20px',color:'#0D83DD','fontWeight':' 500','fontSize': '16px'}}>
                             <a href="premium">Have a coupon code?</a>
                         </Col> 
                     </Row>
@@ -174,12 +174,12 @@ export default function Premium()
                 <Col span={8}> <Basic/>      </Col>
                 <Col span={8}> <Business/>      </Col>
                 <Col span={8}> <Enterprise/> </Col>
-                <Col style={{'padding-top':'15px'}}>**All plans come with unlimited subscribers</Col>
+                <Col style={{'paddingTop':'15px'}}>**All plans come with unlimited subscribers</Col>
             </Row>
 
             <Row justify="center" align="middle" gutter={30}>
                 <Col span={19} offset={2}>
-                    <Card title={<div className="prem-title" style={{'color':'white','padding-top':'0px'}}>Current Plan</div>}
+                    <Card title={<div className="prem-title" style={{'color':'white','paddingTop':'0px'}}>Current Plan</div>}
                     style={{background:"#0D83DD"}}
                     bodyStyle={{background:"#BDDCF3"}}
                     className="prem-card">

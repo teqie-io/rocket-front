@@ -6,7 +6,7 @@ import {
   CheckCircleFilled,
   PlusOutlined,
 } from "@ant-design/icons";
-
+import { Link } from "react-router-dom";
 const { TextArea } = Input;
 
 class AbandonedForm extends React.Component {
@@ -238,19 +238,22 @@ class AbandonedForm extends React.Component {
         >
           <Col span={8}>
             <Form.Item>
-              <Button
-                type="primary"
-                size="large"
-                style={{
-                  background: "#36A900",
-                  border: "1.28918px solid #36A900",
-                  width: "100%",
-                  borderRadius: "5px",
-                }}
-                onClick={onSubmit}
-              >
-                {t('abandonedNotifForm.saveButton')}
-              </Button>
+              {/* link to cart flow */}
+              <Link to='/notifications/cartrecovery'> 
+                <Button
+                  type="primary"
+                  size="large"
+                  style={{
+                    background: "#36A900",
+                    border: "1.28918px solid #36A900",
+                    width: "100%",
+                    borderRadius: "5px",
+                  }}
+                  onClick={onSubmit}
+                >
+                  {t('abandonedNotifForm.saveButton')}
+                </Button>
+              </Link>
             </Form.Item>
           </Col>
           <Col span={15} push={1}>
