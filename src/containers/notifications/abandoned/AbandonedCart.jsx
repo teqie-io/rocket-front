@@ -32,18 +32,26 @@ function AbandonedCart()
           ],
       };
     //   SWITCHING OS VIEWS
-      const [osVal,setOs] =useState("android")
+      const [osVal,setOs] =useState("mac")
       function onChangeOs(e){
-          setOs(e.target.value);
+        // DIFFERENT PADDING FOR SMALLER MAC NOTIFICATIONS
+        if(e.target.value==='mac')
+        {setPadding('100px')}
+        else
+        {setPadding('230px')}
+        setOs(e.target.value);
+          
       };
       useEffect(() => {
         setReminder({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
       }, [osVal])
+      // padding state for different os views
+      const [rempadding,setPadding]=useState('100px')
 
     // reminder card  
     const RemCard= (props) =>{
         return(
-            <Timeline.Item style={{'paddingTop':'220px',paddingBottom:'150px'}} dot={
+            <Timeline.Item style={{'paddingTop':`${rempadding}`,paddingBottom:'150px'}} dot={
                             <Link to='/notifications/abandoned'>
                                 <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
@@ -65,7 +73,7 @@ function AbandonedCart()
             console.log(value);
           }
         return(
-            <Timeline.Item style={{'paddingTop':'230px',paddingBottom:'100px','width':'500px'}} dot={
+            <Timeline.Item style={{'paddingTop':`${rempadding}`,paddingBottom:'100px','width':'500px'}} dot={
                 <Row>
                 <Col span={23}>
                     <Card className='home-card' style={{'width':'300px'}}> 
