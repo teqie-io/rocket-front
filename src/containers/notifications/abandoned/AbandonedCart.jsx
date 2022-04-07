@@ -154,7 +154,7 @@ function AbandonedCart()
                                         </Radio.Button>
 
                                     </Radio.Group>
-                                        </Card>
+                            </Card>
                         </Col>
                         {/* MAIN FLOW */}
                         <Col>
@@ -162,11 +162,15 @@ function AbandonedCart()
                                 {/* TRIGGER CARD */}
                                 <Timeline.Item dot={
                                     <Card className='home-card' justify='center' align='middle'>   
-                                    <Row style={{'fontSize':'16px','fontWeight':'500'}}><ThunderboltOutlined style={{'fontSize':'20px','paddingTop':'5px',paddingRight:'5px'}}/>Trigger
-                                    </Row>
-                                    <Row style={{'fontSize':'12px','color':'#626262'}}>When customer adds a product to the cart</Row>
-                                </Card>
-                                } style={{'paddingTop':'200px'}}></Timeline.Item>
+                                        <Row style={{'fontSize':'16px','fontWeight':'500'}}>
+                                            <ThunderboltOutlined style={{'fontSize':'20px','paddingTop':'5px',paddingRight:'5px'}}/>Trigger
+                                        </Row>
+                                        <Row style={{'fontSize':'12px','color':'#626262'}}>
+                                            When customer adds a product to the cart
+                                        </Row>
+                                    </Card>
+                                } style={{'paddingTop':'200px'}}>
+                                </Timeline.Item>
                                 
                                 {/* *******THE REMINDERS BEING MAPPED FROM STATE********** */}
                                 {
