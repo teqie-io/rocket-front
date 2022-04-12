@@ -69,7 +69,7 @@ function AbandonedCart()
 
     // time to wait before reminder card
     const WaitRem= (props) => {
-        function handleChange(value) {
+    function handleChange(value) {
             console.log(value);
           }
         return(
