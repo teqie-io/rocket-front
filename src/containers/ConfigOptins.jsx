@@ -9,7 +9,7 @@ export default function ConfigOptins()
     function handleChange(value) {
         console.log(value);
       }
-    const [customPrompt,setPrompt] =useState(true)
+    const [customPrompt,setPrompt] =useState(false)
     function onChange(e) {
         setPrompt(e.target.checked)
       }
@@ -35,7 +35,7 @@ export default function ConfigOptins()
                     bodyStyle={{background:"white"}}
                     bordered={false}
                     >
-                        <Row style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Set a timer according to when you want the browser prompt to be shown</Row>
+                        <Row className='greytext'>Set a timer according to when you want the browser prompt to be shown</Row>
                         <Row>
                             <Col span={12}>
                                 <Card title="Desktop">
@@ -86,15 +86,17 @@ export default function ConfigOptins()
                     bordered={false}
                     >
                         <Checkbox onChange={onChange}><h1>Show a custom confirmation prompt</h1></Checkbox>
-                        <Row style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>
+                        <Row className='greytext'>
                             Give your store visitors more context with a customizable opt-in dialog.
                         </Row>
                     </Card>
                 </Col>
             </Row>
-            {customPrompt &&
-            <Row>
+            {/* Render on check */}
+        {customPrompt &&
+            <div style={{'padding':'20px'}}>
                 <Card bordered={false}>
+
                     <Col span={16}>
                         <h1>Title</h1>
                         <Input placeholder="Title" className='configtext' /> 
@@ -104,7 +106,7 @@ export default function ConfigOptins()
                         <Input placeholder="Description" className='configtext' /> 
                     </Col>  
 
-                    <Row style={{'padding':'20px'}} gutter={50}>
+                    <Row  gutter={50}>
                         <Card  title={<div className='prem-blue-text'> Button - Allow</div>}>
                             <Row>
                                 <Col span={12}>
@@ -143,10 +145,92 @@ export default function ConfigOptins()
                         </Card>
                     </Row>
 
-                </Card>
-            </Row>}
-                
+               
+   
+            <Col span={15}>
+                <h2>Opt-in timings</h2>
+                <Row className='greytext'>
+                Set a timer according to when you want the browser prompt to be shown
+                </Row>
+                <Row>
+                            <Col span={12}>
+                                <Card title="Desktop">
+                                    <Row>
+                                        <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
+                                        <Select size='medium'
+                                        labelInValue
+                                        defaultValue={{ value: '5' }}
+                                        style={{ width: 150 }}
+                                        onChange={handleChange}
+                                        >
+                                            <Option value="5">5 seconds</Option>
+                                            <Option value="20">20 seconds</Option>
+                                            <Option value="30">30 seconds</Option>
+                                        </Select>
+                                    </Row>
+                                </Card>
+                            </Col>
+                            <Col span={12}>
+                                <Card title="Mobile"
+                                >
+                                    <Row>
+                                        <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
+                                        <Select size='medium'
+                                        labelInValue
+                                        defaultValue={{ value: '5' }}
+                                        style={{ width: 150 }}
+                                        onChange={handleChange}
+                                        >
+                                            <Option value="5">5 seconds</Option>
+                                            <Option value="20">20 seconds</Option>
+                                            <Option value="30">30 seconds</Option>
+                                        </Select>
+                                    </Row>
+                                </Card>
+                            </Col>
+                </Row>
+                <Row>
+                    <h1>Max prompt count session</h1>
+                </Row>
+                <Row>
+                    <div className='greytext'>Show the prompt maximum
+                        <Select size='medium'
+                                            labelInValue
+                                            defaultValue={{ value: '1' }}
+                                            style={{ width: 60,padding:'10px' }}
+                                            onChange={handleChange}
+                                            >
+                                                <Option value="1">1</Option>
+                                                <Option value="2">2</Option>
+                                                <Option value="3">3</Option>
+                        </Select>
+                    per session</div>
+                </Row>
+                <Row>
+                <h1>Frequency</h1>
+            </Row>
+            <Row>
+                <div className='greytext'>Hide the prompt for
+                    <Select size='medium'
+                                        labelInValue
+                                        defaultValue={{ value: '2' }}
+                                        style={{ width: 60,padding:'10px' }}
+                                        onChange={handleChange}
+                                        >
+                                            <Option value="1">1</Option>
+                                            <Option value="2">2</Option>
+                                            <Option value="3">3</Option>
+                    </Select>
+                 days after it is shown to a visitor</div>
+            </Row>
+            </Col>
             </Card>
+        </div>
+        }
+        {/* render on check end */}
+
+         {/* Browser prompt overlay        */}
+        </Card>
         </Card>
     )
 }
