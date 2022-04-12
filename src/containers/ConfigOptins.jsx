@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row,Col,Card,Select} from 'antd'
+import {Row,Col,Card,Select,Checkbox,Input} from 'antd'
 import { useState,setState } from 'react'
 
 const { Option } = Select;
@@ -9,7 +9,10 @@ export default function ConfigOptins()
     function handleChange(value) {
         console.log(value);
       }
-      
+    const [customPrompt,setPrompt] =useState(true)
+    function onChange(e) {
+        setPrompt(e.target.checked)
+      }
     return(
         <Card title={<h2>Subscriber Prompt</h2>}>
             <Card title={
@@ -82,9 +85,66 @@ export default function ConfigOptins()
                     bodyStyle={{background:"white"}}
                     bordered={false}
                     >
+                        <Checkbox onChange={onChange}><h1>Show a custom confirmation prompt</h1></Checkbox>
+                        <Row style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>
+                            Give your store visitors more context with a customizable opt-in dialog.
+                        </Row>
                     </Card>
                 </Col>
             </Row>
+            {customPrompt &&
+            <Row>
+                <Card bordered={false}>
+                    <Col span={16}>
+                        <h1>Title</h1>
+                        <Input placeholder="Title" className='configtext' /> 
+                    </Col>  
+                    <Col span={16}>
+                        <h1>Description</h1>
+                        <Input placeholder="Description" className='configtext' /> 
+                    </Col>  
+
+                    <Row style={{'padding':'20px'}} gutter={50}>
+                        <Card  title={<div className='prem-blue-text'> Button - Allow</div>}>
+                            <Row>
+                                <Col span={12}>
+                                    <h1>Title</h1>
+                                    <Input placeholder="Allow" className='configtext' /> 
+                                </Col> 
+                            </Row>
+                            <Row gutter={50}>
+                                <Col span={12}>
+                                    <h1>Background Color</h1>
+                                    <Input placeholder="#272727" className='configtext'/>   
+                                </Col>
+                                <Col span={12}>
+                                    <h1>Text Color</h1>
+                                    <Input placeholder="#AAAAAA" className='configtext' />   
+                                </Col>
+                            </Row>
+                        </Card>
+                        <Card  title={<div className='prem-blue-text'> Button - Later</div>}>
+                            <Row>
+                                <Col span={12}>
+                                    <h1>Title</h1>
+                                    <Input placeholder="Later" className='configtext' /> 
+                                </Col> 
+                            </Row>
+                            <Row gutter={50}>
+                                <Col span={12}>
+                                    <h1>Background Color</h1>
+                                    <Input placeholder="#272727" className='configtext'/>   
+                                </Col>
+                                <Col span={12}>
+                                    <h1>Text Color</h1>
+                                    <Input placeholder="#AAAAAA" className='configtext' />   
+                                </Col>
+                            </Row>
+                        </Card>
+                    </Row>
+
+                </Card>
+            </Row>}
                 
             </Card>
         </Card>
