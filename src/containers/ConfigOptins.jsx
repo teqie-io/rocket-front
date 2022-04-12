@@ -10,8 +10,11 @@ export default function ConfigOptins()
         console.log(value);
       }
     const [customPrompt,setPrompt] =useState(false)
-    function onChange(e) {
+    function onChangeCustomPrompt(e) {
         setPrompt(e.target.checked)
+      }
+      function onChangeBrowserPrompt(e) {
+        console.log(e.target.checked)
       }
     return(
         <Card title={<h2>Subscriber Prompt</h2>}>
@@ -85,28 +88,28 @@ export default function ConfigOptins()
                     bodyStyle={{background:"white"}}
                     bordered={false}
                     >
-                        <Checkbox onChange={onChange}><h1>Show a custom confirmation prompt</h1></Checkbox>
+                        <Checkbox onChange={onChangeCustomPrompt}><h1>Show a custom confirmation prompt</h1></Checkbox>
                         <Row className='greytext'>
                             Give your store visitors more context with a customizable opt-in dialog.
                         </Row>
                     </Card>
                 </Col>
             </Row>
-            {/* Render on check */}
+        {/* Render on check */}
         {customPrompt &&
-            <div style={{'padding':'20px'}}>
+            <div style={{'padding':'2px'}}>
                 <Card bordered={false}>
 
                     <Col span={16}>
                         <h1>Title</h1>
-                        <Input placeholder="Title" className='configtext' /> 
+                        <Input placeholder="Title" className='configtext' style={{'width':'200px'}} /> 
                     </Col>  
                     <Col span={16}>
                         <h1>Description</h1>
                         <Input placeholder="Description" className='configtext' /> 
                     </Col>  
 
-                    <Row  gutter={50}>
+                    <Row  gutter={50} style={{'padding':'10px'}}>
                         <Card  title={<div className='prem-blue-text'> Button - Allow</div>}>
                             <Row>
                                 <Col span={12}>
@@ -229,7 +232,21 @@ export default function ConfigOptins()
         }
         {/* render on check end */}
 
-         {/* Browser prompt overlay        */}
+        {/* Browser prompt overlay */}
+        <Row>
+                <Col span={14}>
+                    <Card title={<div style={{'color':'#0D83DD',fontSize:'24px'}}>Browser prompt overlay </div>}
+                    style={{background:"rgba(13, 131, 221, 0.25)"}}
+                    bodyStyle={{background:"white"}}
+                    bordered={false}
+                    >
+                        <Checkbox onChange={onChangeBrowserPrompt}><h1>Enable Overlay</h1></Checkbox>
+                        <Row className='greytext'>
+                        Use this overlay to show an attractive message to your visitors and urge them to subscribe.
+                        </Row>
+                    </Card>
+                </Col>
+        </Row>
         </Card>
         </Card>
     )
