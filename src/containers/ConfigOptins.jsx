@@ -247,33 +247,52 @@ export default function ConfigOptins()
                     </Card>
                 </Col>
         </Row>
+        {/* FLYOUT WIDGET */}
         <Row>
             <Col span={24}>
-                <Card title={<h2>FLYOUT WIDGET</h2>} >
+                <Card>
+                    <div style={{'fontSize':'24px','paddingBottom':'20px','paddingTop':'20px'}}>FLYOUT WIDGET</div>
                     <Row>
                     {/* messages */}
                     <Col span={12} align='left' >
                         <Timeline size="" mode="left">
                             <Timeline.Item>
-                                <div><Row>Message before user subscribes</Row><Input style={{'width':'70%'}} className='configtext'/></div>
+                                <div>
+                                    <Row style={{'fontSize':'18px'}}>
+                                        Message before user subscribes
+                                    </Row>
+                                    <Input style={{'width':'70%'}} className='configtext'/>
+                                </div>
                             </Timeline.Item>
                             <Timeline.Item>
-                                <div><Row>Message after user subscribes</Row><Input style={{'width':'70%'}} className='configtext'/></div>
+                                <div>
+                                    <Row style={{'fontSize':'18px'}}>
+                                        Message after user subscribe
+                                    </Row>
+                                    <Input style={{'width':'70%'}} className='configtext'/>
+                                </div>
                             </Timeline.Item>
                             <Timeline.Item>
-                                <div><Row>Button for subscribe</Row><Input style={{'width':'25%'}} className='configtext'/></div>
+                                <div>
+                                    <Row style={{'fontSize':'18px'}} >
+                                        Button for subscribe
+                                    </Row>
+                                    <Input style={{'width':'25%'}} className='configtext'/>
+                                </div>
                             </Timeline.Item>
                         </Timeline>
                     </Col>
                     {/* preview */}
                     <Col span={12}>
-                        <Card title="Preview"  bordered={false}>
+                        <Card bordered={false}>
+                        <div style={{'fontSize':'24px','paddingBottom':'20px','paddingTop':'20px'}}>FLYOUT WIDGET</div>
+
                             <Card bodyStyle={{'background':'#F8F8F8'}} className='home-card'>
                                 <Row justify='center' gutter={40}>
                                     <Col span={17} align="middle">
                                         We would like to share our product
                                     </Col>
-                                    <Col span={7}>
+                                    <Col span={7} style={{'color':'#0D83DD',fontWeight:'500',cursor:'pointer'}}>
                                             Subscribe
                                     </Col>
                                 </Row>
