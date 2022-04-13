@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row,Col,Card,Select,Checkbox,Input} from 'antd'
+import {Row,Col,Card,Select,Checkbox,Input,Timeline} from 'antd'
 import { useState,setState } from 'react'
 
 const { Option } = Select;
@@ -109,7 +109,7 @@ export default function ConfigOptins()
                         <Input placeholder="Description" className='configtext' /> 
                     </Col>  
 
-                    <Row  gutter={50} style={{'padding':'10px'}}>
+                    <Row  gutter={50} style={{'padding':'25px'}}>
                         <Card  title={<div className='prem-blue-text'> Button - Allow</div>}>
                             <Row>
                                 <Col span={12}>
@@ -246,6 +246,43 @@ export default function ConfigOptins()
                         </Row>
                     </Card>
                 </Col>
+        </Row>
+        <Row>
+            <Col span={24}>
+                <Card title={<h2>FLYOUT WIDGET</h2>} >
+                    <Row>
+                    {/* messages */}
+                    <Col span={12} align='left' >
+                        <Timeline size="" mode="left">
+                            <Timeline.Item>
+                                <div><Row>Message before user subscribes</Row><Input style={{'width':'70%'}} className='configtext'/></div>
+                            </Timeline.Item>
+                            <Timeline.Item>
+                                <div><Row>Message after user subscribes</Row><Input style={{'width':'70%'}} className='configtext'/></div>
+                            </Timeline.Item>
+                            <Timeline.Item>
+                                <div><Row>Button for subscribe</Row><Input style={{'width':'25%'}} className='configtext'/></div>
+                            </Timeline.Item>
+                        </Timeline>
+                    </Col>
+                    {/* preview */}
+                    <Col span={12}>
+                        <Card title="Preview"  bordered={false}>
+                            <Card bodyStyle={{'background':'#F8F8F8'}} className='home-card'>
+                                <Row justify='center' gutter={40}>
+                                    <Col span={17} align="middle">
+                                        We would like to share our product
+                                    </Col>
+                                    <Col span={7}>
+                                            Subscribe
+                                    </Col>
+                                </Row>
+                            </Card>
+                        </Card>
+                    </Col>
+                    </Row>
+                </Card>
+            </Col>
         </Row>
         </Card>
         </Card>
