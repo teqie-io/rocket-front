@@ -16,6 +16,17 @@ export default function ConfigOptins()
       function onChangeBrowserPrompt(e) {
         console.log(e.target.checked)
       }
+
+
+    // flyout widget state
+    const [widgetText,setWidgetText]=useState(
+        {
+            before:"We would like to share our product.",
+            after:"Thank you for subscribing",
+            button:"Subscribe",
+            mode:true
+        }
+        )
     return(
         <Card title={<h2>Subscriber Prompt</h2>}>
             <Card title={
@@ -261,7 +272,12 @@ export default function ConfigOptins()
                                     <Row style={{'fontSize':'18px'}}>
                                         Message before user subscribes
                                     </Row>
-                                    <Input style={{'width':'70%'}} className='configtext'/>
+                                    <Input
+                                    onFocus={()=>{setWidgetText({before:widgetText.before,after:widgetText.after,button:widgetText.button,mode:true})}}
+                                    value={widgetText.before} 
+                                    onChange={(e)=>{setWidgetText({before:e.target.value,after:widgetText.after,button:widgetText.button,mode:widgetText.mode})}} 
+                                    style={{'width':'70%'}} className='configtext'
+                                    />
                                 </div>
                             </Timeline.Item>
                             <Timeline.Item>
@@ -269,7 +285,12 @@ export default function ConfigOptins()
                                     <Row style={{'fontSize':'18px'}}>
                                         Message after user subscribe
                                     </Row>
-                                    <Input style={{'width':'70%'}} className='configtext'/>
+                                    <Input
+                                    onFocus={()=>{setWidgetText({before:widgetText.before,after:widgetText.after,button:widgetText.button,mode:false})}}
+                                    value={widgetText.after} 
+                                    onChange={(e)=>{setWidgetText({before:widgetText.before,after:e.target.value,button:widgetText.button,mode:widgetText.mode})}} 
+                                    style={{'width':'70%'}} className='configtext'
+                                    />
                                 </div>
                             </Timeline.Item>
                             <Timeline.Item>
@@ -277,7 +298,11 @@ export default function ConfigOptins()
                                     <Row style={{'fontSize':'18px'}} >
                                         Button for subscribe
                                     </Row>
-                                    <Input style={{'width':'25%'}} className='configtext'/>
+                                    <Input
+                                    value={widgetText.button} 
+                                    onChange={(e)=>{setWidgetText({before:widgetText.before,after:widgetText.after,button:e.target.value,mode:widgetText.mode})}}
+                                    style={{'width':'25%'}} className='configtext'
+                                    />
                                 </div>
                             </Timeline.Item>
                         </Timeline>
@@ -290,10 +315,11 @@ export default function ConfigOptins()
                             <Card bodyStyle={{'background':'#F8F8F8'}} className='home-card'>
                                 <Row justify='center' gutter={40}>
                                     <Col span={17} align="middle">
-                                        We would like to share our product
+                                        {widgetText.mode && widgetText.before}
+                                        {widgetText.mode || widgetText.after} 
                                     </Col>
                                     <Col span={7} style={{'color':'#0D83DD',fontWeight:'500',cursor:'pointer'}}>
-                                            Subscribe
+                                        {widgetText.button}
                                     </Col>
                                 </Row>
                             </Card>
