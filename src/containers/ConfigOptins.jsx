@@ -115,7 +115,7 @@ export default function ConfigOptins()
                         <h1>Title</h1>
                         <Input placeholder="Title" className='configtext' style={{'width':'200px'}} /> 
                     </Col>  
-                    <Col span={16}>
+                    <Col span={16} style={{'paddingTop':'15px'}}>
                         <h1>Description</h1>
                         <Input placeholder="Description" className='configtext' /> 
                     </Col>  
@@ -162,8 +162,8 @@ export default function ConfigOptins()
                
    
             <Col span={15}>
-                <h2>Opt-in timings</h2>
-                <Row className='greytext'>
+                <div style={{'padding':'15px',fontSize:'24px',fontWeight:500}}>Opt-in timings</div>
+                <Row style={{'padding':'10px'}} className='greytext'>
                 Set a timer according to when you want the browser prompt to be shown
                 </Row>
                 <Row>
@@ -203,7 +203,7 @@ export default function ConfigOptins()
                                 </Card>
                             </Col>
                 </Row>
-                <Row>
+                <Row style={{'paddingTop':'20px'}}>
                     <h1>Max prompt count session</h1>
                 </Row>
                 <Row>
@@ -263,7 +263,7 @@ export default function ConfigOptins()
             <Col span={24}>
                 <Card>
                     <div style={{'fontSize':'24px','paddingBottom':'20px','paddingTop':'20px'}}>FLYOUT WIDGET</div>
-                    <Row>
+                    <Row justify='center'>
                     {/* messages */}
                     <Col span={12} align='left' >
                         <Timeline size="" mode="left">
