@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row,Col,Card,Select,Checkbox,Input,Timeline} from 'antd'
+import {Row,Col,Card,Select,Checkbox,Input,InputNumber,Timeline} from 'antd'
 import { useState,setState } from 'react'
 
 const { Option } = Select;
@@ -53,36 +53,18 @@ export default function ConfigOptins()
                         <Row>
                             <Col span={12}>
                                 <Card title="Desktop">
-                                    <Row>
+                                    <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <Select size='medium'
-                                        labelInValue
-                                        defaultValue={{ value: '5' }}
-                                        style={{ width: 150 }}
-                                        onChange={handleChange}
-                                        >
-                                            <Option value="5">5 seconds</Option>
-                                            <Option value="20">20 seconds</Option>
-                                            <Option value="30">30 seconds</Option>
-                                        </Select>
+                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
                                     </Row>
                                 </Card>
                             </Col>
                             <Col span={12}>
                                 <Card title="Mobile"
                                 >
-                                    <Row>
+                                    <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <Select size='medium'
-                                        labelInValue
-                                        defaultValue={{ value: '5' }}
-                                        style={{ width: 150 }}
-                                        onChange={handleChange}
-                                        >
-                                            <Option value="5">5 seconds</Option>
-                                            <Option value="20">20 seconds</Option>
-                                            <Option value="30">30 seconds</Option>
-                                        </Select>
+                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
                                     </Row>
                                 </Card>
                             </Col>
@@ -169,36 +151,18 @@ export default function ConfigOptins()
                 <Row>
                             <Col span={12}>
                                 <Card title="Desktop">
-                                    <Row>
+                                    <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <Select size='medium'
-                                        labelInValue
-                                        defaultValue={{ value: '5' }}
-                                        style={{ width: 150 }}
-                                        onChange={handleChange}
-                                        >
-                                            <Option value="5">5 seconds</Option>
-                                            <Option value="20">20 seconds</Option>
-                                            <Option value="30">30 seconds</Option>
-                                        </Select>
+                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
                                     </Row>
                                 </Card>
                             </Col>
                             <Col span={12}>
                                 <Card title="Mobile"
                                 >
-                                    <Row>
+                                    <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <Select size='medium'
-                                        labelInValue
-                                        defaultValue={{ value: '5' }}
-                                        style={{ width: 150 }}
-                                        onChange={handleChange}
-                                        >
-                                            <Option value="5">5 seconds</Option>
-                                            <Option value="20">20 seconds</Option>
-                                            <Option value="30">30 seconds</Option>
-                                        </Select>
+                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
                                     </Row>
                                 </Card>
                             </Col>
@@ -208,16 +172,7 @@ export default function ConfigOptins()
                 </Row>
                 <Row>
                     <div className='greytext'>Show the prompt maximum
-                        <Select size='medium'
-                                            labelInValue
-                                            defaultValue={{ value: '1' }}
-                                            style={{ width: 60,padding:'10px' }}
-                                            onChange={handleChange}
-                                            >
-                                                <Option value="1">1</Option>
-                                                <Option value="2">2</Option>
-                                                <Option value="3">3</Option>
-                        </Select>
+                    <InputNumber className='configtext' style={{'width':'50px'}} defaultValue={1} />
                     per session</div>
                 </Row>
                 <Row>
@@ -225,16 +180,7 @@ export default function ConfigOptins()
             </Row>
             <Row>
                 <div className='greytext'>Hide the prompt for
-                    <Select size='medium'
-                                        labelInValue
-                                        defaultValue={{ value: '2' }}
-                                        style={{ width: 60,padding:'10px' }}
-                                        onChange={handleChange}
-                                        >
-                                            <Option value="1">1</Option>
-                                            <Option value="2">2</Option>
-                                            <Option value="3">3</Option>
-                    </Select>
+                <InputNumber className='configtext' style={{'width':'50px'}} defaultValue={3} />
                  days after it is shown to a visitor</div>
             </Row>
             </Col>
