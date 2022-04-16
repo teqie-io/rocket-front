@@ -137,7 +137,7 @@ function AbandonedCart()
         buttonName: "Shop now",
         buttonLink: `sds`,
         buttons: [
-            { name: 'initialValues.buttonName', link: 'initialValues.buttonLink '},
+            { name: 'first button', link: 'second button'},
           ],
       },
       {
@@ -150,7 +150,7 @@ function AbandonedCart()
         buttonLink: `sds`,
         buttons: [
             { name: 'button 1', link: 'asd'},
-            { name: 'button the second', link: 'asds'},
+            { name: 'button 2', link: 'asds'},
           ],
       }
     ])
@@ -159,7 +159,7 @@ function AbandonedCart()
        setReminder((prevState)=>{
             let arr= prevState
             let index =prevState.length
-            //temporary card
+            //default card added
             arr.push(
                 {
                     reminderNo:index+1,
@@ -178,12 +178,12 @@ function AbandonedCart()
             console.log(reminderState)//to be sent to api
             return(arr)
             })
-            setRefresh(refresh+1)//to refresh on adding reminder..tried putting the reminderState in the dependency array itself , but didnt work
+            setRefresh(refresh+1)//to re-render on adding reminder..tried putting the reminderState in the dependency array itself , but didnt work
             
         
     }
     
-    const [refresh,setRefresh] =useState(1) //to refresh on adding reminder..tried putting the reminderState in the dependency array itself , but didnt work
+    const [refresh,setRefresh] =useState(1) //to re-render on adding reminder..tried putting the reminderState in the dependency array itself , but didnt work
      
     //useEffect to re-render on changing os view
      useEffect(() => {
