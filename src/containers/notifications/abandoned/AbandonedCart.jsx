@@ -20,21 +20,21 @@ function AbandonedCart()
         console.log(key);
       }
     //   temporary values for notification
-    const initialValues=
+    // const initialValues=
         
-            {
-                reminderNo:3,
-                waitFor:'120',
-                Title: "Hello, customer",
-                targetLink: `asd`,
-                message: "Buy them now before they get out of stock",
-                buttonName: "Shop now",
-                buttonLink: `sds`,
-                buttons: [
-                    { name: 'button 1', link: 'asd'},
-                    { name: 'button the second', link: 'asds'},
-                  ],
-              }
+    //         {
+    //             reminderNo:3,
+    //             waitFor:'120',
+    //             Title: "Hello, customer",
+    //             targetLink: `asd`,
+    //             message: "Buy them now before they get out of stock",
+    //             buttonName: "Shop now",
+    //             buttonLink: `sds`,
+    //             buttons: [
+    //                 { name: 'button 1', link: 'asd'},
+    //                 { name: 'button the second', link: 'asds'},
+    //               ],
+    //           }
         
     //   SWITCHING OS VIEWS
       const [osVal,setOs] =useState("android")
@@ -156,7 +156,7 @@ function AbandonedCart()
     ])
      //useEffect to re-render on changing os view
      useEffect(() => {
-        // setReminder(reminderState)
+        setReminder(reminderState)
      }, [osVal,reminderState])
     return(
         <Card className='home-card' title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
@@ -219,9 +219,24 @@ function AbandonedCart()
                                 <Timeline.Item dot ={<AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
                                                     onClick={()=>setReminder(prevState=>{
                                                                 let arr= prevState
-                                                                arr.push(initialValues)
-                                                                console.log(prevState[0])
-                                                                console.log(initialValues)
+                                                                let index =prevState.length
+                                                                //temporary card
+                                                                arr.push(
+                                                                    {
+                                                                        reminderNo:index+1,
+                                                                        waitFor:'30',
+                                                                        Title: "Hello, customer",
+                                                                        targetLink: `asd`,
+                                                                        message: "Buy them now before they get out of stock",
+                                                                        buttonName: "Shop now",
+                                                                        buttonLink: `sds`,
+                                                                        buttons: [
+                                                                            { name: 'button 1', link: 'asd'},
+                                                                            { name: 'button the second', link: 'asds'},
+                                                                          ],
+                                                                      }
+                                                                )
+                                                                console.log(reminderState)//to be sent to api
                                                                 return(arr)
                                                                 })
                                                             }
