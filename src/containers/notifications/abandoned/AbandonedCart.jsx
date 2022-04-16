@@ -20,8 +20,10 @@ function AbandonedCart()
         console.log(key);
       }
     //   temporary values for notification
-    const initialValues = {
-        
+    const initialValues=(props) => {
+        return({
+        reminderNo:3,
+        waitFor:'30',
         Title: "Thanks for joining us",
         targetLink: `asd`,
         message: "Buy them now before they get out of stock",
@@ -29,10 +31,10 @@ function AbandonedCart()
         buttonLink: `sds`,
         buttons: [
             { name: 'initialValues.buttonName', link: 'initialValues.buttonLink '},
-          ],
+          ],})
       };
     //   SWITCHING OS VIEWS
-      const [osVal,setOs] =useState("mac")
+      const [osVal,setOs] =useState("android")
       function onChangeOs(e){
         // DIFFERENT PADDING FOR SMALLER MAC NOTIFICATIONS
         if(e.target.value==='mac')
@@ -42,11 +44,13 @@ function AbandonedCart()
         setOs(e.target.value);
           
       };
+      //useEffect to re-render on changing os view
       useEffect(() => {
-        setReminder({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
       }, [osVal])
+
+
       // padding state for different os views
-      const [rempadding,setPadding]=useState('100px')
+      const [rempadding,setPadding]=useState('230px')
 
     // reminder card  
     const RemCard= (props) =>{
@@ -56,10 +60,10 @@ function AbandonedCart()
                                 <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
                                     <Row>
-                                        {osVal==="mac" && <AbandonedNotifications mac {...initialValues}/>}
-                                        {osVal==="windows8" && <AbandonedNotifications windows8 {...initialValues}/>}
-                                        {osVal==="windows10" && <AbandonedNotifications windows10 {...initialValues}/>}
-                                        {osVal==="android" && <AbandonedNotifications android {...initialValues}/>}
+                                        {osVal==="mac" && <AbandonedNotifications mac {...props}/>}
+                                        {osVal==="windows8" && <AbandonedNotifications windows8 {...props}/>}
+                                        {osVal==="windows10" && <AbandonedNotifications windows10 {...props}/>}
+                                        {osVal==="android" && <AbandonedNotifications android {...props}/>}
                                     </Row>
                                 </Card>
                             </Link>
@@ -82,7 +86,7 @@ function AbandonedCart()
                         <Col span={12}>
                         <Select
                                 labelInValue
-                                defaultValue={{ value: '30' }}
+                                defaultValue={{ value: props.waitFor }}
                                 size="large"
                                 onChange={handleChange}
                                 >
@@ -99,10 +103,8 @@ function AbandonedCart()
                     {/* {props.reminderNo>1 && */}    
                     <DeleteOutlined onClick={()=>setReminder(prevState=>
                     {
-                        let arr=prevState.rems.slice(0,-1)
-                        return({remindex:prevState.remindex-1,
-                        rems:arr
-                    })
+                        let arr=prevState.slice(0,-1)
+                        return(arr)
                     })}
                     
                     style={{fontSize:'32px',cursor:"pointer",'padding':'20px','paddingTop':'30px'}}/>
@@ -119,13 +121,37 @@ function AbandonedCart()
     const ReminderCard = (props) =>{
         return(
             <>
-            <WaitRem reminderNo={props.reminderNo}/>
-            <RemCard reminderNo={props.reminderNo}/>
+            <WaitRem {...props}/>
+            <RemCard {...props}/>
             </>
         )
     }
-    // initial state set to 1 reminder
-    const [reminderState,setReminder]=useState({remindex:1,rems:[<ReminderCard reminderNo={1}/>]})
+    // initial state to be taken from api
+    const [reminderState,setReminder]=useState([{
+        reminderNo:1,
+        waitFor:'60',
+        Title: "Thanks for joining us",
+        targetLink: `asd`,
+        message: "Buy them now before they get out of stock",
+        buttonName: "Shop now",
+        buttonLink: `sds`,
+        buttons: [
+            { name: 'initialValues.buttonName', link: 'initialValues.buttonLink '},
+          ],
+      },
+      {
+        reminderNo:2,
+        waitFor:'120',
+        Title: "Hello, customer",
+        targetLink: `asd`,
+        message: "Buy them now before they get out of stock",
+        buttonName: "Shop now",
+        buttonLink: `sds`,
+        buttons: [
+            { name: 'button 1', link: 'asd'},
+            { name: 'button the second', link: 'asds'},
+          ],
+      }])
     
     return(
         <Card className='home-card' title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
@@ -174,10 +200,10 @@ function AbandonedCart()
                                 
                                 {/* *******THE REMINDERS BEING MAPPED FROM STATE********** */}
                                 {
-                                    reminderState.rems.map((item,i)=>
+                                    reminderState.map((item,i)=>
                                         {return(
                                             <div key ={i}>
-                                                {item}
+                                                <ReminderCard {...item} />
                                             </div>
                                                 )
                                         }
@@ -187,14 +213,13 @@ function AbandonedCart()
                                 {/* ADD REMINDER BUTTON */}
                                 <Timeline.Item dot ={<AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
                                                     onClick={()=>setReminder(prevState=>{
+                                                                let arr= prevState.concat([initialValues])
                                                                 return(
-                                                                        {
-                                                                            remindex:prevState.remindex+1,
-                                                                            rems:[...prevState.rems,<ReminderCard reminderNo={reminderState.remindex+1}/>]
-                                                                        }
+                                                                        arr                                                                    
                                                                     )
                                                                 })
-                                                            }/>
+                                                            }
+                                                            />
                                                     }>
                                 </Timeline.Item>
                             </Timeline>
