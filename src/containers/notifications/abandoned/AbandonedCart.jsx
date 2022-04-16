@@ -10,7 +10,6 @@ import { ClockCircleOutlined,DeleteOutlined ,EditOutlined,ThunderboltOutlined } 
 import { AddReminderIcon } from '../../../assets/CountIcons';
 import AbandonedNotifications from './abandonedNotifications/AbandonedNotifications';
 
-
 const { Option } = Select;
 
 function AbandonedCart()
@@ -37,9 +36,10 @@ function AbandonedCart()
     //           }
         
     //   SWITCHING OS VIEWS
-      const [osVal,setOs] =useState("android")
+      const [osVal,setOs] =useState("mac")
       function onChangeOs(e){
         // DIFFERENT PADDING FOR SMALLER MAC NOTIFICATIONS
+        console.log(e.target.value)
         if(e.target.value==='mac')
         {setPadding('100px')}
         else
@@ -51,7 +51,7 @@ function AbandonedCart()
 
 
       // padding state for different os views
-      const [rempadding,setPadding]=useState('230px')
+    const [rempadding,setPadding]=useState('100px')
 
     // reminder card  
     const RemCard= (props) =>{
@@ -154,10 +154,41 @@ function AbandonedCart()
           ],
       }
     ])
-     //useEffect to re-render on changing os view
+    function addRem()
+    {
+       setReminder((prevState)=>{
+            let arr= prevState
+            let index =prevState.length
+            //temporary card
+            arr.push(
+                {
+                    reminderNo:index+1,
+                    waitFor:'60',
+                    Title: "Hello, customer",
+                    targetLink: `asd`,
+                    message: "Buy them now before they get out of stock",
+                    buttonName: "Shop now",
+                    buttonLink: `sds`,
+                    buttons: [
+                        { name: 'button 1', link: 'asd'},
+                        { name: 'button the second', link: 'asds'},
+                      ],
+                  }
+            )
+            console.log(reminderState)//to be sent to api
+            return(arr)
+            })
+            setRefresh(refresh+1)//to refresh on adding reminder..tried putting the reminderState in the dependency array itself , but didnt work
+            
+        
+    }
+    
+    const [refresh,setRefresh] =useState(1) //to refresh on adding reminder..tried putting the reminderState in the dependency array itself , but didnt work
+     
+    //useEffect to re-render on changing os view
      useEffect(() => {
-        setReminder(reminderState)
-     }, [osVal,reminderState])
+
+     }, [refresh,osVal])
     return(
         <Card className='home-card' title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Abandoned Cart Recovery</div>}>
        
@@ -217,29 +248,7 @@ function AbandonedCart()
 
                                 {/* ADD REMINDER BUTTON */}
                                 <Timeline.Item dot ={<AddReminderIcon style={{fontSize:'150px',cursor:"pointer" ,'height':'200px'}} 
-                                                    onClick={()=>setReminder(prevState=>{
-                                                                let arr= prevState
-                                                                let index =prevState.length
-                                                                //temporary card
-                                                                arr.push(
-                                                                    {
-                                                                        reminderNo:index+1,
-                                                                        waitFor:'30',
-                                                                        Title: "Hello, customer",
-                                                                        targetLink: `asd`,
-                                                                        message: "Buy them now before they get out of stock",
-                                                                        buttonName: "Shop now",
-                                                                        buttonLink: `sds`,
-                                                                        buttons: [
-                                                                            { name: 'button 1', link: 'asd'},
-                                                                            { name: 'button the second', link: 'asds'},
-                                                                          ],
-                                                                      }
-                                                                )
-                                                                console.log(reminderState)//to be sent to api
-                                                                return(arr)
-                                                                })
-                                                            }
+                                                    onClick={addRem}
                                                             />
                                                     }>
                                 </Timeline.Item>
