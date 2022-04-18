@@ -13,8 +13,12 @@ function Scheduled()
     const { TabPane } = Tabs;
     function callback(key) {
         console.log(key);
+        if(key==2)
+        setRenderNewReminder(true)
+        else
+        setRenderNewReminder(false)
       }
-
+    const [renderNewReminder,setRenderNewReminder] =useState(false)
     const sentnotifications = [
         {
             title:'Grab the offer now, 10% Off',
@@ -125,7 +129,22 @@ function Scheduled()
         {return('')}
     }
     return(
-        <Card className='home-card' title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Scheduled Notifications</div>}>
+        <Card className='home-card'>
+            <Row>
+                <Col>
+                    <div style={{'fontWeight':"500",'fontSize':'32px'}}>
+                        Scheduled Notifications
+                    </div>   
+                </Col>
+                { renderNewReminder &&
+                    <Col offset={12}>
+                    <Link to=''>
+                        <button style={{background:'#36A900',color:'white',border:'0',height:'72px',width:'264px',fontSize:'30px',borderRadius:'12px',cursor:'pointer'}}>
+                            New Schedule
+                        </button>
+                    </Link>
+                </Col>}
+            </Row>
        
         <Tabs size='large' defaultActiveKey="1" onChange={callback}>
             {/* TAB 1 Sent */}
