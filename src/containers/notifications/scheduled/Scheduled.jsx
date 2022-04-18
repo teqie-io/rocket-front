@@ -13,13 +13,120 @@ function Scheduled()
     function callback(key) {
         console.log(key);
       }
-      return(
+
+    const sentnotifications = [
+        {
+            title:'Grab the offer now, 10% Off',
+            subscribers:'All Subscribers',
+            date:'9 days ago',
+            campaignID:'360742',
+            impressions:3,
+            clicks:10,
+            ctr:20,
+            revenue:'2k'
+        },
+        {
+            title:'Grab the offer now, 10% Off',
+            subscribers:'All Subscribers',
+            date:'9 days ago',
+            campaignID:'360742',
+            impressions:3,
+            clicks:10,
+            ctr:20,
+            revenue:'2k'
+        },
+        {
+            title:'Grab the offer now, 10% Off',
+            subscribers:'All Subscribers',
+            date:'9 days ago',
+            campaignID:'360742',
+            impressions:3,
+            clicks:10,
+            ctr:20,
+            revenue:'2k'
+        },
+        {
+            title:'Grab the offer now, 10% Off',
+            subscribers:'All Subscribers',
+            date:'9 days ago',
+            campaignID:'360742',
+            impressions:3,
+            clicks:10,
+            ctr:20,
+            revenue:'2k'
+        },
+        {
+            title:'Grab the offer now, 10% Off',
+            subscribers:'All Subscribers',
+            date:'9 days ago',
+            campaignID:'360742',
+            impressions:3,
+            clicks:10,
+            ctr:20,
+            revenue:'2k'
+        },
+        {
+            title:'Grab the offer now, 10% Off',
+            subscribers:'All Subscribers',
+            date:'9 days ago',
+            campaignID:'360742',
+            impressions:3,
+            clicks:10,
+            ctr:20,
+            revenue:'2k'
+        },
+        {
+            title:'Grab the offer now, 10% Off',
+            subscribers:'All Subscribers',
+            date:'9 days ago',
+            campaignID:'360742',
+            impressions:3,
+            clicks:10,
+            ctr:20,
+            revenue:'2k'
+        },
+    ]
+
+    function colorswitcher(index)
+    {
+        if(index%2===0)
+        {return('#F8F9FA')}
+        else
+        {return('')}
+    }
+    return(
         <Card className='home-card' title={<div style={{'fontWeight':"500",'fontSize':'32px'}}>Scheduled Notifications</div>}>
        
         <Tabs size='large' defaultActiveKey="1" onChange={callback}>
             {/* TAB 1 Sent */}
             <TabPane tab={<div style={{'fontSize':'24px'}}>Sent</div>} key="1">
-                sent
+                <List style={{'paddingTop':'0px'}}>
+                            {
+                            sentnotifications.map((item,index) => (
+                                <List.Item key={item.campaignID} style={{'paddingTop':'20px',background:`${colorswitcher(index)}`}}> 
+                                            <Col span={8} style={{padding:'20px','paddingLeft':'40px'}}>
+                                               <Row style={{'fontSize':'24px'}}>{item.title}</Row>
+                                               <Row style={{'fontSize':'15px'}}>{item.subscribers} | {item.date} | Campaign ID:{item.campaignID}</Row> 
+                                            </Col>
+                                            <Col span={4}>
+                                                <Row justify='center' style={{'fontSize':'16px'}}>Impressions</Row>
+                                                <Row justify='center' className='prem-blue-text' style={{'fontSize':'24px'}}>{item.impressions}</Row>
+                                            </Col>
+                                            <Col span={4}>
+                                                <Row justify='center' style={{'fontSize':'16px'}}>Clicks</Row>
+                                                <Row justify='center' className='prem-blue-text' style={{'fontSize':'24px'}}>{item.clicks}</Row>
+                                            </Col>
+                                            <Col span={4}>
+                                                <Row justify='center' style={{'fontSize':'16px'}}>CTR</Row>
+                                                <Row justify='center' className='prem-blue-text' style={{'fontSize':'24px'}}>{item.ctr}</Row>
+                                            </Col>
+                                            <Col span={4}>
+                                                <Row justify='center' style={{'fontSize':'16px'}}>Revenue</Row>
+                                                <Row justify='center' className='prem-blue-text' style={{'fontSize':'24px'}}>{item.revenue}</Row>
+                                            </Col>
+                                </List.Item>
+                            ))}
+                    </List>
             </TabPane>
             {/* TAB 2 Scheduled */}
             <TabPane tab={<div style={{'fontSize':'24px'}}>Scheduled</div>} key="2">
