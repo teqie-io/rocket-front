@@ -9,6 +9,8 @@ import {
 import Directory from "./directory/NotificationsDirectory";
 import Abandoned from "./abandoned/Abandoned";
 import AbandonedCart from "./abandoned/AbandonedCart";
+import Scheduled from "./scheduled/Scheduled";
+
 import "./notificationsDirectory.styles.scss";
 
 class Notifications extends React.Component {
@@ -25,6 +27,10 @@ class Notifications extends React.Component {
           <Route
              exact path={`${match.path}/cartrecovery`}
             render={() => <AbandonedCart />}
+          />
+          <Route
+             exact path={`${match.path}/scheduled`}
+            render={() => <Scheduled />}
           />
           <Route
             exact path={`${match.path}/abandoned`}
