@@ -1,6 +1,6 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
-import { Card, Tabs,Row,Col,Select,Progress,List,Timeline} from 'antd';
+import { Card, Tabs,Row,Col,Select,Progress,List,Timeline, Input} from 'antd';
 //import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import {EditOutlined} from '@ant-design/icons';
@@ -11,12 +11,16 @@ import {useState,useEffect} from 'react';
 function Scheduled()
 {
     const { TabPane } = Tabs;
+
+    const [activeTab,setActiveTab]=useState('3')
     function callback(key) {
         console.log(key);
         if(key==2)
         setRenderNewReminder(true)
         else
         setRenderNewReminder(false)
+
+        setActiveTab(key)
       }
     const [renderNewReminder,setRenderNewReminder] =useState(false)
     const sentnotifications = [
@@ -138,15 +142,18 @@ function Scheduled()
                 </Col>
                 { renderNewReminder &&
                     <Col offset={12}>
-                    <Link to=''>
-                        <button style={{background:'#36A900',color:'white',border:'0',height:'72px',width:'264px',fontSize:'30px',borderRadius:'12px',cursor:'pointer'}}>
+                    {/* <Link to='/notifications/scheduled/newschedule'> */}
+                        <button style={{background:'#36A900',color:'white',border:'0',height:'72px',width:'264px',fontSize:'30px',borderRadius:'12px',cursor:'pointer'}}
+                        onClick={()=>
+                        {setActiveTab('3')
+                        setRenderNewReminder(false)}}>
                             New Schedule
                         </button>
-                    </Link>
+                    {/* </Link> */}
                 </Col>}
             </Row>
        
-        <Tabs size='large' defaultActiveKey="1" onChange={callback}>
+        <Tabs size='large' activeKey={activeTab} defaultActiveKey="2" onChange={callback}>
             {/* TAB 1 Sent */}
             <TabPane tab={<div style={{'fontSize':'24px'}}>Sent</div>} key="1">
                 <List style={{'paddingTop':'0px'}}>
@@ -203,10 +210,31 @@ function Scheduled()
                                                 </Row>
                                             </Col>
                                             <Col span={4}>
-                                                <Row justify='center' style={{'fontSize':'24px'}}><EditOutlined/></Row>                                            </Col>
+                                                <Row justify='center' style={{'fontSize':'24px',cursor:'pointer'}}><EditOutlined/></Row>                                            </Col>
                                 </List.Item>
                             ))}
                     </List>
+            </TabPane>
+            {/* TAB 3 NEW SCHEDULE when clicked new schedule button */}
+            <TabPane key="3">
+                <Card title={<div>Notification Setup</div>}>
+                    <Row>
+                        <Col>Title</Col>
+                        <Col><Input/></Col>
+                    </Row>
+                    <Row>
+                        <Col>Date</Col>
+                        <Col><Input/></Col>
+                    </Row>
+                    <Row>
+                        <Col>Time</Col>
+                        <Col><Input/></Col>
+                    </Row>
+                    <Row>
+                        <Col><button>Cancel</button></Col>
+                        <Col><button>Edit Notification</button></Col>
+                    </Row>
+                </Card>
             </TabPane>
         </Tabs>
           
