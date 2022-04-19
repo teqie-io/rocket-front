@@ -12,6 +12,7 @@ import AbandonedCart from "./abandoned/AbandonedCart";
 import Scheduled from "./scheduled/Scheduled";
 
 import "./notificationsDirectory.styles.scss";
+import EditNotification from "./scheduled/EditNotification";
 
 class Notifications extends React.Component {
   render() {
@@ -35,6 +36,10 @@ class Notifications extends React.Component {
           <Route
             exact path={`${match.path}/abandoned`}
             render={() => <Abandoned />}
+          />
+          <Route
+            exact path={`${match.path}/editnotification`}
+            render={() => <EditNotification />}
           />
           
         </Switch>

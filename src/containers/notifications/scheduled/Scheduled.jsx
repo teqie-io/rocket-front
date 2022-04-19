@@ -12,8 +12,8 @@ function Scheduled()
 {
     const { TabPane } = Tabs;
 
-    const [activeTab,setActiveTab]=useState('3')
-    function callback(key) {
+    const [activeTab,setActiveTab]=useState('1')
+    function changeTab(key) {
         console.log(key);
         if(key==2)
         setRenderNewReminder(true)
@@ -158,7 +158,7 @@ function Scheduled()
                 }
             </Row>
        
-        <Tabs size='large' activeKey={activeTab} defaultActiveKey="2" onChange={callback}>
+        <Tabs size='large' activeKey={activeTab} defaultActiveKey="2" onChange={changeTab}>
             {/* TAB 1 Sent */}
             <TabPane tab={<div style={{'fontSize':'24px'}}>Sent</div>} key="1">
                 <List style={{'paddingTop':'0px'}}>
@@ -215,7 +215,12 @@ function Scheduled()
                                                 </Row>
                                             </Col>
                                             <Col span={4}>
-                                                <Row justify='center' style={{'fontSize':'24px',cursor:'pointer'}}><EditOutlined/></Row>                                            </Col>
+                                                <Row justify='center' style={{'fontSize':'24px',cursor:'pointer'}}>
+                                                    <Link to='/notifications/editnotification'>
+                                                        <EditOutlined/>
+                                                    </Link>
+                                                </Row>     
+                                            </Col>
                                 </List.Item>
                             ))}
                     </List>
@@ -235,7 +240,7 @@ function Scheduled()
                         <Row gutter={30} style={{'padding':'20px'}}>
                             <Col style={{'fontSize':'24px'}}>Time</Col>
                             <Col>
-                            <TimePicker size='large' onChange={onChangeTime} className='configtext' defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+                            <TimePicker size='large' onChange={onChangeTime} className='configtext' use12Hours format="h:mm a" />
                             </Col>
                         </Row>
                     </div>
@@ -250,7 +255,9 @@ function Scheduled()
                             </button>
                         </Col>
                         <Col span={12}>
+                            <Link to='/notifications/editnotification'>
                             <button style={{'background':'#36A900'}} className='prem-button'>Edit Notification</button>
+                            </Link>
                         </Col>
                     </Row>
                 </Card>
