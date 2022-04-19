@@ -223,23 +223,35 @@ function Scheduled()
             {/* TAB 3 NEW SCHEDULE when clicked new schedule button */}
             <TabPane key="3">
                 <Card title={<div style={{'fontSize':'24px'}}>Notification Setup</div>} className='home-card'>
-                    <Row gutter={30} style={{'padding':'20px'}}>
-                        <Col style={{'fontSize':'24px'}}>Title</Col>
-                        <Col ><Input className='configtext'/></Col>
-                    </Row>
-                    <Row gutter={30} style={{'padding':'20px'}}>
-                        <Col style={{'fontSize':'24px'}}>Date</Col>
-                        <Col><DatePicker onChange={onChangeDate} className='configtext' /></Col>
-                    </Row>
-                    <Row gutter={30} style={{'padding':'20px'}}>
-                        <Col style={{'fontSize':'24px'}}>Time</Col>
-                        <Col>
-                        <TimePicker onChange={onChangeTime} className='configtext' defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+                    <div style={{padding:'50px','paddingLeft':'30px'}}>
+                        <Row gutter={30} style={{'padding':'20px'}}>
+                            <Col style={{'fontSize':'24px'}}>Title</Col>
+                            <Col ><Input className='configtext'/></Col>
+                        </Row>
+                        <Row gutter={30} style={{'padding':'20px'}}>
+                            <Col style={{'fontSize':'24px'}}>Date</Col>
+                            <Col><DatePicker size='large' onChange={onChangeDate} className='configtext' /></Col>
+                        </Row>
+                        <Row gutter={30} style={{'padding':'20px'}}>
+                            <Col style={{'fontSize':'24px'}}>Time</Col>
+                            <Col>
+                            <TimePicker size='large' onChange={onChangeTime} className='configtext' defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+                            </Col>
+                        </Row>
+                    </div>
+                    <Row gutter={100} style={{'padding':'20px'}}>
+                        <Col span={12}>
+                            <button onClick={()=>
+                                            {setActiveTab('2')
+                                            setRenderNewReminder(true)}
+                                            }
+                                    style={{'background':'#AAAAAA'}} className='prem-button'>
+                                Cancel
+                            </button>
                         </Col>
-                    </Row>
-                    <Row gutter={500} style={{'padding':'20px'}}>
-                        <Col><button>Cancel</button></Col>
-                        <Col><button>Edit Notification</button></Col>
+                        <Col span={12}>
+                            <button style={{'background':'#36A900'}} className='prem-button'>Edit Notification</button>
+                        </Col>
                     </Row>
                 </Card>
             </TabPane>
