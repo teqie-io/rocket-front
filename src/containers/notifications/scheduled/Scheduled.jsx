@@ -1,10 +1,10 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next';
-import { Card, Tabs,Row,Col,Select,Progress,List,Timeline, Input} from 'antd';
+import { Card, Tabs,Row,Col,Select,Progress,List,Timeline, Input,DatePicker,TimePicker} from 'antd';
 //import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
 import {EditOutlined} from '@ant-design/icons';
-
+import moment from 'moment';
 import {useState,useEffect} from 'react';
 
 
@@ -132,6 +132,12 @@ function Scheduled()
         else
         {return('')}
     }
+    function onChangeDate(date, dateString) {
+        console.log(date, dateString);
+      }
+    function onChangeTime(time, timeString) {
+        console.log(time, timeString);
+      }
     return(
         <Card className='home-card'>
             <Row>
@@ -140,17 +146,16 @@ function Scheduled()
                         Scheduled Notifications
                     </div>   
                 </Col>
-                { renderNewReminder &&
+                {renderNewReminder &&
                     <Col offset={12}>
-                    {/* <Link to='/notifications/scheduled/newschedule'> */}
                         <button style={{background:'#36A900',color:'white',border:'0',height:'72px',width:'264px',fontSize:'30px',borderRadius:'12px',cursor:'pointer'}}
                         onClick={()=>
                         {setActiveTab('3')
                         setRenderNewReminder(false)}}>
                             New Schedule
                         </button>
-                    {/* </Link> */}
-                </Col>}
+                    </Col>
+                }
             </Row>
        
         <Tabs size='large' activeKey={activeTab} defaultActiveKey="2" onChange={callback}>
@@ -217,20 +222,22 @@ function Scheduled()
             </TabPane>
             {/* TAB 3 NEW SCHEDULE when clicked new schedule button */}
             <TabPane key="3">
-                <Card title={<div>Notification Setup</div>}>
-                    <Row>
-                        <Col>Title</Col>
-                        <Col><Input/></Col>
+                <Card title={<div style={{'fontSize':'24px'}}>Notification Setup</div>} className='home-card'>
+                    <Row gutter={30} style={{'padding':'20px'}}>
+                        <Col style={{'fontSize':'24px'}}>Title</Col>
+                        <Col ><Input className='configtext'/></Col>
                     </Row>
-                    <Row>
-                        <Col>Date</Col>
-                        <Col><Input/></Col>
+                    <Row gutter={30} style={{'padding':'20px'}}>
+                        <Col style={{'fontSize':'24px'}}>Date</Col>
+                        <Col><DatePicker onChange={onChangeDate} className='configtext' /></Col>
                     </Row>
-                    <Row>
-                        <Col>Time</Col>
-                        <Col><Input/></Col>
+                    <Row gutter={30} style={{'padding':'20px'}}>
+                        <Col style={{'fontSize':'24px'}}>Time</Col>
+                        <Col>
+                        <TimePicker onChange={onChangeTime} className='configtext' defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+                        </Col>
                     </Row>
-                    <Row>
+                    <Row gutter={500} style={{'padding':'20px'}}>
                         <Col><button>Cancel</button></Col>
                         <Col><button>Edit Notification</button></Col>
                     </Row>
