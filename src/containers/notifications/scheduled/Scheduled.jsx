@@ -12,7 +12,7 @@ function Scheduled()
 {
     const { TabPane } = Tabs;
 
-    const [activeTab,setActiveTab]=useState('4')
+    const [activeTab,setActiveTab]=useState('2')
     function changeTab(key) {
         console.log(key);
         if(key==2)
@@ -41,7 +41,7 @@ function Scheduled()
     //     )
     //      }
     
-    const [renderNewReminder,setRenderNewReminder] =useState(false)
+    const [renderNewReminder,setRenderNewReminder] =useState(true)
     const sentnotifications = [
         {
             title:'Grab the offer now, 10% Off',
@@ -319,14 +319,23 @@ function Scheduled()
                     </Timeline.Item>
                     
                     <Timeline.Item style={{'paddingTop':'230',paddingBottom:'230px'}} dot={
-                            <Link to='/notifications/editnotification'>
-                                <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>Notification</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
-                                    <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
-                                    <Row>
-                                        <AbandonedNotifications android {...initialValues}/>
-                                    </Row>
-                                </Card>
-                            </Link>
+                            <Row>
+                                <Col span={20} style={{'paddingRight':'30px'}}>
+                                <Link to='/notifications/editnotification'>
+                                    <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>Notification</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+                                        <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
+                                        <Row>
+                                            <AbandonedNotifications android {...initialValues}/>
+                                        </Row>
+                                    </Card>
+                                </Link>
+                                </Col>
+                                <Col span={4} style={{'fontSize':'30px',paddingLeft:'82px'}}>
+                                <DeleteOutlined onClick={()=>
+                                    {setActiveTab('2')
+                                    setRenderNewReminder(true)}}/>
+                                </Col>
+                            </Row>
                     } >
                     </Timeline.Item>
                 </Timeline>
