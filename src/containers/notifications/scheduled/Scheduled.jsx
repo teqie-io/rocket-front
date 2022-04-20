@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Card, Tabs,Row,Col,Select,Progress,List,Timeline, Input,DatePicker,TimePicker} from 'antd';
 //import {ResponsiveContainer} from 'recharts';
 import {Link} from "react-router-dom"
-import {EditOutlined} from '@ant-design/icons';
+import {EditOutlined,CalendarOutlined,ClockCircleOutlined,DeleteOutlined} from '@ant-design/icons';
 import moment from 'moment';
 import {useState,useEffect} from 'react';
 import AbandonedNotifications from '../abandoned/abandonedNotifications/AbandonedNotifications';
@@ -40,28 +40,14 @@ function Scheduled()
     //         </Timeline.Item>
     //     )
     //      }
-    const initialValues=
-        
-            {
-                reminderNo:3,
-                waitFor:'120',
-                Title: "Hello, customer",
-                targetLink: `asd`,
-                message: "Buy them now before they get out of stock",
-                buttonName: "Shop now",
-                buttonLink: `sds`,
-                buttons: [
-                    { name: 'button 1', link: 'asd'},
-                    { name: 'button the second', link: 'asds'},
-                  ],
-              }
+    
     const [renderNewReminder,setRenderNewReminder] =useState(false)
     const sentnotifications = [
         {
             title:'Grab the offer now, 10% Off',
             subscribers:'All Subscribers',
             date:'9 days ago',
-            campaignID:'360742',
+            campaignID:'3607742',
             impressions:3,
             clicks:10,
             ctr:20,
@@ -71,7 +57,7 @@ function Scheduled()
             title:'Grab the offer now, 10% Off',
             subscribers:'All Subscribers',
             date:'9 days ago',
-            campaignID:'360742',
+            campaignID:'3607642',
             impressions:3,
             clicks:10,
             ctr:20,
@@ -81,7 +67,7 @@ function Scheduled()
             title:'Grab the offer now, 10% Off',
             subscribers:'All Subscribers',
             date:'9 days ago',
-            campaignID:'360742',
+            campaignID:'3604742',
             impressions:3,
             clicks:10,
             ctr:20,
@@ -91,7 +77,7 @@ function Scheduled()
             title:'Grab the offer now, 10% Off',
             subscribers:'All Subscribers',
             date:'9 days ago',
-            campaignID:'360742',
+            campaignID:'3603742',
             impressions:3,
             clicks:10,
             ctr:20,
@@ -101,32 +87,13 @@ function Scheduled()
             title:'Grab the offer now, 10% Off',
             subscribers:'All Subscribers',
             date:'9 days ago',
-            campaignID:'360742',
+            campaignID:'3607422',
             impressions:3,
             clicks:10,
             ctr:20,
             revenue:'2k'
         },
-        {
-            title:'Grab the offer now, 10% Off',
-            subscribers:'All Subscribers',
-            date:'9 days ago',
-            campaignID:'360742',
-            impressions:3,
-            clicks:10,
-            ctr:20,
-            revenue:'2k'
-        },
-        {
-            title:'Grab the offer now, 10% Off',
-            subscribers:'All Subscribers',
-            date:'9 days ago',
-            campaignID:'360742',
-            impressions:3,
-            clicks:10,
-            ctr:20,
-            revenue:'2k'
-        },
+
     ]
     const schedulednotifications=[
         {
@@ -142,7 +109,7 @@ function Scheduled()
             title:'Grab the offer now, 10% Off',
             subscribers:'All Subscribers',
             date:'9 days ago',
-            campaignID:'360742',
+            campaignID:'3610742',
             time:'6 : 00 PM',
             date:'24th March',
             isActive:false
@@ -151,7 +118,7 @@ function Scheduled()
             title:'Grab the offer now, 10% Off',
             subscribers:'All Subscribers',
             date:'9 days ago',
-            campaignID:'360742',
+            campaignID:'36640742',
             time:'6 : 00 PM',
             date:'24th March',
             isActive:true
@@ -167,10 +134,37 @@ function Scheduled()
     }
     function onChangeDate(date, dateString) {
         console.log(date, dateString);
+        setNewTimeDate({
+            time:newTimeDate.time,
+            date:dateString
+        })
       }
     function onChangeTime(time, timeString) {
         console.log(time, timeString);
+        setNewTimeDate({
+            time:timeString,
+            date:newTimeDate.date
+        })
       }
+      const [newTimeDate,setNewTimeDate] =useState({
+        time:'6 : 00 pm',
+        date:' 22 -04 -2022'
+    })
+    const initialValues=
+        
+            {
+                time:newTimeDate.time,
+                date:newTimeDate.date,
+                Title: "Hello, customer",
+                targetLink: `asd`,
+                message: "Buy them now before they get out of stock",
+                buttonName: "Shop now",
+                buttonLink: `sds`,
+                buttons: [
+                    { name: 'button 1', link: 'asd'},
+                    { name: 'button 2', link: 'asds'},
+                  ],
+              }
     return(
         <Card className='home-card'>
             <Row>
@@ -288,7 +282,7 @@ function Scheduled()
                             </button>
                         </Col>
                         <Col span={12}>      
-                            <button onClick={()=>setActiveTab('4')} style={{'background':'#36A900'}} className='prem-button'>Edit Notification</button>
+                            <button onClick={()=>setActiveTab('4')} style={{'background':'#36A900'}} className='prem-button'>Next</button>
                         </Col>
                     </Row>
                 </Card>
@@ -299,19 +293,33 @@ function Scheduled()
                 <Timeline style={{'paddingLeft':'300px','paddingTop':'100px','width':'700px'}}>
                                 {/* TRIGGER CARD */}
                     <Timeline.Item style={{'paddingTop':'200px','paddingBottom':'150px'}} dot={
-                                    <Card className='home-card' justify='center' align='middle'>   
-                                        <Row style={{'fontSize':'16px','fontWeight':'500'}}>
-                                            Trigger
-                                        </Row>
-                                        <Row style={{'fontSize':'12px','color':'#626262'}}>
-                                            When customer adds a product to the cart
+                                    <Card style={{'width':'700px'}} className='home-card' justify='center' align='middle'>   
+                                        <Row gutter={20} style={{'fontSize':'16px','fontWeight':'500'}}>
+                                            <Col span={12}>
+                                                <Card>
+                                                    <Row  align='middle'>
+                                                        <Col span={4} style={{'fontSize':'24px'}}>Time:</Col> 
+                                                        <Col span={16} style={{'fontSize':'18px'}}>{newTimeDate.time}</Col>
+                                                        <Col span={4} style={{'fontSize':'24px'}}><ClockCircleOutlined/></Col>                                                       
+                                                    </Row>
+                                                </Card>
+                                            </Col>
+                                            <Col span={12}>
+                                                <Card>
+                                                    <Row  align='middle'>
+                                                        <Col span={4} style={{'fontSize':'24px'}}>Date:</Col> 
+                                                        <Col span={16} style={{'fontSize':'18px',paddingLeft:'30px'}}>{newTimeDate.date}</Col>
+                                                        <Col span={4} style={{'fontSize':'24px'}}><CalendarOutlined /></Col>                                                       
+                                                    </Row>
+                                                </Card>
+                                            </Col>                                        
                                         </Row>
                                     </Card>
                                 } >
                     </Timeline.Item>
                     
                     <Timeline.Item style={{'paddingTop':'230',paddingBottom:'230px'}} dot={
-                            <Link to='/notifications/editabandoned'>
+                            <Link to='/notifications/editnotification'>
                                 <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>Notification</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
                                     <Row>
