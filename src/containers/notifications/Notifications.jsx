@@ -34,7 +34,7 @@ class Notifications extends React.Component {
             render={() => <Scheduled />}
           />
           <Route
-            exact path={`${match.path}/abandoned`}
+            exact path={`${match.path}/editabandoned`}
             render={() => <Abandoned />}
           />
           <Route
