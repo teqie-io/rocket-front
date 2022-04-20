@@ -6,13 +6,13 @@ import {Link} from "react-router-dom"
 import {EditOutlined} from '@ant-design/icons';
 import moment from 'moment';
 import {useState,useEffect} from 'react';
-
+import AbandonedNotifications from '../abandoned/abandonedNotifications/AbandonedNotifications';
 
 function Scheduled()
 {
     const { TabPane } = Tabs;
 
-    const [activeTab,setActiveTab]=useState('1')
+    const [activeTab,setActiveTab]=useState('4')
     function changeTab(key) {
         console.log(key);
         if(key==2)
@@ -22,6 +22,39 @@ function Scheduled()
 
         setActiveTab(key)
       }
+    //   const RemCard= (props) =>{
+    //     return(
+    //         <Timeline.Item style={{'paddingTop':`${rempadding}`,paddingBottom:'150px'}} dot={
+    //                         <Link to='/notifications/editabandoned'>
+    //                             <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+    //                                 <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
+    //                                 <Row>
+    //                                     {osVal==="mac" && <AbandonedNotifications mac {...props}/>}
+    //                                     {osVal==="windows8" && <AbandonedNotifications windows8 {...props}/>}
+    //                                     {osVal==="windows10" && <AbandonedNotifications windows10 {...props}/>}
+    //                                     {osVal==="android" && <AbandonedNotifications android {...props}/>}
+    //                                 </Row>
+    //                             </Card>
+    //                         </Link>
+    //         } >
+    //         </Timeline.Item>
+    //     )
+    //      }
+    const initialValues=
+        
+            {
+                reminderNo:3,
+                waitFor:'120',
+                Title: "Hello, customer",
+                targetLink: `asd`,
+                message: "Buy them now before they get out of stock",
+                buttonName: "Shop now",
+                buttonLink: `sds`,
+                buttons: [
+                    { name: 'button 1', link: 'asd'},
+                    { name: 'button the second', link: 'asds'},
+                  ],
+              }
     const [renderNewReminder,setRenderNewReminder] =useState(false)
     const sentnotifications = [
         {
@@ -254,14 +287,44 @@ function Scheduled()
                                 Cancel
                             </button>
                         </Col>
-                        <Col span={12}>
-                            <Link to='/notifications/editnotification'>
-                            <button style={{'background':'#36A900'}} className='prem-button'>Edit Notification</button>
-                            </Link>
+                        <Col span={12}>      
+                            <button onClick={()=>setActiveTab('4')} style={{'background':'#36A900'}} className='prem-button'>Edit Notification</button>
                         </Col>
                     </Row>
                 </Card>
             </TabPane>
+            {/* TAB 4 NEW SCHEDULE PREVIEW */}
+            <TabPane key="4">
+                <Col align='middle' span={24}>
+                <Timeline style={{'paddingLeft':'300px','paddingTop':'100px','width':'700px'}}>
+                                {/* TRIGGER CARD */}
+                    <Timeline.Item style={{'paddingTop':'200px','paddingBottom':'150px'}} dot={
+                                    <Card className='home-card' justify='center' align='middle'>   
+                                        <Row style={{'fontSize':'16px','fontWeight':'500'}}>
+                                            Trigger
+                                        </Row>
+                                        <Row style={{'fontSize':'12px','color':'#626262'}}>
+                                            When customer adds a product to the cart
+                                        </Row>
+                                    </Card>
+                                } >
+                    </Timeline.Item>
+                    
+                    <Timeline.Item style={{'paddingTop':'230',paddingBottom:'230px'}} dot={
+                            <Link to='/notifications/editabandoned'>
+                                <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>Notification</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+                                    <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
+                                    <Row>
+                                        <AbandonedNotifications android {...initialValues}/>
+                                    </Row>
+                                </Card>
+                            </Link>
+                    } >
+                    </Timeline.Item>
+                </Timeline>
+                </Col>                
+            </TabPane>
+                            
         </Tabs>
           
         </Card>
