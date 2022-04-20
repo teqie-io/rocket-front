@@ -15,7 +15,7 @@ class Sidebar extends React.Component {
     render(){
         const {t} = this.props;
         const path = this.props.location.pathname;
-        if(path=='/notifications/abandoned')
+        if(path=='/notifications/editabandoned' || path == '/notifications/editnotification')
          return null;
         return (
         <Sider width={250} className='customsider' theme="dark"

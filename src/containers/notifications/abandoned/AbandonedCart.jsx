@@ -57,7 +57,7 @@ function AbandonedCart()
     const RemCard= (props) =>{
         return(
             <Timeline.Item style={{'paddingTop':`${rempadding}`,paddingBottom:'150px'}} dot={
-                            <Link to='/notifications/abandoned'>
+                            <Link to='/notifications/editabandoned'>
                                 <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>REMINDER {props.reminderNo}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                     <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
                                     <Row>
