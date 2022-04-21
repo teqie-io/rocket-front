@@ -134,27 +134,36 @@ function Scheduled()
     }
     function onChangeDate(date, dateString) {
         console.log(date, dateString);
-        setNewTimeDate({
-            time:newTimeDate.time,
+        setNewSchedule({
+            title:newSchedule.title,
+            time:newSchedule.time,
             date:dateString
         })
       }
     function onChangeTime(time, timeString) {
         console.log(time, timeString);
-        setNewTimeDate({
+        setNewSchedule({
+            title:newSchedule.title,
             time:timeString,
-            date:newTimeDate.date
+            date:newSchedule.date
         })
       }
-      const [newTimeDate,setNewTimeDate] =useState({
+    function onChangeTitle(e)
+    {
+        let tmp = newSchedule
+        tmp.title=e.target.value
+        setNewSchedule(tmp)
+    }
+      const [newSchedule,setNewSchedule] =useState({
+        title:'Buy Now!',
         time:'6 : 00 pm',
         date:' 22 -04 -2022'
     })
     const initialValues=
         
             {
-                time:newTimeDate.time,
-                date:newTimeDate.date,
+                time:newSchedule.time,
+                date:newSchedule.date,
                 Title: "Hello, customer",
                 targetLink: `asd`,
                 message: "Buy them now before they get out of stock",
@@ -258,7 +267,7 @@ function Scheduled()
                     <div style={{padding:'50px','paddingLeft':'30px'}}>
                         <Row gutter={30} style={{'padding':'20px'}}>
                             <Col style={{'fontSize':'24px'}}>Title</Col>
-                            <Col ><Input className='configtext'/></Col>
+                            <Col ><Input id='title' onChange={onChangeTitle} className='configtext'/></Col>
                         </Row>
                         <Row gutter={30} style={{'padding':'20px'}}>
                             <Col style={{'fontSize':'24px'}}>Date</Col>
@@ -299,7 +308,7 @@ function Scheduled()
                                                 <Card>
                                                     <Row  align='middle'>
                                                         <Col span={4} style={{'fontSize':'24px'}}>Time:</Col> 
-                                                        <Col span={16} style={{'fontSize':'18px'}}>{newTimeDate.time}</Col>
+                                                        <Col span={16} style={{'fontSize':'18px'}}>{newSchedule.time}</Col>
                                                         <Col span={4} style={{'fontSize':'24px'}}><ClockCircleOutlined/></Col>                                                       
                                                     </Row>
                                                 </Card>
@@ -308,7 +317,7 @@ function Scheduled()
                                                 <Card>
                                                     <Row  align='middle'>
                                                         <Col span={4} style={{'fontSize':'24px'}}>Date:</Col> 
-                                                        <Col span={16} style={{'fontSize':'18px',paddingLeft:'30px'}}>{newTimeDate.date}</Col>
+                                                        <Col span={16} style={{'fontSize':'18px',paddingLeft:'30px'}}>{newSchedule.date}</Col>
                                                         <Col span={4} style={{'fontSize':'24px'}}><CalendarOutlined /></Col>                                                       
                                                     </Row>
                                                 </Card>
@@ -322,7 +331,7 @@ function Scheduled()
                             <Row>
                                 <Col span={20} style={{'paddingRight':'30px'}}>
                                 <Link to='/notifications/editnotification'>
-                                    <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>Notification</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
+                                    <Card title={<Row gutter={100} style={{'fontWeight':'500','fontSize':'24px',cursor:'pointer'}}> <Col span={2}>Notification title:{newSchedule.title}</Col><Col offset={10} span={5}><EditOutlined align='right'/></Col></Row>} className='home-card' justify='center' align='middle' style={{'width':'500px'}}>
                                         <Row style={{'fontSize':'16px','fontWeight':'500'}}>Preview</Row>
                                         <Row>
                                             <AbandonedNotifications android {...initialValues}/>
