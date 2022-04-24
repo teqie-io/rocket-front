@@ -152,6 +152,7 @@ function Scheduled()
     {
         let tmp = newSchedule
         tmp.title=e.target.value
+        // tmp[`${e.target.id}`]=e.target.value //this one works too
         setNewSchedule(tmp)
     }
       const [newSchedule,setNewSchedule] =useState({

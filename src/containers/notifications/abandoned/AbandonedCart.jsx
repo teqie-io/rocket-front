@@ -75,7 +75,12 @@ function AbandonedCart()
     // time to wait before reminder card
     const WaitRem= (props) => {
     function handleChange(value) {
-            console.log(value);
+        //edit state's reminder time
+            console.log(value); 
+            let tmp = reminderState
+            tmp[props.reminderNo-1].waitFor=value.value
+            setReminder(tmp)
+            console.log(reminderState)
           }
         return(
             <Timeline.Item style={{'paddingTop':`${rempadding}`,paddingBottom:'100px','width':'500px'}} dot={
