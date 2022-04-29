@@ -4,7 +4,7 @@ import { withTranslation } from 'react-i18next';
 import { Menu,Layout } from 'antd';
 import { Button } from 'antd';
 import './sidebar.styles.scss'
-import { ReactComponent as Premium } from '../../assets/premium.svg'; 
+import {PremiumIcon} from '../../assets/CountIcons'; 
 const { Sider } = Layout;
 
 
@@ -23,7 +23,7 @@ class Sidebar extends React.Component {
             collapsedWidth="0"
         >
             <Link to='/'>
-            <img src='/PushMagnetInvert.png' alt='brand' height='auto' width='100%' className='logo'></img>
+            <img src={require('./PushMagnetInvert.png').default} alt='brand' height='auto' width='100%' className='logo'></img>
             </Link>
 
             <Menu  style={{'paddingTop':'200px'}} 
@@ -38,7 +38,7 @@ class Sidebar extends React.Component {
                 <Menu.Item key="4" className="customclass"><Link to='/subscribers'>{t("sidebar.subscribers")}</Link></Menu.Item>          
             </Menu>
 
-            <Premium className="premiumimg"/>
+            <PremiumIcon className="premiumimg"/>
 
                 <Button type="primary" className='custombutton'>
                    <Link to='/premium'>{t("sidebar.premium")}</Link> 

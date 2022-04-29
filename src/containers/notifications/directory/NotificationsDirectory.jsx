@@ -15,7 +15,7 @@ class Directory extends React.Component {
     const notifications = [
       {
         title: t("notif.scheduled.title"),
-        imageUrl: '/scheduled.png',
+        imageUrl: './scheduled.png',
         id: 1,
         content: t("notif.scheduled.content"),
         state: false,
@@ -23,7 +23,7 @@ class Directory extends React.Component {
       },
       {
         title: t("notif.abandoned.title"),
-        imageUrl: '/abandoned.png',
+        imageUrl: './abandoned.png',
         id: 2,
         content: t("notif.abandoned.content"),
         state: true,
@@ -31,7 +31,7 @@ class Directory extends React.Component {
       },
       {
         title: t("notif.shipping.title"),
-        imageUrl: '/shipping.png',
+        imageUrl: './shipping.png',
         id: 3,
         content:t("notif.shipping.content"),
         state: false,
@@ -39,7 +39,7 @@ class Directory extends React.Component {
       },
       {
         title: t("notif.welcome.title"),
-        imageUrl: '/welcome.png',
+        imageUrl: './welcome.png',
         id: 4,
         content: t("notif.shipping.content"),
         state: false,
@@ -47,7 +47,7 @@ class Directory extends React.Component {
       },
       {
         title: t("notif.backinstock.title"),
-        imageUrl: '/backinstock.png',
+        imageUrl: './backinstock.png',
         id: 5,
         content: t("notif.backinstock.content"),
         state: false,

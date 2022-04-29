@@ -8,6 +8,7 @@ class NotifItem extends React.Component{
   constructor(props)
   {
     super(props);
+    
   }
   render(){
     const {title,imageUrl,content,state,linkUrl,match,history} = this.props;
@@ -18,7 +19,7 @@ class NotifItem extends React.Component{
           onClick={() => history.push(`${match.url}/${linkUrl}`)}
         >
           <div className="body">
-            <img className="notif-img" src={imageUrl} alt={title}></img>
+            <img className="notif-img" src={ require(`${imageUrl}`).default } alt={title}></img>
             <p className="content">{content}</p>
           </div>
           <div style={{ height: "25px" }}></div>
