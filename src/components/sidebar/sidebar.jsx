@@ -5,6 +5,7 @@ import { Menu,Layout } from 'antd';
 import { Button } from 'antd';
 import './sidebar.styles.scss'
 import {PremiumIcon} from '../../assets/CountIcons'; 
+import PushImage from './PushMagnetInvert.png'
 const { Sider } = Layout;
 
 
@@ -23,7 +24,7 @@ class Sidebar extends React.Component {
             collapsedWidth="0"
         >
             <Link to='/'>
-            <img src={require('./PushMagnetInvert.png').default} alt='brand' height='auto' width='100%' className='logo'></img>
+            <img src={PushImage} alt='brand' height='auto' width='100%' className='logo'></img>
             </Link>
 
             <Menu  style={{'paddingTop':'200px'}} 

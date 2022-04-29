@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Row, Col } from "antd";
 import "./AbandonedNotifications.scss";
-
+import tempimg from './tempimg.png'
 class AbandonedNotifications extends React.Component {
   constructor() {
     super();
@@ -48,11 +48,11 @@ class AbandonedNotifications extends React.Component {
           </Col>
           {mac ? (
             <Col span={3}>
-              <img width="100%" src={require("./tempimg.png" ).default} alt={Title}></img>
+              <img width="100%" src={tempimg} alt={Title}></img>
             </Col>
           ) : null}
         </Row>
-        {mac ? null : <img width="100%" src={require("./tempimg.png" ).default} alt={Title}></img>}
+        {mac ? null : <img width="100%" src={tempimg} alt={Title}></img>}
         {android ? (
           <div style={{ height: "32px" }}></div>
         ) : windows8 ? (
