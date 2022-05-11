@@ -11,7 +11,7 @@ import {
 
 import Authenticator from "./containers/Authenticator";
 // css
-import Login from "./containers/Login";
+import Login from "./containers/LoginUser";
 
 // app component
 import Main from "./containers/Main";
@@ -20,7 +20,7 @@ import Auth from "./auth/Auth";
 // window.store = store
 function requireAuth() {
   const auth = new Auth();
-  if (auth.isAuthenticated()) { //removed ! for ignoring login for now
+  if (!auth.isAuthenticated()) { //removed ! for ignoring login for now
     return <Redirect to="/login" />;
   } else {
     return <Main />;
@@ -38,7 +38,7 @@ const MainApp = () => (
       />
       <Route exact path="/slash/:slash" name="main" component={Authenticator} />
       <Route exact path="/login" component={Login} />
-      <Route path="/" name="main" render={requireAuth} />
+      <Route path="/" name="main" render={()=><Main/>} />
     </Switch>
   </Router>
 );

@@ -9,15 +9,61 @@ export default function ConfigOptins()
     function handleChange(value) {
         console.log(value);
       }
-    const [customPrompt,setPrompt] =useState(false)
+   
+
+    const [config,setConfig] = useState(
+        {
+            timingsetup :
+            {
+                desktop:10,
+                mobile:10
+            },
+            intermediateprompt:
+            {
+                show:true,
+                title:"",
+                description:"",
+            },
+            buttonAllow:
+            {
+                title:"",
+                bgcolor:"",
+                textcolor:""
+            },
+            buttonLater:
+            {
+                title:"",
+                bgcolor:"",
+                textcolor:""
+            },
+            optintimings:
+            {
+                desktop:10,
+                mobile:10,
+                maxpromptcount:2,
+                frequency:4
+            },
+            browserprompt:
+            {
+                enableoverlay:false
+            }
+        }
+    )
+    const [customPrompt,setPrompt] =useState(config.intermediateprompt.show)
     function onChangeCustomPrompt(e) {
-        setPrompt(e.target.checked)
+            setPrompt(e.target.checked)
+            let tmp = config
+            tmp["intermediateprompt"]["show"]=e.target.checked
+            setConfig(tmp)
+            console.log(tmp)
+
       }
       function onChangeBrowserPrompt(e) {
-        console.log(e.target.checked)
+        let tmp = config
+        tmp["browserprompt"]["enableoverlay"]=e.target.checked
+        setConfig(tmp)
+        console.log(tmp)
       }
-
-
     // flyout widget state
     const [widgetText,setWidgetText]=useState(
         {
@@ -27,6 +73,13 @@ export default function ConfigOptins()
             mode:true
         }
         )
+        function changeconfig(e)
+        {
+            let tmp = config
+            tmp[e.target.id][e.target.name]=e.target.value
+            setConfig(tmp)
+            console.log(config)
+        }
     return(
         <Card title={<h2>Subscriber Prompt</h2>}>
             <Card title={
@@ -55,7 +108,14 @@ export default function ConfigOptins()
                                 <Card title="Desktop">
                                     <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
+                                        {/* timingsetup.desktop */}
+                                        <InputNumber 
+                                        onChange={(e)=>{
+                                            let tmp = config
+                                            tmp["timingsetup"]["desktop"]=e
+                                            setConfig(tmp)
+                                            console.log(tmp)
+                                        }}  style={{'width':'200px'}} addonAfter="seconds" defaultValue={config.timingsetup.desktop} />
                                     </Row>
                                 </Card>
                             </Col>
@@ -64,7 +124,13 @@ export default function ConfigOptins()
                                 >
                                     <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
+                                        {/* timingsetup.mobile */}
+                                        <InputNumber  onChange={(e)=>{
+                                            let tmp = config
+                                            tmp["timingsetup"]["mobile"]=e
+                                            setConfig(tmp)
+                                            console.log(tmp)
+                                        }} style={{'width':'200px'}} addonAfter="seconds" defaultValue={config.timingsetup.mobile} />
                                     </Row>
                                 </Card>
                             </Col>
@@ -81,7 +147,7 @@ export default function ConfigOptins()
                     bodyStyle={{background:"white"}}
                     bordered={false}
                     >
-                        <Checkbox onChange={onChangeCustomPrompt}><h1>Show a custom confirmation prompt</h1></Checkbox>
+                        <Checkbox defaultChecked={config.intermediateprompt.show} onChange={onChangeCustomPrompt}><h1>Show a custom confirmation prompt</h1></Checkbox>
                         <Row className='greytext'>
                             Give your store visitors more context with a customizable opt-in dialog.
                         </Row>
@@ -95,11 +161,11 @@ export default function ConfigOptins()
 
                     <Col span={16}>
                         <h1>Title</h1>
-                        <Input placeholder="Title" className='configtext' style={{'width':'200px'}} /> 
+                        <Input placeholder="Title" id="intermediateprompt" name="title" onChange={changeconfig}  className='configtext' style={{'width':'200px'}} /> 
                     </Col>  
                     <Col span={16} style={{'paddingTop':'15px'}}>
                         <h1>Description</h1>
-                        <Input placeholder="Description" className='configtext' /> 
+                        <Input id="intermediateprompt" name="description" onChange={changeconfig} placeholder="Description" className='configtext' /> 
                     </Col>  
 
                     <Row  gutter={50} style={{'padding':'25px'}}>
@@ -107,17 +173,17 @@ export default function ConfigOptins()
                             <Row>
                                 <Col span={12}>
                                     <h1>Title</h1>
-                                    <Input placeholder="Allow" className='configtext' /> 
+                                    <Input id="buttonAllow" name="title" onChange={changeconfig} placeholder="Allow" className='configtext' /> 
                                 </Col> 
                             </Row>
                             <Row gutter={50}>
                                 <Col span={12}>
                                     <h1>Background Color</h1>
-                                    <Input placeholder="#272727" className='configtext'/>   
+                                    <Input id="buttonAllow" name="bgcolor" onChange={changeconfig} placeholder="#272727" className='configtext'/>   
                                 </Col>
                                 <Col span={12}>
                                     <h1>Text Color</h1>
-                                    <Input placeholder="#AAAAAA" className='configtext' />   
+                                    <Input id="buttonAllow" name="textcolor" onChange={changeconfig} placeholder="#AAAAAA" className='configtext' />   
                                 </Col>
                             </Row>
                         </Card>
@@ -125,17 +191,17 @@ export default function ConfigOptins()
                             <Row>
                                 <Col span={12}>
                                     <h1>Title</h1>
-                                    <Input placeholder="Later" className='configtext' /> 
+                                    <Input id="buttonLater" name="title" onChange={changeconfig} placeholder="Later" className='configtext' /> 
                                 </Col> 
                             </Row>
                             <Row gutter={50}>
                                 <Col span={12}>
                                     <h1>Background Color</h1>
-                                    <Input placeholder="#272727" className='configtext'/>   
+                                    <Input id="buttonLater" name="bgcolor" onChange={changeconfig} placeholder="#272727" className='configtext'/>   
                                 </Col>
                                 <Col span={12}>
                                     <h1>Text Color</h1>
-                                    <Input placeholder="#AAAAAA" className='configtext' />   
+                                    <Input id="buttonLater" name="textcolor" onChange={changeconfig} placeholder="#AAAAAA" className='configtext' />   
                                 </Col>
                             </Row>
                         </Card>
@@ -153,7 +219,14 @@ export default function ConfigOptins()
                                 <Card title="Desktop">
                                     <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
+                                        {/* optintimings.desktop */}
+                                        <InputNumber 
+                                        onChange={(e)=>{
+                                            let tmp = config
+                                            tmp["optintimings"]["desktop"]=e
+                                            setConfig(tmp)
+                                            console.log(config)
+                                        }} style={{'width':'200px'}} addonAfter="seconds" defaultValue={config.optintimings.desktop} />
                                     </Row>
                                 </Card>
                             </Col>
@@ -162,7 +235,14 @@ export default function ConfigOptins()
                                 >
                                     <Row align='middle'>
                                         <Col style={{color: '#626262',fontSize:'14px',paddingRight:'10px'}}>Show after</Col>
-                                        <InputNumber style={{'width':'200px'}} addonAfter="seconds" defaultValue={10} />
+                                        {/* optintimings.mobile */}
+                                        <InputNumber
+                                         onChange={(e)=>{
+                                            let tmp = config
+                                            tmp["optintimings"]["mobile"]=e
+                                            setConfig(tmp)
+                                            console.log(config)
+                                        }} style={{'width':'200px'}} addonAfter="seconds" defaultValue={config.optintimings.mobile} />
                                     </Row>
                                 </Card>
                             </Col>
@@ -172,7 +252,14 @@ export default function ConfigOptins()
                 </Row>
                 <Row>
                     <div className='greytext'>Show the prompt maximum
-                    <InputNumber className='configtext' style={{'width':'50px'}} defaultValue={1} />
+                    {/* optintimings.maxpromptcount */}
+                    <InputNumber
+                     onChange={(e)=>{
+                        let tmp = config
+                        tmp["optintimings"]["maxpromptcount"]=e
+                        setConfig(tmp)
+                        console.log(config)
+                    }} className='configtext' style={{'width':'50px'}} defaultValue={config.optintimings.maxpromptcount} />
                     per session</div>
                 </Row>
                 <Row>
@@ -180,7 +267,14 @@ export default function ConfigOptins()
             </Row>
             <Row>
                 <div className='greytext'>Hide the prompt for
-                <InputNumber className='configtext' style={{'width':'50px'}} defaultValue={3} />
+                {/* optintimings.frequency */}
+                <InputNumber
+                onChange={(e)=>{
+                    let tmp = config
+                    tmp["optintimings"]["frequency"]=e
+                    setConfig(tmp)
+                    console.log(config)
+                }} className='configtext' style={{'width':'50px'}} defaultValue={config.optintimings.frequency} />
                  days after it is shown to a visitor</div>
             </Row>
             </Col>
