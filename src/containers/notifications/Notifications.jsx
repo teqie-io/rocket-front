@@ -10,9 +10,12 @@ import Directory from "./directory/NotificationsDirectory";
 import Abandoned from "./abandoned/Abandoned";
 import AbandonedCart from "./abandoned/AbandonedCart";
 import Scheduled from "./scheduled/Scheduled";
+import Welcome from "./welcome/welcome";
+import EditWelcome from "./welcome/editNotifications";
 
 import "./notificationsDirectory.styles.scss";
 import EditNotification from "./scheduled/EditNotification";
+
 
 class Notifications extends React.Component {
   render() {
@@ -40,6 +43,14 @@ class Notifications extends React.Component {
           <Route
             exact path={`${match.path}/editnotification`}
             render={() => <EditNotification />}
+          />
+          <Route
+             exact path={`${match.path}/welcome`}
+            render={() => <Welcome />}
+          />
+          <Route
+            exact path={`${match.path}/editwelcome`}
+            render={() => <EditWelcome />}
           />
           
         </Switch>
